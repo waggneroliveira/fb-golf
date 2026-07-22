@@ -45,6 +45,18 @@ class HomePageController extends Controller
         ->active()
         ->sorting()
         ->get();
+        $announcementVerticals = Announcement::select(
+            'exhibition',
+            'link',
+            'exhibition',
+            'path_image',
+            'active',
+            'sorting',
+        )
+        ->where('exhibition', '=', 'vertical')
+        ->active()
+        ->sorting()
+        ->get();
         $topics = Topic::active()->sorting()->get();
         $about = About::active()->first();
         $partners = Partner::active()->sorting()->get();
@@ -59,16 +71,6 @@ class HomePageController extends Controller
         ->whereBetween('date', [$startOfWeek, $endOfWeek])
         ->orderBy('date', 'asc')
         ->get();
-        // Obter a notícia mais recente (destaque)
-        $featuredNews = Blog::whereHas('category', function($active) {
-            $active->where('active', 1);
-        })
-        ->with(['category' => function($query) {
-            $query->select('id', 'title', 'slug');
-        }])
-        ->orderBy('date', 'DESC')
-        ->active()
-        ->first();
 
         // Obter as próximas 9 notícias (excluindo o destaque)
         $latestNews = Blog::whereHas('category', function($active) {
@@ -77,7 +79,6 @@ class HomePageController extends Controller
         ->with(['category' => function($query) {
             $query->select('id', 'title', 'slug');
         }])
-        ->where('id', '!=', $featuredNews->id ?? null)
         ->orderBy('created_at', 'DESC')
         ->active()
         ->take(9)
@@ -97,17 +98,8 @@ class HomePageController extends Controller
         ->take(3)
         ->get();
 
-        $trendingCategories  = BlogCategory::whereHas('blogs')
-        ->active()
-        ->withCount('blogs')
-        ->orderBy('blogs_count', 'DESC')
-        ->sorting()
-        ->limit(6)
-        ->get();
-
         return view('client.blades.index', compact(
-            'featuredNews',
-            'trendingCategories',
+            'announcementVerticals', 
             'latestNews', 
             'recentCategories', 
             'events', 
@@ -144,15 +136,11 @@ class HomePageController extends Controller
 
             // Obter TODAS as notícias ordenadas por data
             $allNews = $query->orderBy('created_at', 'DESC')->get();
-
-            // Separar featured news (primeira) e latest news (restantes)
-            $featuredNews = $allNews->first();
             
             // Pegar as próximas notícias (excluindo a primeira)
-            $latestNews = $allNews->slice(1)->take(10);
+            $latestNews = $allNews->take(10);
 
             $html = view('client.ajax.filter-blog-homePage', [
-                'featuredNews' => $featuredNews,
                 'latestNews' => $latestNews
             ])->render();
 
@@ -160,7 +148,6 @@ class HomePageController extends Controller
                 'success' => true,
                 'html' => $html,
                 'count' => $allNews->count(),
-                'featured_id' => $featuredNews ? $featuredNews->id : null,
                 'latest_count' => $latestNews->count()
             ]);
 

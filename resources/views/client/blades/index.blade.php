@@ -6,20 +6,32 @@
         <div class="swiper hero-swiper">
             <div class="swiper-wrapper">
                 @foreach ($slides as $slide)
-                    <div class="swiper-slide">
+                    <div class="swiper-slide position-relative">
                         <picture class="d-flex">
                             <source srcset="{{ asset('storage/' . $slide->path_image_mobile) }}" media="(max-width: 885px)">
                             <img src="{{ asset('storage/' . $slide->path_image) }}" alt="Banner Hero" title="Banner Hero" class="image-hero w-100">
                         </picture>
-                        <div class="w-100 d-flex justify-content-center flex-column align-items-center position-absolute description" style="z-index: 6;">
+                        
+                        <!-- Conteúdo do Banner -->
+                        <div class="w-100 d-flex justify-content-center flex-column align-items-center position-absolute description" style="z-index: 6; top: 0; left: 0; height: 100%;">
                             <div class="max-width container">
-                                <h1 class="text-white mb-2 rethink-sans-bold">{!!$slide->title!!}</h1>
-                                <div class="description text-white mb-5 montserrat-regular d-flex no-wrap align-items-center">
+                                @if ($slide->title)                                    
+                                    <h1 class="text-white mb-2 montserrat-semiBold text-uppercase">
+                                        <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
+                                        </svg>
+                                        {!!$slide->title!!}
+                                    </h1>
+                                @endif
+                                <div class="description text-white mb-5 montserrat-semiBold d-flex no-wrap align-items-center">
                                     {!!$slide->description!!}
                                 </div>
                                 @if (!empty($slide->link))
-                                    <a href="{{$slide->link}}" target=_blank rel="noopener noreferrer" class="montserrat-medium font-15 px-3 rounded-5 col-12 col-lg-2 py-2 text-white background-red d-flex justify-content-center align-items-center">
-                                    Saiba mais
+                                    <a href="{{$slide->link}}" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-3 rounded-5 col-12 col-lg-2 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                                        Saiba mais
+                                        <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
+                                        </svg>
                                     </a>
                                 @endif
                             </div>
@@ -27,10 +39,38 @@
                     </div>
                 @endforeach
             </div>
-            <!-- Paginação opcional -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div> 
         </div>
+        
+        <!-- TÓPICOS FIXOS - FORA DO SWIPER, MAS DENTRO DA SECTION -->
+        @if (isset($topics) && $topics->count() > 0)
+            <div class="position-absolute w-100" style="bottom: 30px; z-index: 10; left: 0; pointer-events: none;">
+                <div class="container-fluid px-0">
+                    <div class="row g-2 justify-content-center">
+                        @foreach($topics as $topic)                
+                            <div class="col-lg-3 px-5 d-flex justify-content-center position-relative box-topic">
+                                @if (isset($topic->link) && $topic->link <> null)                            
+                                    <a href="{{$topic->link}}" class="position-absolute top-0 left-0 w-100 h-100" rel="noopener noreferrer" style="z-index: 2;"></a>
+                                @endif
+                                <div class="partner-card w-100">
+                                    <div class="d-flex justify-content-start align-items-center gap-3">
+                                        @if ($topic->path_image <> null)                                
+                                            <img src="{{ asset('storage/' . $topic->path_image) }}" 
+                                                alt="{{$topic->title}}" 
+                                                class="img-fluid" 
+                                                loading="lazy"/>
+                                        @endif
+                                        <h2 class="montserrat-semiBold font-20 mb-0 text-white text-start">{{$topic->title}}</h2>                            
+                                    </div>
+                                    <h3 class="montserrat-regular font-14 mt-2 mb-0 text-white text-start">{{$topic->description}}</h3>                            
+                                </div>                        
+                            </div>                                      
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
     </section>
 @endif
 
@@ -57,31 +97,6 @@
         });
     });
 </script>
-
-@if (isset($topics) && $topics->count() > 0)
-    <section id="topic" class="topic">
-        <div class="container py-5">
-            <div class="row g-3 justify-content-center">
-                @foreach($topics as $topic)                
-                    <div class="col-12 col-sm-4 col-md-2 d-flex justify-content-center position-relative">
-                        @if (isset($topic->link) && $topic->link <> null)                            
-                            <a href="{{$topic->link}}" class="position-absolute top-0 left-0 w-100 h-100" rel="noopener noreferrer"></a>
-                        @endif
-                        <div class="partner-card {{isset($topics) ? $topic->color : 'dark-background'}} border rounded-2 d-flex flex-column justify-content-center align-items-start gap-3 p-3 w-100">
-                            @if ($topic->path_image <> null)                                
-                                <img src="{{ asset('storage/' . $topic->path_image) }}" 
-                                    alt="Logo do parceiro" 
-                                    class="img-fluid" 
-                                    loading="lazy"/>
-                            @endif
-                            <h2 class="montserrat-bold montserrat-bold font-18  mb-0 title-blue text-uppercase mb-0 text-white">{{$topic->title}}</h2>                            
-                        </div>                        
-                    </div>                                      
-                @endforeach
-            </div>
-        </div>
-    </section>
-@endif
 
 @if (isset($blogSuperHighlights) && $blogSuperHighlights <> null)
     <section class="blog mb-0">
@@ -251,44 +266,27 @@
     </section>
 @endif
 
-@if (isset($trendingCategories) && $trendingCategories->count() > 0)
-    <section class="category-blog-home py-0 mt-5">
-        <div class="container-fluid p-0">
-            <div class="row g-3 justify-content-start">
-                @foreach($trendingCategories as $trendingCategory)                
-                    <div class="col-6 col-sm-4 col-md-2 d-flex justify-content-center p-0 mt-0">
-                        <div class="box-category text-center w-100 position-relative overflow-hidden">
-                            @if (isset($trendingCategory->path_image) && $trendingCategory->path_image <> null)
-                                <img src="{{asset('storage/' . $trendingCategory->path_image)}}" alt="" class="w-100 img-fluid mx-auto">
-                                @else
-                                <img src="{{asset('build/client/images/category-blog.png')}}" alt="" class="w-100 img-fluid mx-auto">
-                            @endif
-                            <div class="overlay">
-                                <a href="{{ route('blog', ['category' => $trendingCategory->slug]) }}#news" class="w-100 text-center">
-                                    <h4 class="title montserrat-semiBold font-18 text-white mt-2">{{$trendingCategory->title}}</h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-@endif
-
 @if (isset($recentCategories) || isset($events))
     <section class="news-home py-5">
         <div class="container">
             <div class="row">
-                @if ($recentCategories->count() > 0)                    
-                    <div class="col-12 col-lg-9 animate-on-scroll mb-3" data-animation="animate__fadeInLeft">
-                        <div class="border-bottom news mb-4">
+                @if ($recentCategories->count() > 0 || $announcementVerticals->count())                    
+                    <div class="col-12 col-lg-9 animate-on-scroll mb-3" data-animation="animate__fadeInLeft">                        
+                        <div class="news mb-4">{{-- border-bottom --}}
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end">
-                                <h2 class="section-title d-table px-4 py-2 w-auto m-0 montserrat-bold font-18 title-blue text-uppercase rounded-top-left">
-                                    Últimas notícias
-                                </h2>
+                                <div class="d-flex flex-column">
+                                    <h2 class="section-title d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">
+                                        <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
+                                        </svg>
+                                        Confira na íntegra
+                                    </h2>
+                                    <h3 class="section-title d-table px-0 py-2 w-auto m-0 montserrat-semiBold font-24 title-blue text-uppercase rounded-top-left">
+                                        ÚLTIMAS ATUALIZAÇÕES
+                                    </h3>
+                                </div>
 
-                                <nav class="mt-3 mt-md-0">
+                                <nav class="mt-3 mt-md-0 d-none">
                                     <ul class="list-unstyled d-flex flex-row flex-wrap gap-2 gap-md-3 justify-content-start justify-content-md-center mb-0">
                                         <li class="py-1 py-sm-2 px-2 px-sm-3 text-uppercase montserrat-semiBold font-14 text-white background-red active">
                                             <a href="javascript:void(0)" class="text-decoration-none text-white category-filter" data-category="todas">
@@ -310,49 +308,63 @@
 
                         <div id="news-container">
                             @include('client.ajax.filter-blog-homePage', [
-                                'featuredNews' => $featuredNews,
                                 'latestNews' => $latestNews
                             ])
                         </div>
                     </div>
                 @endif
-                @if ($events->count() > 0)                    
-                    <div class="col-lg-3" data-aos="fade-left" data-aos-delay="100">
-                        <div class="section-title mb-0 rounded-top-left">
-                            <h3 class="m-0 text-uppercase montserrat-bold font-18 title-blue">Agenda</h3>
-                        </div>
+                @if ($events->count() > 0)      
+                    <div class="col-lg-3 h-100">
+                        <div class="border col-11 m-auto p-2" data-aos="fade-left" data-aos-delay="100">
+                            <div class="section-title mb-0">
+                                <h3 class="m-0 text-uppercase montserrat-medium font-18 title-blue">
+                                    <svg class="me-2" width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.66667 0C3.11848 0 2.66667 0.462085 2.66667 1.02273V1.70455H1.33333C0.600267 1.70455 0 2.31845 0 3.06818V13.6364C0 14.3861 0.600267 15 1.33333 15H12.6667C13.3997 15 14 14.3861 14 13.6364V3.06818C14 2.31845 13.3997 1.70455 12.6667 1.70455H11.3333V1.02339C11.3333 0.46275 10.8815 0.000664781 10.3333 0.000664781C9.78515 0.000664781 9.33333 0.46275 9.33333 1.02339V1.70521H4.66667V1.02339C4.66667 0.46275 4.21485 0.000664781 3.66667 0.000664781V0ZM3.66667 0.681818C3.85742 0.681818 4 0.827637 4 1.02273V3.06818C4 3.26327 3.85742 3.40909 3.66667 3.40909C3.47591 3.40909 3.33333 3.26327 3.33333 3.06818V1.02273C3.33333 0.827642 3.47591 0.681818 3.66667 0.681818ZM10.3333 0.681818C10.5241 0.681818 10.6667 0.827637 10.6667 1.02273V3.06818C10.6667 3.26327 10.5241 3.40909 10.3333 3.40909C10.1426 3.40909 10 3.26327 10 3.06818V1.02273C10 0.827642 10.1426 0.681818 10.3333 0.681818ZM1.33333 2.38636H2.66667V3.06818C2.66667 3.62882 3.11848 4.09091 3.66667 4.09091C4.21485 4.09091 4.66667 3.62882 4.66667 3.06818V2.38636H9.33333V3.06818C9.33333 3.62882 9.78515 4.09091 10.3333 4.09091C10.8815 4.09091 11.3333 3.62882 11.3333 3.06818V2.38636H12.6667C13.0417 2.38636 13.3333 2.68466 13.3333 3.06818V5.45523H0.666667V3.06818C0.666667 2.68466 0.958333 2.38636 1.33333 2.38636ZM0.666667 6.13636H13.3333V13.6364C13.3333 14.0199 13.0417 14.3182 12.6667 14.3182H1.33333C0.958333 14.3182 0.666667 14.0199 0.666667 13.6364V6.13636Z" fill="#31404B"/>
+                                    </svg>
+                                    PRÓXIMOS <span class="montserrat-semiBold">EVENTOS</span>
+                                </h3>
+                            </div>
 
-                        <div class="bg-white p-3">      
-                            @foreach($events as $event)                        
-                                <article>
-                                    <div class="d-flex align-items-center bg-white mb-3 overflow-hidden" style="height: 80px;">
-                                        <div class="date col-4 h-100 d-flex justify-content-center align-items-center flex-column border border-right-1">
-                                            <span class="montserrat-bold w-100 h-50 d-flex justify-content-center align-items-center font-20 title-blue">
-                                                {{ \Carbon\Carbon::parse($event->date)->format('d') }}
-                                            </span>
-                                            <span class="montserrat-medium w-100 h-50 d-flex justify-content-center align-items-center font-14 title-blue background-red text-white">
-                                                {{ ucfirst(\Carbon\Carbon::parse($event->date)->translatedFormat('F')) }}
-                                            </span>
+                            <div class="bg-white p-3 px-0">      
+                                @foreach($events as $event)                        
+                                    <article>
+                                        <div class="d-flex flex-column align-items-center mb-3 overflow-hidden">
+                                            <div class="date col-6 h-100 d-flex justify-content-center align-items-center border border-right-1 background-red">
+                                                <span class="montserrat-medium w-100 h-50 d-flex justify-content-center align-items-center font-16 title-blue text-white" style="border-right: 1px solid #FFF;">
+                                                    {{ \Carbon\Carbon::parse($event->date)->format('d') }}
+                                                </span>
+                                                <span class="montserrat-medium w-100 h-50 d-flex justify-content-center align-items-center font-16 title-blue text-white">
+                                                    {{ ucfirst(\Carbon\Carbon::parse($event->date)->translatedFormat('F')) }}
+                                                </span>
+                                            </div>
+                                            <div class="col-12 h-100 px-3 text-center py-3 bg-white d-flex flex-column justify-content-center border">
+                                                @if($event->link)
+                                                    <a href="{{ $event->link }}" class="underline">
+                                                @else
+                                                    <a href="{{ route('client.event') }}?event_id={{ $event->id }}&scroll=true" class="underline">
+                                                @endif
+                                                    <h3 class="h6 m-0 montserrat-semiBold font-14 title-blue" title="{{$event->title}}">
+                                                        {{ substr(strip_tags($event->title), 0, 50) }}...
+                                                    </h3>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col-8 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                            @if($event->link)
-                                                <a href="{{ $event->link }}" class="underline">
-                                            @else
-                                                <a href="{{ route('client.event') }}?event_id={{ $event->id }}&scroll=true" class="underline">
-                                            @endif
-                                                <h3 class="h6 m-0 montserrat-bold font-14 title-blue" title="{{$event->title}}">
-                                                    {{ substr(strip_tags($event->title), 0, 50) }}...
-                                                </h3>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-                            @endforeach              
-                            <div class="btn-about d-table m-auto mt-5">
-                                <a href="{{route('client.event')}}" class="background-red montserrat-semiBold font-18 py-2 px-4 rounded-5">Ver todos</a>
-                            </div>                      
+                                    </article>
+                                @endforeach              
+                                <div class="btn-about d-table m-auto mt-4">
+                                    <a href="{{route('client.event')}}" class="background-red montserrat-semiBold font-15 py-2 px-4 rounded-5 text-black">
+                                        Todos os eventos
+                                        <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
+                                        </svg>
+                                    </a>
+                                </div>                      
+                            </div>
                         </div>
-                    </div>
+                        <div class="mt-3">
+                            @include('client.includes.announcementVertical')
+                        </div>
+                    </div>              
                 @endif
             </div>
         </div>

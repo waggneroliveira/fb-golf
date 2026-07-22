@@ -143,17 +143,7 @@
     </script>
 </head>
 <body>
-    <div id="organization" hidden></div>
-    <header id="header" class="w-100 d-flex flex-column position p-0">   
-        <div class="w-100 py-2 py-sm-2 header-color">
-            <div class="container m-auto d-flex align-items-center justify-content-between flex-column">
-                <div class="d-flex col-12 col-lg-11 justify-content-end align-items-start wrap-logo-and-login">
-                    <div class="logo-img px-0 py-2 rounded-2 d-flex justify-content-start align-items-center w-auto">
-                        <a href="{{route('index')}}">
-                            <img src="{{asset('build/client/images/sindacsba.png')}}" alt="Instituto Baiano de Medicina Desportivao" title="Instituto Baiano de Medicina Desportivao" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-center gap-2 mt-3 login-desktop" style="width: 23%;">                        
+    {{-- <div class="d-flex justify-content-center align-items-center gap-2 mt-3 login-desktop" style="width: 23%;">                        
                         @if (!Auth::guard('client')->check())                            
                             <div class="d-flex justify-content-start align-items-center gap-2">
                                 <svg width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -189,21 +179,29 @@
                                 </a>                                               
                             </div>
                         @endif
-                    </div>
+                    </div> --}}
+
+    <div id="organization" hidden></div>
+    <header id="header" class="w-100 d-flex flex-column position p-0">   
+        <div class="w-100 py-2 py-sm-2 header-color">
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="logo-img px-0 py-2 rounded-2 d-flex justify-content-start align-items-center">
+                    <a href="{{route('index')}}">
+                        <img src="{{asset('build/client/images/fbgolf.png')}}" alt="Instituto Baiano de Medicina Desportivao" title="Instituto Baiano de Medicina Desportivao" class="img-fluid">
+                    </a>
                 </div>
         
-                <div class="social-links d-flex justify-content-center align-items-center gap-4 mb-2 mt-3 text-center col-12">
+                <div class="social-links d-flex justify-content-between col-lg-9 align-items-center gap-4 mb-2 mt-3 text-center">
                     <nav class="none site-navigation ul position-relative text-end width-75">
-                        <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">
-                            <li><a href="{{route('index')}}" class="nav-link montserrat-medium text-center font-18">Home</a></li>                                                   
+                        <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">                                               
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-18" 
+                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
                                 href="{{route('about')}}" 
                                 id="sobreNosDropdown" 
                                 role="button" 
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">
-                                    Sobre Nós <i class="bi bi-chevron-down"></i>
+                                    A Federação <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="sobreNosDropdown">
                                     @if (isset($abouts) && $abouts->count() > 0) 
@@ -221,7 +219,7 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-18" 
+                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
                                 href="{{route('unionized')}}" 
                                 id="servicosDropdown" 
                                 role="button" 
@@ -242,8 +240,8 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-18" 
+                            {{-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
                                 href="{{route('juridico')}}" 
                                 id="juridicoDropdown" 
                                 role="button" 
@@ -257,20 +255,23 @@
                                     <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'portaria']) }}">Portaria</a></li>
                                 </ul>
 
-                            </li>
+                            </li> --}}
 
-                            <li><a href="{{route('regional')}}" class="nav-link montserrat-medium text-center font-18">Regionais</a></li>
-                            <li><a href="{{route('blog')}}" class="nav-link montserrat-medium text-center font-18 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
-                            <li><a href="{{route('noticies')}}" class="nav-link montserrat-medium text-center font-18 {{ request()->routeIs('noticies') ? 'active' : '' }}">Editais</a></li>
-                            <li><a href="{{route('contact')}}" class="nav-link montserrat-medium text-center font-18 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
+                            <li><a href="{{route('regional')}}" class="nav-link montserrat-medium text-center font-16">Regionais</a></li>
+                            <li><a href="{{route('blog')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
+                            {{-- <li><a href="{{route('noticies')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('noticies') ? 'active' : '' }}">Editais</a></li>
+                            <li><a href="{{route('contact')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li> --}}
                         </ul>                      
-                    </nav>
+                    </nav>                    
                     
-                    @if (isset($benefitTopics) && $benefitTopics > 0)                        
-                        <div class="btn-filie-se">
-                            <a href="{{route('unionized')}}#benefit" class="badge badge-primary montserrat-medium font-14 text-uppercase me-2 background-red rounded-4 font-weight-semi-bold py-2 px-3 px-sm-5">Filie-se</a>
-                        </div>
-                    @endif
+                    <div class="btn-filie-se">
+                        <a href="" class="montserrat-semiBold font-15 px-3 rounded-5 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                            HANDICAP
+                            <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
+                            </svg>
+                        </a>                        
+                    </div>
 
                     <!-- Botão menu sandwich -->
                     <button id="menu-toggle" class="d-lg-none btn btn-link p-0 ms-2" aria-label="Abrir menu" type="button">
@@ -280,7 +281,7 @@
                             <span class="d-block w-100 rounded-1" style="height:4px;background:#FFF;margin:6px 0;"></span>
                         </span>
                     </button>
-                    <div class="d-none justify-content-center align-items-center gap-2 mt-0 login-middle-mobile">                        
+                    {{-- <div class="d-none justify-content-center align-items-center gap-2 mt-0 login-middle-mobile">                        
                         @if (!Auth::guard('client')->check())                            
                             <div class="d-flex justify-content-start align-items-center gap-2">
                                 <svg width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -316,53 +317,11 @@
                                 </a>                                               
                             </div>
                         @endif
-                    </div>
+                    </div> --}}
                 </div>         
             </div>
-        </div>     
-        @if ($blogCategories->count())
-            <div class="header--category w-100 grey-medium-background social-links">
-                <div class="container d-flex justify-content-center align-items-center">
-                    {{-- Versão Mobile (com Swiper) --}}
-                    <nav class="d-block d-sm-none position-relative col-12">
-                        <div class="swiper carrossel-mobile category-swiper">
-                            <div class="swiper-wrapper">
-                                @foreach ($blogCategories as $category)
-                                    <div class="swiper-slide">
-                                        <a href="{{ route('blog', ['category' => $category->slug]) }}#news"
-                                        class="carrossel title-blue montserrat-semiBold font-14 d-inline-block px-2
-                                        {{ (request()->routeIs('blog-inner') && isset($blogInner) && $blogInner->category->id === $category->id) ||
-                                            (request()->routeIs('blog') && request()->route('category') === $category->slug)
-                                            ? 'active' : '' }}">
-                                            {{ $category->title }}
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                    </nav>
-    
-                    {{-- Versão Desktop (sem Swiper) --}}
-                    <nav class="d-none d-sm-block">
-                        <ul class="list-unstyled d-flex justify-content-center flex-wrap gap-x-1rem px-0 py-2 mb-0">
-                            @foreach ($blogCategories as $category)
-                                <li>
-                                    <a href="{{ route('blog', ['category' => $category->slug]) }}#news"
-                                    class="title-blue montserrat-semiBold font-14 d-inline-block px-0
-                                    {{ (request()->routeIs('blog-inner') && isset($blogInner) && $blogInner->category->id === $category->id) ||
-                                        (request()->routeIs('blog') && request()->route('category') === $category->slug)
-                                        ? 'active' : '' }}">
-                                        {{ $category->title }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        @endif
+        </div>  
+        
         <script>
             let swiperInstance = null;
 

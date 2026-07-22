@@ -97,11 +97,6 @@ Route::get('blog/filter/{category?}', [HomePageController::class, 'filterByCateg
 
 
 View::composer('client.core.client', function ($view) {
-    $blogCategories = BlogCategory::whereHas('blogs')
-    ->active()
-    ->sorting()
-    ->limit(10)
-    ->get();
     $announcements = Announcement::select(
         'exhibition',
         'link',
@@ -123,8 +118,7 @@ View::composer('client.core.client', function ($view) {
     $report = Report::active()->count();
     $agreement = Agreement::active()->count();
 
-    return $view->with('blogCategories', $blogCategories)
-    ->with('announcements', $announcements)
+    return $view->with('announcements', $announcements)
     ->with('contact', $contact)
     ->with('statute', $statute)
     ->with('directions', $directions)

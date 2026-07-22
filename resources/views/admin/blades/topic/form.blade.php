@@ -7,22 +7,8 @@
     <input type="text" name="link" class="form-control" id="link{{isset($topic->id)?$topic->id:''}}" value="{{isset($topic)?$topic->link:''}}" placeholder="Informe o link">
 </div>
 <div class="mb-3 col-12 d-flex align-items-start flex-column">
-    <label for="category-select" class="form-label">Cor de fundo <span class="text-danger">*</span></label>
-    @php
-        $currentCategory = isset($topic) ? $topic->color : null;
-    @endphp
-
-    <select name="color" class="form-select" id="category-select" required>
-        <option value="" disabled selected>Selecione o Cliente</option>
-
-        <option value="dark-background" {{ $currentCategory == 'dark-background' ? 'selected' : '' }}>
-            Azul
-        </option>
-        <option value="background-red" {{ $currentCategory == 'background-red' ? 'selected' : '' }}>
-            Vermelho
-        </option>
-
-    </select>
+    <label for="textarea-edit" class="form-label">Breve descrição</label>
+    <input type="text" name="description" class="form-control" id="description{{isset($topic->id)?$topic->id:''}}" value="{{isset($topic)?$topic->description:''}}" placeholder="Descrição">
 </div>
 <div class="col-lg-12">
     <div class="mb-3">

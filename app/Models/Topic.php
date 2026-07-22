@@ -17,6 +17,7 @@ class Topic extends Model
         'title',
         'sorting',
         'active',
+        'description',
         'path_image',
         'link',
         'color'
@@ -27,7 +28,7 @@ class Topic extends Model
     }
 
     public function scopeSorting($query){
-        return $query->orderBy('sorting', 'ASC')->orderBy('created_at', 'DESC');
+        return $query->orderBy('sorting', 'ASC')->orderBy('created_at', 'ASC');
     }
 
     public function getActivitylogOptions(): LogOptions

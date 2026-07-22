@@ -6,7 +6,7 @@
 }
 .whatsapp-float {
     position: fixed;
-    bottom: 37%;
+    bottom: 18%;
     right: 10px;
     transform: translateY(-30%);
     width: 40px;
@@ -478,12 +478,14 @@
  .under {
      color: #E5282A;
  }
-
- body .uwy.userway_p1 .userway_buttons_wrapper {
-     top: 40% !important;
-     right: -34px !important;
-     left: inherit !important
- }
+body .enabled{
+    top: 70% !important;
+}
+body .uwy.userway_p1 .userway_buttons_wrapper {
+    top: 60% !important;
+    right: -34px !important;
+    left: inherit !important
+}
 
  .site-navigation.ul li a {
      position: relative;
@@ -709,7 +711,7 @@
  }
 
  .d-flex.align-items-center.bg-white.mb-3.overflow-hidden {
-     border-radius: 8px 0 0 8px;
+     border-radius: 8px 8px 0 0;
  }
 
  aside .img-fluid {
@@ -745,7 +747,7 @@
     --heading-font: "Montserrat", sans-serif;
     --nav-font: "Montserrat", sans-serif;
     --background-color: #F9F9F9;
-    --background-red: #E5282A;
+    --background-red: #3BBA36;
     --background-blue: #2F368B;
     --default-color: #F9F9F9;
     --text-color: #6c757d;
@@ -824,7 +826,7 @@
         margin-top: 5px;
     }
     .date{
-        border-radius: 15px 0 0 15px;
+        border-radius: 15px 15px 0 0;
         overflow: hidden;;
     }
     .news-home nav ul li:hover{
@@ -834,9 +836,6 @@
     .news-home nav ul li:hover a{
         color: #FFF !important;
         transition: all 0.4s ease;
-    }
-    .news-home nav ul li{
-        border-radius: 10px 10px 0 0;
     }
  /*video*/
      .mySwiper .swiper-wrapper::before {
@@ -1046,6 +1045,14 @@
     height: 100% !important;
     max-width: 475px;
     margin-right: 15px;
+}
+.blog-text p{
+    color: var(--text-color);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500; 
+    font-size: 0.875rem;
 }
  .text-blog-inner.montserrat-regular.font-16 p {
      color: var(--text-color-blog-inner);
@@ -1384,9 +1391,7 @@
     display: block;
     max-width: 720px;
  }
-.news-home  .section-title{
-    border-left: 5px solid var(--background-red);
-}
+
 .border-bottom.news{
     border-bottom: 2px solid var(--background-red) !important;
 }
@@ -1396,18 +1401,132 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
-     background: var(--background-color-white);
-     border: 1px solid #dee2e6;
-     border-left: 5px solid var(--background-blue);
  }
+.box-topic {
+    pointer-events: auto;
+    padding-top: 25px;
+    position: relative;
+}
+
+.box-topic::before {
+    content: '';
+    position: absolute;
+    top: -1.5px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: #3BBA36;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(59, 186, 54, 0.4);
+}
+
+.box-topic:hover::before {
+    width: 100%;
+}
+
+/* Borda base */
+.box-topic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ffffff40;
+    transition: opacity 0.3s ease;
+}
+
+.box-topic:hover::after {
+    opacity: 0;
+}
+/* Estilização dos cards de tópicos */
+.partner-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hero .swiper-slide {
+    height: 100% !important;
+}
+
+.image-hero {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .partner-card {
+        min-height: 70px;
+        padding: 10px !important;
+    }
+    
+    .partner-card h2 {
+        font-size: 11px !important;
+    }
+    
+    .partner-card img {
+        max-height: 25px !important;
+    }
+    
+    .row.g-2 {
+        --bs-gutter-y: 0.5rem;
+        --bs-gutter-x: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero{
+        height: 1030px !important;
+    }
+    .hero .description {
+        top: 170px !important;
+        justify-content: flex-start !important;
+        margin-top: 0
+     }
+    .partner-card {
+        min-height: 60px;
+        padding: 8px !important;
+    }
+    
+    .partner-card h2 {
+        font-size: 10px !important;
+    }
+    
+    .partner-card img {
+        max-height: 20px !important;
+    }
+}
+
+/* Garantir que os tópicos fiquem sobre a imagem */
+.position-absolute {
+    position: absolute !important;
+}
+.hero-swiper{
+    height: 100%;
+}
+/* Efeito de gradiente na parte inferior para melhor legibilidade */
+.hero .swiper-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
 .hero picture{
-    height: 70vh;
-    width:100vw;
+    height: 100%;
+    width:100%;
     position: relative;
 }
  .hero {
     width: 100%;
-    height: 70vh;
+    height: 800px;
  }
 .hero picture::before{
     content: '';
@@ -1423,15 +1542,17 @@
     z-index: 3;
 }
  .hero h1 {
-    font-size: 2.188rem;
+    font-size: 0.85rem;
  }
 
  .hero p {
     margin: 5px 0 0;
-    font-size: 26px;
+    font-size: 3.438rem;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-weight: 500;
+    line-height: 70.4px;
     color: #FFF;
  }
  .hero h1 b {
@@ -1457,15 +1578,14 @@
  }
 
  .position {
-     position: sticky;
+     position: fixed;
      top: 0;
      left: 0;
      z-index: 10;
  }
 
  .header-color {
-     background: var(--background-blue);
-     border-bottom: 5px solid var(--background-red);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 20%, transparent);
  }
 
  .swiper-container-wrapper {
@@ -1565,9 +1685,6 @@
     .wrap-logo-and-login{
         flex-direction: column !important;
     }
-     .hero {
-         height: 100%;
-     }
      .image-hero {
          object-position: top center;
      }
@@ -1619,9 +1736,6 @@
  }
 
  @media (max-width:576px) {
-    .hero picture{
-        height: 440px;
-    }
     #lgpd-banner{
         bottom: 60px;
     }
@@ -1752,11 +1866,12 @@
         font-size: 0.75rem;
      }
     .hero h1 {
-        font-size:  1.375rem;
+        font-size:  0.75rem;
     }
 
     .hero p {
-        font-size: 0.938rem;
+        font-size: 1.25rem;
+        line-height: 28px;
     }
     .dropdown-menu.show{
         transform: translate3d(85px, 26px, 0px) !important;
@@ -1994,10 +2109,7 @@
          width: 100%;
          border-radius: 5px !important;
      }
-     .hero .description {
-         top: 170px;
-         margin-top: 0
-     }
+     
      .client-img {
          max-width: 90px
      }
