@@ -26,12 +26,6 @@ class HomePageController extends Controller
     public function index()
     {
         $slides = Slide::active()->sorting()->get();
-        $blogSuperHighlights = Blog::whereHas('category', function($active){
-            $active->where('active', 1);
-        })->superHighlightOnly()->active()->sorting()->limit(6)->get();
-        $blogHighlights = Blog::whereHas('category', function($active){
-            $active->where('active', 1);
-        })->highlightOnly()->active()->sorting()->limit(4)->get();
         $announcements = Announcement::select(
             'exhibition',
             'link',
@@ -110,9 +104,7 @@ class HomePageController extends Controller
             'videos', 
             'partners', 
             'about', 
-            'slides', 
-            'blogSuperHighlights', 
-            'blogHighlights', 
+            'slides',
             'announcements', 
             'topics')
         );

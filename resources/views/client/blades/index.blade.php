@@ -98,120 +98,6 @@
     });
 </script>
 
-@if (isset($blogSuperHighlights) && $blogSuperHighlights <> null)
-    <section class="blog mb-0">
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-7 p-0">
-                <!-- Swiper Main Carousel -->
-                <div class="swiper main-swiper">
-                    <div class="swiper-wrapper">
-                    @foreach($blogSuperHighlights as $blogSuperHighlight)
-                        @php
-                            \Carbon\Carbon::setLocale('pt_BR');
-                            $dataFormatada = \Carbon\Carbon::parse($blogSuperHighlight->date)->translatedFormat('d \d\e F \d\e Y');
-                        @endphp
-                        <div class="swiper-slide">
-                            <article>
-                            <div class="position-relative overflow-hidden" style="height: 500px;">
-                                <img class="img-fluid h-100 w-100"
-                                src="{{ $blogSuperHighlight->path_image_thumbnail ? asset('storage/'.$blogSuperHighlight->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
-                                alt="{{ $blogSuperHighlight->path_image_thumbnail ? 'Notícia super destaque' : 'Sem imagem'}}"
-                                style="object-fit: cover; aspect-ratio: 1.91/1;">
-
-                                <div class="overlay">
-                                    <div class="mb-2 d-flex justify-content-center align-items-center gap-1 flex-wrap">
-                                        <span class="badge background-red montserrat-semiBold font-12 text-uppercase py-2 px-2 me-2">{{$blogSuperHighlight->category->title}}</span>
-                                        <p class="text-white mb-0 montserrat-regular font-15">{{$dataFormatada}}</p>
-                                    </div>
-                                    <a href="{{route('blog-inner', ['slug' => $blogSuperHighlight->slug])}}">
-                                        <h1 class="h2 m-0 text-white text-uppercase montserrat-bold font-32 d-block">{{$blogSuperHighlight->title}}</h1>
-                                    </a>
-                                </div>
-                            </div>
-                            </article>
-                        </div>
-                    @endforeach                    
-                    </div>
-                    <!-- Swiper pagination & navigation (optional) -->
-                    <div class="swiper-pagination news"></div>
-                </div>
-            </div>
-            @if ($blogHighlights->count())            
-                <div class="col-lg-5 p-0">
-                <div class="row g-0">
-                    <!-- Static small boxes as before -->
-                    @foreach($blogHighlights as $blogHighlight)
-                        @php
-                            \Carbon\Carbon::setLocale('pt_BR');
-                            $dataFormatada = \Carbon\Carbon::parse($blogHighlight->date)->translatedFormat('d \d\e F \d\e Y');
-                        @endphp
-                        <div class="col-md-6 box-small">
-                            <article>
-                            <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <img class="img-fluid h-100 w-100"
-                                src="{{ $blogHighlight->path_image_thumbnail ? asset('storage/'.$blogHighlight->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
-                                alt="{{ $blogHighlight->title ? $blogHighlight->title : 'Sem imagem'}}"
-                                style="object-fit: cover; aspect-ratio: 1 / 1;">
-                                <div class="overlay">
-                                    <div class="mb-2 d-flex justify-content-start align-items-center gap-1 flex-wrap">
-                                        <span class="badge background-red text-uppercase montserrat-semiBold font-12 py-2 px-2 me-2">{{$blogHighlight->category->title}}</span>
-                                        <p class="text-white mb-0 montserrat-regular font-12">{{$dataFormatada}}</p>
-                                    </div>
-                                    <a href="{{route('blog-inner', ['slug' => $blogHighlight->slug])}}">                              
-                                        <h2 class="h6 m-0 text-white text-uppercase montserrat-bold font-16 d-block">{{$blogHighlight->title}}</h2>
-                                    </a>
-                                </div>
-                            </div>
-                            </article>
-                        </div>
-                    @endforeach
-                </div>
-                </div>
-            @endif
-            </div>
-        </div>
-    </section>
-@endif
-
-@if (isset($about) && $about <> null || isset($partners) && $partners->count() > 0)
-    <section class="aboutt">
-        <div class="container">
-            @if ($about <> null)                
-                <div id="about-1" class="d-flex justify-content-between align-items-start about flex-wrap w-100 pt-3 pb-3 pt-lg-5">
-                    <div class="col-12 col-lg-7 animate-on-scroll full" data-animation="animate__fadeInLeft">
-                        <div class="border-bottom mb-0">
-                            <h2 class="section-title rounded-top-left d-table px-4 w-auto m-0 montserrat-bold font-18 title-blue">{{$about->title}}</h2>
-                        </div>
-                
-                        <div class="description mt-4 text-blog-inner montserrat-medium font-16">
-                            {!! $about->text !!}
-                        </div>
-
-                        <div class="btn-about my-4">
-                            <a href="{{route('about')}}#{{$about->slug}}" class="background-red montserrat-semiBold font-15 py-2 px-4 rounded-4">Saiba mais</a>
-                        </div>
-                    </div>
-                    @if ($about->path_image <> null)                        
-                        <div class="col-11 col-lg-4 animate-on-scroll mb-3" data-animation="animate__fadeInRight">
-                            <div class="image d-flex justify-content-end">
-                                <img src="{{asset('storage/' . $about->path_image)}}" loading="lazy" alt="About" class="w-100 h-100 about-image d-sm-block" loading="lazy">
-                            </div>
-                        </div>
-                        @else
-                        <style>
-                            .full{
-                                width: 100%
-                            }
-                        </style>
-                    @endif
-                </div>     
-            @endif
-            
-            @include('client.includes.partner')
-        </div>
-    </section>
-@endif
 
 @include('client.includes.benefit')
 
@@ -367,6 +253,72 @@
                     </div>              
                 @endif
             </div>
+        </div>
+    </section>
+@endif
+
+@if (isset($about) && $about <> null || isset($partners) && $partners->count() > 0)
+    <section class="aboutt dark-background">
+        <div class="parallax-section position-relative d-flex align-items-center" style="min-height: 300px; background-image: url('{{ asset('build/client/images/paralax.png') }}'); background-attachment: fixed; background-position: center bottom; background-size: cover; background-repeat: no-repeat;">
+            <!-- Overlay escuro para melhor legibilidade -->
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.2); z-index: 1;"></div>
+            
+            <div class="container position-relative" style="z-index: 2;">
+                <div class="row align-items-center">
+                    <!-- Título - Centralizado -->
+                    <div class="col-lg-8 text-center text-lg-start">
+                        <h2 class="text-white mb-0 montserrat-semiBold font-38">
+                            Conheça o novo sistema CBGolfe
+                        </h2>
+                    </div>
+                    
+                    <!-- Call to Action - Alinhado à direita -->
+                    <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end mt-4 mt-lg-0">
+                        <a href="" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-3 rounded-5 col-6 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                            Saiba mais
+                            <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            @if ($about <> null)                
+                <div id="about-1" class="d-flex justify-content-between align-items-start about flex-wrap w-100 pt-3 pb-3 pt-lg-5">
+                    @if ($about->path_image <> null)                        
+                        <div class="col-11 col-lg-4 animate-on-scroll mb-3" data-animation="animate__fadeInRight">
+                            <div class="mb-0">
+                                <h2 class="section-title text-white d-table w-auto text-uppercase m-0 montserrat-mediun font-14 title-blue">
+                                    <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
+                                    </svg>
+                                    Conheça nossa história
+                                </h2>
+                                <h3 class="section-title text-white d-table w-auto text-uppercase m-0 montserrat-semiBold font-24 title-blue mt-2">{{$about->title}}</h3>
+                            </div>
+                            <div class="image d-flex justify-content-end">
+                                <img src="{{asset('storage/' . $about->path_image)}}" loading="lazy" alt="About" class="w-100 h-100 about-image d-sm-block" loading="lazy">
+                            </div>
+                        </div>
+                        @else
+                        <style>
+                            .full{
+                                width: 100%
+                            }
+                        </style>
+                    @endif
+                    <div class="col-12 col-lg-7 animate-on-scroll full" data-animation="animate__fadeInLeft">
+                
+                        <div class="description mt-4 rounded-4">
+                            {!! $about->text !!}
+                        </div>
+                    </div>                    
+                </div>     
+            @endif
+            
+            @include('client.includes.partner')
         </div>
     </section>
 @endif
