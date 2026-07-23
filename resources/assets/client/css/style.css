@@ -860,6 +860,9 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
         border-radius: 15px 15px 0 0;
         overflow: hidden;;
     }
+    .news-home{
+        padding-top: 80px !important;
+    }
     .news-home nav ul li:hover{
         background: var(--background-red);
         transition: all 0.4s ease;
