@@ -26,7 +26,7 @@ class DirectionController extends Controller
             return view('admin.error.403', compact('settingTheme'));
         }
         $directions = Direction::sorting()->get();
-
+        
         return view('admin.blades.direction.index', compact('directions'));
     }
 

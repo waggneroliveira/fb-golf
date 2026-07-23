@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\Client;
 
-use Carbon\Carbon;
-use App\Models\Blog;
+use App\Http\Controllers\Controller;
 use App\Models\About;
-use App\Models\Event;
-use App\Models\Slide;
-use App\Models\Stack;
-use App\Models\Topic;
-use App\Models\Video;
-use App\Models\Report;
-use App\Models\Contact;
-use App\Models\Partner;
-use App\Models\Unionized;
 use App\Models\Announcement;
 use App\Models\BenefitTopic;
-use Illuminate\Http\Request;
-use App\Models\StackSessionTitle;
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Contact;
+use App\Models\Direction;
+use App\Models\Event;
+use App\Models\Partner;
+use App\Models\Report;
+use App\Models\Slide;
+use App\Models\Stack;
+use App\Models\StackSessionTitle;
+use App\Models\Topic;
+use App\Models\Unionized;
+use App\Models\Video;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
@@ -92,9 +93,13 @@ class HomePageController extends Controller
         ->take(3)
         ->get();
 
+        $directions = Direction::active()->sorting()->get();
+
+
         return view('client.blades.index', compact(
             'announcementVerticals', 
             'latestNews', 
+            'directions', 
             'recentCategories', 
             'events', 
             'contact', 

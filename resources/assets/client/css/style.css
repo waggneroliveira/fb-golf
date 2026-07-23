@@ -784,7 +784,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     --text-color: #6c757d;
     --text-color-blog-inner: #6c757d;
     --title-color-blue: #31404B;
-    --cta-background-color: #091DFF;
+    --background-blue: #0072B0;
     --nav-hover-color: #ffffff;
     --background-color-white: #ffffff;
     --background-color-grey: #F8F9FC;
@@ -797,6 +797,9 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     --emphasis-color: #1FAD90;
     scroll-behavior: smooth
  }  
+ .bg-blue{
+    background-color: var(--background-blue);
+ }
 .btn-voz{
     padding: 0;
     width: 25px;
@@ -1347,7 +1350,40 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      width: 40px;
      height: 40px;
  }
+ .filter-category button:hover{
+    background: #FCFBF5;
+    color: #000 !important;
+    transition: all 0.3s ease;
+ }
+.filter-category button{
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.3s ease;
+}
 
+.filter-category button:hover::before, .filter-category button.active::before{
+    background: #000;
+    transition: all 0.3s ease;
+}
+.filter-category button::before{
+    content: '';
+    display: inline-block;
+    height: 3px;
+    width: 3px;
+    background: #FFF;
+    border-radius: 100%;
+}
+.filter-category button.active{
+    background: #FCFBF5;
+    color: #000 !important;
+}
  .btn-reset,
  .btn-close-menu {
      all: unset;

@@ -1,3 +1,16 @@
+<div class="mb-3 col-12 d-flex align-items-start flex-column">
+    <label for="category-select" class="form-label">Categoria(s) <span class="text-danger">*</span></label>
+    @php
+        $currentCategory = isset($direction) ? $direction->category : '';
+    @endphp
+
+    <select name="category" class="form-select" id="category-select" required>
+        <option value="" disabled {{ !$currentCategory ? 'selected' : '' }}>Selecione a Categoria</option>
+        <option value="diretoria" {{ $currentCategory == 'diretoria' ? 'selected' : '' }}>Diretoria</option>
+        <option value="conselho" {{ $currentCategory == 'conselho' ? 'selected' : '' }}>Conselho</option>
+        <option value="comissao" {{ $currentCategory == 'comissao' ? 'selected' : '' }}>Comissão</option>
+    </select>
+</div>
 <div class="mb-3">
     <label for="title" class="form-label">Título</label>
     <input type="text" name="title" class="form-control" id="title{{isset($direction->id)?$direction->id:''}}" value="{{isset($direction)?$direction->title:''}}" placeholder="Digite seu nome">

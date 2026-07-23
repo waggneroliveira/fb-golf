@@ -17,6 +17,7 @@ class Direction extends Model
         'title',
         'description',
         'path_image',
+        'category',
         'active',
         'sorting',
     ];
