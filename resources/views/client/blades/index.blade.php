@@ -174,6 +174,7 @@
             </defs>
             </svg>
         </div>
+
         <div class="container">
             <div class="row">
                 @if ($recentCategories->count() > 0 || $announcementVerticals->count())                    
@@ -272,6 +273,10 @@
                     </div>              
                 @endif
             </div>
+        </div>
+
+        <div class="position-absolute bottom-0" style="left:25px;">
+            <img src="{{asset('build/client/images/section-bg-3.png')}}" alt="">
         </div>
     </section>
 @endif

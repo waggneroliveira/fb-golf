@@ -1,7 +1,7 @@
 @if (!empty($report))
     <section id="complaint" class="complaint my-5">
         <div class="container">
-            <div class="bg-blue m-auto col-12 text-white rounded-4 py-4 px-3 px-lg-5 d-flex flex-column flex-md-row align-items-center align-items-md-start gap-5 shadow-sm">
+            <div class="bg-blue m-auto col-lg-11 text-white rounded-4 py-4 px-3 px-lg-5 d-flex flex-column flex-md-row align-items-center align-items-md-start gap-5 shadow-sm">
 
                 <div class="d-flex justify-content-between align-items-center col-12">
                     <h4 class="montserrat-semiBold font-20">{{$report->title}}</h4>
