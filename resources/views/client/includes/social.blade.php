@@ -1,64 +1,123 @@
-@if (isset($contact) && $contact->name_section_social_media || 
-isset($contact) && $contact->mention != null || isset($contact) && $contact->link_insta
-|| isset($contact) && $contact->link_face || isset($contact) && $contact->link_tik_tok ||
-isset($contact) && $contact->link_youtube || isset($contact) && $contact->link_x)
-    <!-- Redes Sociais -->
-    <div class="bg-light padding-t-80 pb-0 mt-5 d-flex flex-wrap align-items-start justify-content-between socials-network">
-        @if (isset($contact) && $contact->name_section_social_media)                
-            <div class="d-flex justify-content-start gap-2 align-items-start flex-nowrap mt-4">
-                <span class="firula-contact mt-2"></span>
-                <div class="description">
-                    <h3 class="montserrat-bold font-30 mb-0 title-blue">{{$contact->name_section_social_media}}</h3>
-                </div>
+@if (
+    isset($contact) &&
+    (
+        $contact->mention ||
+        $contact->link_insta
+    )
+)
+
+<section class="social-instagram py-4 px-0" style="background-image:url('{{ asset('build/client/images/paralax.png') }}');">
+
+    <div class="container">
+
+        <div class="social-card mx-auto text-center rounded-3 col-5 py-4">
+
+            <div class="social-icon mb-3">
+                <img src="{{ asset('build/client/images/insta.svg') }}" alt="Instagram">
             </div>
-        @endif
-        <div class="col-6 sc">
-            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 flex-column">
-                <div class="dark-background rounded-3 px-5 py-4">
-                    <nav class="site-navigation position-relative text-end w-25 redes-sociais">
-                        <ul class="p-0 d-flex justify-content-start gap-5 flex-row mb-0">
-                            @if (isset($contact) && $contact->link_insta)
-                                <li class="li d-flex justify-content-start align-items-center rounded-circle">
-                                    <a href="{{$contact->link_insta}}" rel="nofollow noopener noreferrer" target="_blank">
-                                        <img src="{{asset('build/client/images/insta.svg')}}" alt="Instagram">
-                                    </a>
-                                </li>
-                            @endif
-                            @if (isset($contact) && $contact->link_x)
-                                <li class="li d-flex justify-content-start align-items-center rounded-circle">
-                                    <a href="{{$contact->link_x}}" rel="nofollow noopener noreferrer" target="_blank">
-                                        <img src="{{asset('build/client/images/x.svg')}}" alt="X">
-                                    </a>
-                                </li>
-                            @endif
-                            @if (isset($contact) && $contact->link_youtube)
-                                <li class="li d-flex justify-content-start align-items-center rounded-circle">
-                                    <a href="{{$contact->link_youtube}}" rel="nofollow noopener noreferrer" target="_blank">
-                                        <img src="{{asset('build/client/images/youtube.svg')}}" alt="Youtube">
-                                    </a>
-                                </li>
-                            @endif
-                            @if (isset($contact) && $contact->link_face)
-                                <li class="li d-flex justify-content-start align-items-center rounded-circle">
-                                    <a href="{{$contact->link_face}}" rel="nofollow noopener noreferrer" target="_blank">
-                                        <img src="{{asset('build/client/images/face.svg')}}" alt="Facebook">
-                                    </a>
-                                </li>
-                            @endif
-                            @if (isset($contact) && $contact->link_tik_tok)
-                                <li class="li d-flex justify-content-start align-items-center rounded-circle">
-                                    <a href="{{$contact->link_tik_tok}}a" rel="nofollow noopener noreferrer" target="_blank">
-                                        <img src="{{asset('build/client/images/tiktok.svg')}}" alt="Tiktok">
-                                    </a>
-                                </li>
-                            @endif
-                        </ul> 
-                    </nav>
-                </div>
-                @if (isset($contact) && $contact->mention != null)                        
-                    <span class="montserrat-ExtraBold font-20 ms-2 title-blue text-uppercase">@ {{ $contact->mention }}</span>
-                @endif
-            </div>
+
+            <span class="badge-social montserrat-bold font-14 text-white">
+                Siga-nos no Instagram
+            </span>
+
+            @if($contact->mention)
+                <h2 class="my-2 montserrat-bold font-24 text-white">
+                    {{ '@'.$contact->mention }}
+                </h2>
+            @endif
+
+            <p class="text-white mb-4 montserrat-semiBold font-15">
+                Acompanhe novidades e fique por dentro de tudo que acontece.
+            </p>
+
+            <a href="{{ $contact->link_insta }}"
+               target="_blank"
+               rel="nofollow noopener noreferrer"
+               class="btn-instagram mb-0 montserrat-semiBold font-15">
+
+                <img src="{{ asset('build/client/images/insta.svg') }}" alt="Instagram">
+
+                Seguir agora
+
+            </a>
+
         </div>
+
     </div>
+
+</section>
+
 @endif
+
+<style>
+    .social-instagram{
+        /* background:#f8f9fa; */
+        position: relative;
+
+        min-height:240px;
+
+        background-size:cover;
+        background-position:bottom center;
+        background-repeat:no-repeat;
+
+        /* Parallax */
+        background-attachment:fixed;
+
+        overflow:hidden;
+        
+    }
+.social-card{
+    background: rgba(22, 56, 50, 0.5)
+}
+.social-icon{
+
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:50%;
+    background:#163832;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.social-icon img{
+    width:35px;
+}
+
+.badge-social{
+    display:inline-block;
+    padding:8px 20px;
+    background:#16383280;
+    border-radius:50px;
+}
+
+.btn-instagram{
+
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 34px;
+    border-radius:50px;
+    background:#163832;
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-instagram:hover{
+
+    transform:translateY(-3px);
+
+    background:#1d4a41;
+
+    color:#fff;
+}
+
+.btn-instagram img{
+
+    width:22px;
+}
+
+</style>

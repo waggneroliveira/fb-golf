@@ -276,21 +276,21 @@
         </div>
 
         <div class="position-absolute bottom-0" style="left:25px;">
-            <img src="{{asset('build/client/images/section-bg-3.png')}}" alt="">
+            <img src="{{asset('build/client/images/icon-bg-ball.png')}}" alt="" style="width: 90px;">
         </div>
     </section>
 @endif
 
 @if (isset($about) && $about <> null || isset($partners) && $partners->count() > 0)
-    <div class="parallax-section position-relative d-flex align-items-center" style="min-height: 260px; background-image: url('{{ asset('build/client/images/paralax.png') }}'); background-attachment: fixed; background-position: center bottom; background-size: cover; background-repeat: no-repeat;">
+    <div class="parallax-section position-relative d-flex align-items-center" style="min-height: 260px; background-image: url('{{ asset('build/client/images/paralax-4.png') }}'); background-attachment: fixed; background-position: center bottom; background-size: cover; background-repeat: no-repeat;">
         <!-- Overlay escuro para melhor legibilidade -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.2); z-index: 1;"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.1); z-index: 1;"></div>
         
         <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center">
                 <!-- Título - Centralizado -->
                 <div class="col-lg-8 text-center text-lg-start">
-                    <h2 class="text-white mb-0 montserrat-semiBold font-38">
+                    <h2 class="text-white mb-0 montserrat-bold font-38">
                         Conheça o novo sistema CBGolfe
                     </h2>
                 </div>
@@ -333,7 +333,7 @@
         </div>
 
         <div class="position-absolute bottom-0 end-0">
-            <img src="{{asset('build/client/images/section-bg-1.png')}}" alt="">
+            <img src="{{asset('build/client/images/section-bg-1.png')}}" alt="" style="width: 150px;">
         </div>
 
         <div class="container">
