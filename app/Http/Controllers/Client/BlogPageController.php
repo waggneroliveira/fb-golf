@@ -20,7 +20,7 @@ class BlogPageController extends Controller
         })->superHighlightOnly()->active()->sorting()->limit(6)->get();
         $blogHighlights = Blog::whereHas('category', function($active){
             $active->where('active', 1);
-        })->highlightOnly()->active()->sorting()->limit(4)->get();
+        })->highlightOnly()->active()->sorting()->limit(2)->get();
 
         $superHighlightIds = $blogSuperHighlights->pluck('id');
         $highlightIds = $blogHighlights->pluck('id');        

@@ -241,7 +241,7 @@
    
                       <!-- Newsletter Start -->
                       <div class="mb-3 bg-white border">
-                          <div class="py-3">
+                          <div class="pt-3">
                               <h4 class="m-0  montserrat-bold text-center font-20 title-blue">Newsletter</h4>
                           </div>
                           @include('client.includes.newsletter')

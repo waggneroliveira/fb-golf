@@ -74,7 +74,7 @@
     text-overflow: ellipsis;
     white-space: break-spaces;
     margin-top: 2px;
-    background-color: var(--background-green-dark);
+    background-color: #0072B0;
     color: white;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
@@ -107,7 +107,7 @@
     font-size: 1.563rem;
 }
 .event-item strong, .event-item span{
-    color: var(--background-red);
+    color: #ED434F;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -177,10 +177,9 @@
     margin-bottom: 10px;
 }
 .header button {
-    background-color: var(--background-red);
-    color: white;
+    background: transparent;
+    color: #0072B0;
     border: none;
-    padding: 5px 10px;
     cursor: pointer;
     border-radius: 100%;
 }
@@ -195,7 +194,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 600;
-    color: var(--text-color);
+    color: #ED434F;
 }
 .holiday-month{
     font-family: "Montserrat", sans-serif;

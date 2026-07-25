@@ -51,16 +51,16 @@
 }
 </style>
 
-<div class="d-flex justify-content-start gap-2 align-items-start flex-nowrap mt-5 mb-3">
+<div class="d-flex justify-content-start gap-2 align-items-start flex-nowrap mb-3" style="margin-top: 180px; !important">
     <span class="firula-contact mt-2"></span>
     <div class="description">
-        <h1 class="montserrat-bold font-30 mb-0 title-blue text-uppercase">Agenda</h1>
+        <h1 class="montserrat-bold font-30 mb-0 title-blue text-uppercase text-black">Agenda</h1>
     </div>
 </div>
 
-<div class="container mx-auto p-4">
+<div class="container mx-auto p-4 mt-5">
     <div id="calendar"></div>
-    <div id="events-list" class="mt-6"></div>
+    <div id="events-list" style="margin-top: 15px;"></div>
 </div>
 
 <script>
@@ -167,9 +167,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.createElement('div');
         header.className = 'header';
         header.innerHTML = `
-            <button onclick="prevMonth()">&#8592;</button>
+            <button onclick="prevMonth()">
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.71094 12.2812L2.41406 6.98438L7.71094 1.6875C7.91406 1.5 8.01562 1.26953 8.01562 0.996094C8.01562 0.722656 7.91406 0.484375 7.71094 0.28125C7.52344 0.09375 7.28906 0 7.00781 0C6.72656 0 6.49219 0.09375 6.30469 0.28125L0.304688 6.28125C0.101562 6.48438 0 6.72266 0 6.99609C0 7.26953 0.101562 7.5 0.304688 7.6875L6.30469 13.6875C6.49219 13.8906 6.72656 13.9922 7.00781 13.9922C7.28906 13.9922 7.52344 13.8906 7.71094 13.6875C7.91406 13.5 8.01562 13.2695 8.01562 12.9961C8.01562 12.7227 7.91406 12.4844 7.71094 12.2812Z" fill="#0072B0"/>
+                </svg>    
+            </button>
             <span>${formattedMonth} ${year}</span>
-            <button onclick="nextMonth()">&#8594;</button>
+            <button onclick="nextMonth()">
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.71094 13.6875L7.71094 7.6875C7.91406 7.5 8.01562 7.26953 8.01562 6.99609C8.01562 6.72266 7.91406 6.48438 7.71094 6.28125L1.71094 0.28125C1.52344 0.09375 1.28906 0 1.00781 0C0.726562 0 0.492188 0.09375 0.304688 0.28125C0.101562 0.484375 0 0.722656 0 0.996094C0 1.26953 0.101562 1.5 0.304688 1.6875L5.60156 6.98438L0.304688 12.2812C0.101562 12.4844 0 12.7227 0 12.9961C0 13.2695 0.101562 13.5 0.304688 13.6875C0.492188 13.8906 0.726562 13.9922 1.00781 13.9922C1.28906 13.9922 1.52344 13.8906 1.71094 13.6875Z" fill="#0072B0"/>
+                </svg>
+            </button>
         `;
         calendarEl.appendChild(header);
 
@@ -272,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (eventId) {
             const backButton = document.createElement('button');
             backButton.textContent = 'Ver todos os eventos';
-            backButton.className = 'btn background-red montserrat-semiBold font-15 text-white mt-3';
+            backButton.className = 'btn background-red montserrat-semiBold font-15 text-black mt-3';
             backButton.onclick = () => {
                 window.location.href = window.location.pathname; // Remove parâmetros da URL
             };
@@ -434,8 +442,6 @@ document.addEventListener('DOMContentLoaded', function() {
     renderCalendar(currentMonth, currentYear);
 });
 </script>
-
-@include('client.includes.complaint')
 
 @include('client.includes.social')
 @endsection
