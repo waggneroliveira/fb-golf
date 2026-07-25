@@ -124,7 +124,7 @@
    <div class="container-fluid">
        <div class="container">
            <div class="row">
-               <div class="col-lg-8 mb-4" data-aos="fade-right" data-aos-delay="100">
+               <div class="col-lg-9 mb-4" data-aos="fade-right" data-aos-delay="100">
                   @if ($blogAll->count())                     
                      <div class="mb-5 rounded-top-left">
                         <h3 class="m-0 text-uppercase montserrat-bold font-22 title-blue">Notícias</h3>
@@ -153,37 +153,29 @@
                                  \Carbon\Carbon::setLocale('pt_BR');
                                  $dataFormatada = \Carbon\Carbon::parse($blog->date)->translatedFormat('d \d\e F \d\e Y');
                               @endphp                     
-                              <article>
-                                 <div class="col-lg-12">
-                                    <div class="row align-items-center news-lg mx-0 mb-3 border rounded-2 overflow-hidden bg-white">
-                                       <div class="col-md-6 h-100 px-0 overflow-hidden d-flex justify-content-center align-items-center" style="aspect-ratio:1/1;">
-                                             <img loading="lazy" class="img-fluid h-auto w-auto"
-                                             src="{{ $blog->path_image_thumbnail ? asset('storage/'.$blog->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
-                                             alt="{{ $blog->title ? $blog->title : 'Sem imagem'}}"
-                                             style="aspect-ratio: 1 / 1;object-fit: contain;">
-                                       </div>
-                                       <div class="col-md-6 d-flex flex-column bg-white h-100 px-0">
-                                             <div class="mt-auto p-4">
-                                                <div class="mb-2 d-flex justify-content-start align-items-center gap-1 flex-wrap">
-                                                   <span class="badge badge-primary montserrat-semiBold font-12 me-2 background-red text-uppercase font-weight-semi-bold p-2">
-                                                         {{$blog->category->title}}
-                                                   </span>
-                                                   <p class="text-color mb-0 montserrat-regular font-14">
-                                                      {{$dataFormatada}}
-                                                   </p>
-                                                </div>
-                                                <a href="{{route('blog-inner', ['slug' => $blog->slug])}}" class="underline">
-                                                   <h2 class="h4 d-block mb-3 text-uppercase montserrat-semiBold font-20 title-blue">
-                                                      {{$blog->title}}
-                                                   </h2>
-                                                </a>
-                                                <p class="m-0 text-color montserrat-medium font-16">
-                                                   {!!substr(strip_tags($blog->text), 0, 280)!!}...
-                                                </p>
-                                             </div>
-                                       </div>
+                              <article class="col-12 col-sm-12 col-md-4">                                 
+                                 <div class="d-flex flex-column align-items-center bg-white mb-3 overflow-hidden position-relative">
+                                    <img loading="lazy" class="img-fluid col-12"
+                                    src="{{ $blog->path_image_thumbnail ? asset('storage/'.$blog->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
+                                    alt="{{ $blog->title ? $blog->title : 'Sem imagem'}}"
+                                    style="height: 190px;aspect-ratio:1/1;object-fit: cover;">
+                                    <span class="montserrat-medium font-10 text-uppercase py-1 px-3 mr-2 bg-danger position-absolute start-0" style="top:15px">
+                                       {{$blog->category->title}}
+                                    </span>
+                                    <div class="col-12 h-100 p-3 d-flex flex-column justify-content-center border border-left-0">
+                                          <a href="{{ route('blog-inner', $blog->slug) }}" class="underline">
+                                             <h3 class="h6 m-0 montserrat-semiBold font-14 title-blue">
+                                                {{ Str::limit($blog->title, 60) }}
+                                             </h3>
+                                          </a>
+                                          <div class="blog-text mt-3">{!! Str::limit($blog->text, 160) !!}</div>
+                                          <div class="date-blog-home">
+                                             <p class="text-color mb-0 montserrat-regular font-12">
+                                                {{ $dataFormatada }}
+                                             </p>
+                                          </div>
                                     </div>
-                                 </div>
+                                 </div>                                 
                               </article>
                         @endforeach
                      </div>
@@ -198,68 +190,65 @@
                   @endif
                </div>
                
-               <div class="col-lg-4" data-aos="fade-left" data-aos-delay="100">
-                  <aside>
-                     @if ($blogCategories->count())                        
+               <div class="col-lg-3" data-aos="fade-left" data-aos-delay="100">
+                  <aside>   
+                      @if ($blogSeeAlso->count())  
+                      
+                        <div class="mb-3 bg-white border-top-0 rounded-top-3">
+                            <div class="mb-0 py-3">
+                                <h4 class="m-0 text-uppercase montserrat-bold text-center font-20 title-blue">VEJA TAMBÉM</h4>
+                            </div>
+                            <div class="p-3 border">
+                                @foreach($blogSeeAlso as $seeAlso)    
+                                    @php
+                                        \Carbon\Carbon::setLocale('pt_BR');
+                                        $dataFormatada = \Carbon\Carbon::parse($seeAlso->date)->translatedFormat('d \d\e F \d\e Y');
+                                    @endphp                               
+                                    <article>
+                                        <div class="d-flex align-items-center bg-white mb-3 overflow-hidden position-relative rounded-0" style="height: 100px;">
+                                            <div class="w-100 h-100 pe-1 d-flex flex-column justify-content-center">
+                                                <a href="{{route('blog-inner', ['slug' => $seeAlso->slug])}}" class="underline">
+                                                    <h3 class="h6 m-0 montserrat-semiBold font-12 title-blue">{{substr(strip_tags($seeAlso->title), 0, 70)}}...</h3>
+                                                </a>
+                                            </div>
+
+                                            <img loading="lazy" class="img-fluid"
+                                            src="{{ $seeAlso->path_image_thumbnail ? asset('storage/'.$seeAlso->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
+                                            alt="{{ $seeAlso->title ? $seeAlso->title : 'Sem imagem'}}">
+                                            <div class="mt-2 position-absolute end-0 top-0">
+                                                <span class="badge bg-danger montserrat-semiBold font-10 text-uppercase py-1 px-2 mr-2 rounded-0">{{$seeAlso->category->title}}</span>
+                                            </div>                                            
+                                        </div>
+                                    </article>
+                                @endforeach
+                            </div>
+                        </div>
+                      @endif
+   
+                                           @if ($blogCategories->count())                        
                         <!-- Tags Start -->
                         <div class="mb-3">
-                           <div class="section-title mb-0 rounded-top-left">                              
-                                 <h3 class="m-0 text-uppercase montserrat-bold font-22 title-blue">CATEGORIAS</h3>
-                           </div>
                            <div class="bg-white border border-top-0 p-3">
                                  <div class="d-flex flex-wrap m-n1">
-                                    @foreach ($blogCategories as $blogCategory)
-                                       <a href="{{ route('blog', ['category' => $blogCategory->slug]) }}#news"
+                                    @foreach ($blogCategories as $category)
+                                       <li class="nav-link">
+                                          <a href="{{ route('blog', ['category' => $category->slug]) }}#news"
                                           class="btn btn-sm btn-outline-secondary montserrat-semiBold font-14 m-1
-                                          {{ (request()->routeIs('blog') && request()->route('category') === $blogCategory->slug) ? 'active background-red' : '' }}">
-                                          {{$blogCategory->title}}
-                                       </a>
-                                    @endforeach
+                                          {{ (request()->routeIs('blog-inner') && isset($blogInner) && $blogInner->category->id === $category->id) ? 'active bg-danger' : '' }}">
+                                             {{ $category->title }}
+                                          </a>
+                                       </li>
+                                 @endforeach
                                  </div>
                            </div>
                         </div>
                         <!-- Tags End -->
                      @endif
-   
-                      @if ($blogSeeAlso->count())                        
-                        <!-- Popular News Start -->
-                        <div class="mb-3">
-                           <div class="section-title mb-0 rounded-top-left">
-                                 <h3 class="m-0 text-uppercase montserrat-bold font-22 title-blue">VEJA TAMBÉM</h3>
-                           </div>
-                           <div class="bg-white border border-top-0 p-3">
-                                 @foreach ($blogSeeAlso as $seeAlso)  
-                                    @php
-                                       \Carbon\Carbon::setLocale('pt_BR');
-                                       $dataFormatada = \Carbon\Carbon::parse($seeAlso->date)->translatedFormat('d \d\e F \d\e Y');
-                                    @endphp                                
-                                    <article>
-                                       <div class="d-flex align-items-center bg-white mb-3 overflow-hidden" style="height: 110px;">
-                                          <img loading="lazy" class="img-fluid"
-                                          src="{{ $seeAlso->path_image_thumbnail ? asset('storage/'.$seeAlso->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
-                                          alt="{{ $seeAlso->title ? $seeAlso->title : 'Sem imagem'}}"
-                                          style="height: 110px;">
-                                          <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                             <div class="mb-2 d-flex justify-content-start align-items-center gap-1 flex-wrap">
-                                                <span class="badge badge-primary montserrat-semiBold font-10 text-uppercase py-1 px-2 mr-2 background-red">{{$seeAlso->category->title}}</span>
-                                                <p class="text-color mb-0 montserrat-regular font-12">{{$dataFormatada}}</p>
-                                             </div>
-                                             <a href="{{route('blog-inner', ['slug' => $seeAlso->slug])}}" class="underline">
-                                                <h3 class="h6 m-0 text-uppercase montserrat-bold font-14 title-blue">{{$seeAlso->title}}</h3>
-                                             </a>
-                                          </div>
-                                       </div>
-                                    </article>
-                                 @endforeach
-                           </div>
-                        </div>
-                        <!-- Popular News End -->
-                      @endif
-   
+
                       <!-- Newsletter Start -->
-                      <div class="mb-3">
-                          <div class="section-title mb-0 rounded-top-left">
-                              <h3 class="m-0 text-uppercase montserrat-bold font-22 title-blue">Newsletter</h3>
+                        <div class="mb-3 bg-white border">
+                          <div class="py-3">
+                              <h4 class="m-0  montserrat-bold text-center font-20 title-blue">Newsletter</h4>
                           </div>
                           @include('client.includes.newsletter')
                       </div>

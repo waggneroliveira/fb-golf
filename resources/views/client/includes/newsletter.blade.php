@@ -1,13 +1,13 @@
-<div class="bg-white text-center border border-top-0 p-3">
+<div class="text-center p-3">
     <form id="newsletterForm">
         @csrf
-        <p class="text-color montserrat-regular font-16 text-start">
-            Cadastre-se abaixo e receba as principais novidades via e-mail!
+        <p class="text-color montserrat-regular font-16 text-center">
+            Inscreva-se na nossa newsletter e fique por dentro de todas as novidades da Federação
         </p>
         <div class="input-group mb-2" style="width: 100%;">
-            <input type="text" name="email" id="email" class="form-control form-control-lg montserrat-regular text-color font-14" placeholder="Seu e-mail" required>
+            <input type="text" name="email" id="email" class="form-control form-control-lg montserrat-regular text-color font-14 border-end-0" placeholder="Seu e-mail" required>
             <div class="input-group-append">
-                <button type="submit" class="btn background-red text-white montserrat-semiBold font-16 px-3 h-100 rounded-3">
+                <button type="submit" class="btn background-red text-black montserrat-medium font-15 px-4 h-100 rounded-5" style="    margin-left: -15px;">
                     Enviar
                 </button>
             </div>

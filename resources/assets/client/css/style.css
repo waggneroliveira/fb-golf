@@ -388,10 +388,9 @@
  }
 
  aside .img-fluid.annun {
-     width: 355px !important;
-     max-width: 433px !important;
+     max-width: 320px !important;
      border-radius: 10px;
-     object-fit: contain;
+     object-fit: cover;
      aspect-ratio: inherit;
  }
 
@@ -399,7 +398,7 @@
      background: #cccccc33;
  }
 
- .text-color.montserrat-regular.font-16 p {
+ .text-color.montserrat-regular.font-16 p, .contact-item .description p {
      font-size: 1rem;
      color: #9A9DA2;
      font-family: "Montserrat", sans-serif;
@@ -407,7 +406,11 @@
      font-style: normal;
      font-weight: 300;
  }
-
+.contact-item .description p{
+    font-weight: 500;
+    color:var(--text-color);
+    font-size: 0.938rem;
+}
  .text-color.montserrat-regular.font-16 p img {
      margin-right: 15px;
  }
@@ -761,10 +764,12 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      background-color: var(--background-color)
  }
 
- .footer,
  .header,
  body {
      background-color: var(--default-color)
+ }
+ .footer{
+    background: linear-gradient(to right, #5E5E5E 0%, #A9A9A9 0%, #E8E8E8 100%);
  }
 
  #preloader,
@@ -807,8 +812,6 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
 }
 #audioIcon{
     cursor: pointer;
-    height: 32px;
-    width: 35px;
 }
 .barra-de-progresso{
     display: flex;
@@ -816,7 +819,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     align-items: center;
     width: 100%;
     height: 45px;
-    background: #d9d9d9;
+    background: #0072B0;
     padding: 0px 15px 0px 15px;
     gap: 15px;
     border-radius: 5px;
@@ -865,6 +868,9 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     }
     .news-home{
         padding-top: 80px !important;
+        background: #f9f9f9 url(../images/bg-news.png) no-repeat;
+        background-position: left bottom;
+        background-size: 180px auto;
     }
     .news-home nav ul li:hover{
         background: var(--background-red);
@@ -1080,7 +1086,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     object-fit: contain;
     width: 100% !important;
     height: 100% !important;
-    max-width: 475px;
+    max-width: 320px;
     margin-right: 15px;
 }
 .blog-text p{
@@ -1107,12 +1113,6 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      margin: 0 15px;
  }
 
- .bg-webmail {
-     background: var(--background-color-client);
-     width: 170px;
-     height: 39px;
- }
-
  .title-blue {
      color: var(--title-color-blue);
  }
@@ -1130,7 +1130,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
  }
 
  .d-flex.flex-wrap.m-n1 a:hover {
-     background-color: var(--background-red) !important;
+     background-color: #dc3545 !important;
      border-color: transparent;
  }
 
@@ -1238,6 +1238,11 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     background: rgb(255 255 255 / 10%);
     padding: 0 30px 0 30px;
  }
+.aboutt{
+    background: #163832 url('../images/footer-about.png') no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;
+}
  .aboutt .description p, .about .description ul li{
     color: var(--background-color-white);
     font-size: 1rem;
@@ -1395,10 +1400,6 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      height: 45px;
  }
 
- #shareBtn {
-     width: 171px;
- }
-
  .socialLinks {
      max-height: 0;
      transition: max-height 0.4s ease, opacity 0.4s ease;
@@ -1471,8 +1472,40 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     height: auto;
     object-fit: cover;
     display: block;
-    max-width: 720px;
+    transition: all 0.4s ease;
  }
+header{
+    transition:
+    background 0.45s ease,
+    padding 0.45s ease,
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+    will-change: background, padding;
+}
+.site-navigation.ul li a{
+    transition: all 0.4s ease;
+}
+.btn-filie-se a{
+    font-size:  0.75rem !important;
+}
+header.active{
+    background: linear-gradient(to right, #5E5E5E 0%, #A9A9A9 0%, #E8E8E8 100%);
+}
+header.active .logo-img{
+    padding: 0 !important;
+}
+header.active .social-links{
+    margin: 0!important;
+}
+header.active .logo-img .img-fluid{
+    width: 70px;
+    transition: all 0.4s ease;
+}
+header.active .site-navigation.ul li a{
+    color: #000;
+    transition: all 0.4s ease;
+    font-size: 0.875rem !important;
+}
 
 .border-bottom.news{
     border-bottom: 2px solid var(--background-red) !important;
@@ -1662,7 +1695,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      position: fixed;
      top: 0;
      left: 0;
-     z-index: 10;
+     z-index: 11;
  }
 
  .header-color {
@@ -2098,14 +2131,10 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
          width: 100% !important;
      }
      #commentForm button,
-     .montserrat-semiBold.font-16.d-flex.justify-content-between.align-items-center.gap-2.background-red.py-2.px-3.text-white.rounded-3,
-     .bg-webmail {
+     .montserrat-semiBold.font-16.d-flex.justify-content-between.align-items-center.gap-2.background-red.py-2.px-3.text-white.rounded-3{
          padding: 5px 10px;
      }
-     .bg-webmail {
-         width: 100px;
-         height: auto;
-     }
+
      .bg-white.border.border-top-0.p-4 {
          padding: 10px !important;
      }
