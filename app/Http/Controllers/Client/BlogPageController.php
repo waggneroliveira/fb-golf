@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Models\Blog;
-use App\Models\Announcement;
-use App\Models\BlogCategory;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Announcement;
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\Event;
 use App\Models\PopUp;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class BlogPageController extends Controller
 {
@@ -45,15 +47,6 @@ class BlogPageController extends Controller
 
         $blogAll = $blogAll->active()->sorting()->paginate(15);
         
-        $blogSeeAlso = Blog::with('category')
-        ->whereHas('category', function($active){
-            $active->where('active', 1);
-        })
-        // ->whereNotIn('id', $excludedIds->merge($blogAll->pluck('id')))
-        ->active()
-        ->inRandomOrder()
-        ->limit(4)
-        ->get();
         $announcements = Announcement::select(
             'exhibition',
             'link',
@@ -81,13 +74,19 @@ class BlogPageController extends Controller
         ->sorting()
         ->get();
         $popUp = PopUp::active()->first();
+        $startOfWeek = Carbon::now()->startOfWeek(Carbon::SUNDAY); // começa no domingo
+        $endOfWeek   = Carbon::now()->endOfWeek(Carbon::SATURDAY); // termina no sábado
+        $events = Event::active()
+        ->whereBetween('date', [$startOfWeek, $endOfWeek])
+        ->orderBy('date', 'asc')
+        ->get();
 
         return view('client.blades.blog', compact(
             'blogCategories',
             'blogSuperHighlights',
             'blogHighlights',
             'blogAll',
-            'blogSeeAlso',
+            'events',
             'announcements',
             'announcementVerticals',
             'popUp',

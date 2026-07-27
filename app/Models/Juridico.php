@@ -16,6 +16,7 @@ class Juridico extends Model
     protected $fillable = [
         'title',
         'legal',
+        'date',
         'region',
         'link',
         'description',

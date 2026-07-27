@@ -11,9 +11,8 @@ class JuridicoPageController extends Controller
 {
     public function index(){
         $juridicos = Juridico::active()->sorting()->get();
-        $report = Report::active()->first();
 
-        return view('client.blades.juridico', compact('report', 'juridicos'));
+        return view('client.blades.juridico', compact('juridicos'));
     }
 
     public function searchJuridico(Request $request)
@@ -21,7 +20,7 @@ class JuridicoPageController extends Controller
         $search = $request->input('search');
         $legal = $request->input('legal');
         $region = $request->input('region');
-  
+        
         $juridicos = Juridico::when($search, function ($query, $search) {
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'LIKE', "%{$search}%")

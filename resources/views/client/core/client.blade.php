@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#0d0d0d">
-    <meta name="description" content="O Sindacs Bahia é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.">
-    <meta name="keywords" content="Sindacs Bahia, Sindicato Bahia, agentes comunitários de saúde, agentes de combate às endemias, ACS Bahia, ACE Bahia, sindicato ACS ACE, saúde pública Bahia, trabalhadores da saúde Bahia, direitos dos agentes de saúde, sindicato saúde Bahia, categoria ACS ACE, luta sindical Bahia, representação sindical saúde, agentes comunitários Bahia, agentes endemias Bahia, sindicato dos agentes Bahia">
+    <meta name="description" content="O CB Golf é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.">
+    <meta name="keywords" content="CB Golf, Sindicato Bahia, agentes comunitários de saúde, agentes de combate às endemias, ACS Bahia, ACE Bahia, sindicato ACS ACE, saúde pública Bahia, trabalhadores da saúde Bahia, direitos dos agentes de saúde, sindicato saúde Bahia, categoria ACS ACE, luta sindical Bahia, representação sindical saúde, agentes comunitários Bahia, agentes endemias Bahia, sindicato dos agentes Bahia">
     <meta name="google-site-verification" content="-bUd4PZJ-3xvnf7cOkcmNLV7jzTk5106hfB0mPtvhqE" />
-    <title>Sindacs Bahia</title>
+    <title>CB Golf</title>
     @if(isset($blogInner))
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="article">
@@ -26,14 +26,14 @@
     @else
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Sindacs Bahia - Sindicato dos ACS e ACE da Bahia">
-        <meta property="og:description" content="O Sindacs Bahia representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
+        <meta property="og:title" content="CB Golf - Sindicato dos ACS e ACE da Bahia">
+        <meta property="og:description" content="O CB Golf representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
         <meta property="og:image" content="{{asset('build/client/images/compartilhamento.png')}}">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content="{{ url()->current() }}">
-        <meta name="twitter:title" content="Sindacs Bahia - Sindicato dos ACS e ACE da Bahia">
-        <meta name="twitter:description" content="O Sindacs Bahia representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
+        <meta name="twitter:title" content="CB Golf - Sindicato dos ACS e ACE da Bahia">
+        <meta name="twitter:description" content="O CB Golf representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
         <meta name="twitter:image" content="{{asset('build/client/images/compartilhamento.png')}}">
     @endif
 
@@ -76,12 +76,12 @@
             "@context": "https://schema.org",
             "@type": "Organization",
             "@id": "https://www.sindacsba.org.br/#organization",
-            "name": "Sindacs Bahia",
+            "name": "CB Golf",
             "legalName": "Sindicato de agentes comunitários de saúde e agentes de combate as endemias da Bahia.",
             "url": "https://www.sindacsba.org.br",
             "logo": "https://www.sindacsba.org.br/assets/images/logo.png",
             "image": "https://www.sindacsba.org.br/assets/images/logo.png",
-            "description": "O Sindacs Bahia é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.",
+            "description": "O CB Golf é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.",
             "foundingDate": "2003",
             "email": "sindacsbahia@gmail.com",
             "telephone": "+55 71 3017-4112",
@@ -119,9 +119,9 @@
                 "propertyID": "CNPJ",
                 "value": "06.953.941/0001-26"
             },
-            "slogan": "Sindacs Bahia",
+            "slogan": "CB Golf",
             "keywords": [
-                "Sindacs Bahia",
+                "CB Golf",
                 "Sindicato Bahia",
                 "agentes comunitários de saúde",
                 "agentes de combate às endemias",
@@ -143,44 +143,6 @@
     </script>
 </head>
 <body>
-    {{-- <div class="d-flex justify-content-center align-items-center gap-2 mt-3 login-desktop" style="width: 23%;">                        
-                        @if (!Auth::guard('client')->check())                            
-                            <div class="d-flex justify-content-start align-items-center gap-2">
-                                <svg width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M46.793 8.62893C44.5547 8.62893 42.7344 6.81253 42.7344 4.57423C42.7344 2.33593 44.5547 0.519531 46.793 0.519531L80.57 0.503906C88.8044 0.503906 95.5 7.20311 95.5 15.4339V80.5789C95.5 88.8055 88.8008 95.5089 80.57 95.5089H46.793C44.5469 95.5089 42.7266 93.6847 42.7266 91.4386C42.7266 89.1886 44.5469 87.3683 46.793 87.3683H80.57C84.3083 87.3683 87.3591 84.3136 87.3591 80.5831V15.4311C87.3591 11.7006 84.3083 8.63031 80.57 8.63031L46.793 8.62893ZM49.6914 68.2459L66.5504 51.0619C67.398 50.3158 67.9332 49.2181 67.9332 47.9994C67.9332 46.7807 67.398 45.683 66.5504 44.9408L49.6914 27.7568C48.1133 26.1591 45.543 26.1357 43.9492 27.71C42.3515 29.2803 42.3281 31.8545 43.9062 33.4522L54.1792 43.9322L4.5742 43.9283C2.3281 43.9283 0.5 45.7525 0.5 47.9986C0.5 50.2486 2.3281 52.0689 4.5742 52.0689H54.1762L43.9032 62.5459C42.3251 64.1436 42.3524 66.7138 43.9462 68.288C45.5439 69.8583 48.1103 69.8389 49.6884 68.2412L49.6914 68.2459Z" fill="white"/>
-                                </svg>
-
-                                <h2 class="off-login m-0 montserrat-medium font-14 text-start" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#loginModal">Login</h2>
-                            </div>
-                        @else
-                            @php
-                                $user = Auth::guard('client')->user();
-                                $defaultImage = $user && $user->path_image ? url($user->path_image) : '';
-                            @endphp
-                            <div class="image-profile">
-                                <picture>
-                                    <source srcset="{{ isset($defaultImage) && $defaultImage <> null ?$defaultImage:asset('build/client/images/user.jpg') }}" type="image/svg+xml">
-                                    <img src="{{ isset($defaultImage) && $defaultImage <> null ?$defaultImage:asset('build/client/images/user.jpg') }}"
-                                        alt="Imagem de Login"
-                                        class="img-fluid rounded-circle">
-                                </picture>
-                            </div>
-                            <div class="d-flex flex-column align-items-start gap-1">
-                                <div class="d-flex justify-content-start align-items-center gap-2 lh-0">
-                                    <h2 class="loginOn m-0 montserrat-medium font-14 text-start">Bem vindo,</h2>   
-                                    <h3 class="m-0 montserrat-medium font-14 text-start">{{$names = collect(explode(' ', Auth::guard('client')->user()->name))->slice(0, 1)->implode(' ')}}!</h3>      
-                                    <a class="nav-link waves-effect waves-light" href="#" data-bs-toggle="modal" data-bs-target="#editClientModal-{{Auth::guard('client')->user()->id}}">
-                                        <i class="bi bi-gear font-18"></i>
-                                    </a>                 
-                                </div>  
-                                <a href="{{route('client.user.logout')}}" class="d-flex justify-content-start align-items-center gap-2 text-decoration-none lh-0">
-                                    <i class="bi bi-box-arrow-right font-18"></i>
-                                    <h4 class="montserrat-medium font-12 m-0">Sair</h4>
-                                </a>                                               
-                            </div>
-                        @endif
-                    </div> --}}
-
     <div id="organization" hidden></div>
     <header id="header" class="w-100 d-flex flex-column position p-0">   
         <div class="w-100 py-2 py-sm-2 header-color">
@@ -217,29 +179,7 @@
                                     @endif
                                 </ul>
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
-                                href="{{route('unionized')}}" 
-                                id="servicosDropdown" 
-                                role="button" 
-                                data-bs-toggle="dropdown" 
-                                aria-expanded="false">
-                                    Serviços ao sindicalizados <i class="bi bi-chevron-down"></i>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
-                                    @if (isset($agreement) && $agreement > 0)                                
-                                        <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('unionized')}}#partnes">Convênios</a></li>
-                                    @endif
-                                    @if (isset($directions) && $directions > 0)                                
-                                        <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('unionized')}}#benefit">Benefícios</a></li>
-                                    @endif
-                                    @if (isset($report) && $report > 0)                                
-                                        <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('unionized')}}#complaint">Denuncias</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-
+                            <li><a href="#" class="nav-link text-white montserrat-medium text-center font-16">Torneios</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
                                 href="{{route('juridico')}}" 
@@ -247,17 +187,15 @@
                                 role="button" 
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">
-                                    Jurídico <i class="bi bi-chevron-down"></i>
+                                    Documentos <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'leis']) }}">Leis</a></li>
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'decretos']) }}">Decretos</a></li>
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'portaria']) }}">Portaria</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
                                 </ul>
 
                             </li>
-
-                            <li><a href="{{route('regional')}}" class="nav-link montserrat-medium text-center font-16">Regionais</a></li>
                             <li><a href="{{route('blog')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
                             <li><a href="{{route('contact')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
                         </ul>                      
@@ -550,7 +488,7 @@
             <nav class="mt-5">
                 <ul class="list-unstyled text-center">
                     <li><a href="{{route('index')}}" class="nav-link text-white montserrat-regular text-center font-18">Home</a></li>
-                                           
+                    <li><a href="#" class="nav-link text-white montserrat-regular text-center font-16">Torneios</a></li>                 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
                         href="{{route('about')}}" 
@@ -558,7 +496,7 @@
                         role="button" 
                         data-bs-toggle="dropdown" 
                         aria-expanded="false">
-                            Sobre Nós <i class="bi bi-chevron-down"></i>
+                            A Federação <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="sobreNosDropdown">
                             @if (isset($abouts) && $abouts->count() > 0) 
@@ -577,44 +515,20 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
-                        href="{{route('unionized')}}" 
-                        id="servicosDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false">
-                            Serviços ao sindicalizados <i class="bi bi-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
-                            @if (isset($agreement) && $agreement > 0)                                
-                                <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('unionized')}}#partnes">Convênios</a></li>
-                            @endif
-                            @if (isset($directions) && $directions > 0)                                
-                                <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('unionized')}}#benefit">Benefícios</a></li>
-                            @endif
-                            @if (isset($report) && $report > 0)                                
-                                <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('unionized')}}#complaint">Denuncias</a></li>
-                            @endif
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
                         href="{{route('juridico')}}" 
                         id="juridicoDropdown" 
                         role="button" 
                         data-bs-toggle="dropdown" 
                         aria-expanded="false">
-                            Jurídico <i class="bi bi-chevron-down"></i>
+                            Documentos <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                            <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{ route('juridico', ['legal' => 'leis']) }}">Leis</a></li>
-                            <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{ route('juridico', ['legal' => 'decretos']) }}">Decretos</a></li>
-                            <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{ route('juridico', ['legal' => 'portaria']) }}">Portaria</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
                         </ul>
 
                     </li>
-
-                    <li><a href="{{route('regional')}}" class="nav-link text-white montserrat-regular text-center font-18">Regionais</a></li>
                     <li><a href="{{route('blog')}}" class=" text-white nav-link montserrat-regular font-18">Notícias</a></li>
                     <li><a href="{{route('noticies')}}" class=" text-white nav-link montserrat-regular font-18">Editais</a></li>
                     <li><a href="{{route('contact')}}" class=" text-white nav-link montserrat-regular font-18">Contato</a></li>
@@ -694,29 +608,8 @@
                 </div>
                 <ul class="list-unstyled text-start">
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}">Home</a></li>
-                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">Sobre Nós</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-3 text-black" 
-                        href="{{route('unionized')}}" 
-                        id="servicosDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false">
-                            Serviços ao sindicalizados <i class="bi bi-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicosDropdown">
-                            @if (isset($agreement) && $agreement > 0)                                
-                                <li><a class="dropdown-item montserrat-medium text-start font-15 text-black" href="{{route('unionized')}}#partnes">Convênios</a></li>
-                            @endif
-                            @if (isset($directions) && $directions > 0)                                
-                                <li><a class="dropdown-item montserrat-medium text-start font-15 text-black" href="{{route('unionized')}}#benefit">Benefícios</a></li>
-                            @endif
-                            @if (isset($report) && $report > 0)                                
-                                <li><a class="dropdown-item montserrat-medium text-start font-15 text-black" href="{{route('unionized')}}#complaint">Denuncias</a></li>
-                            @endif
-                        </ul>
-                    </li>
+                    <li><a href="#" class="nav-link text-white montserrat-medium text-center font-16">Torneios</a></li>
+                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">A Federação</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-3 text-black" 
@@ -725,19 +618,18 @@
                         role="button" 
                         data-bs-toggle="dropdown" 
                         aria-expanded="false">
-                            Jurídico <i class="bi bi-chevron-down"></i>
+                            Documentos <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'leis']) }}">Leis</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'decretos']) }}">Decretos</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'portaria']) }}">Portaria</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
                         </ul>
 
                     </li>
 
                 </ul>
                 <ul class="list-unstyled text-start">
-                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('regional')}}">Regionais</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('blog')}}">Notícias</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('noticies')}}">Editais</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener noreferrer">Política de Privacidade</a></li>

@@ -7,32 +7,20 @@
     
         <select name="legal" class="form-select" id="legal" required>
             <option value="" disabled selected>Selecione o tipo</option>
-                <option value="leis" {{ 'leis' == $currentLegal ? 'selected' : '' }}>
-                    Leis
+                <option value="estatutos" {{ 'estatutos' == $currentLegal ? 'selected' : '' }}>
+                    Estatutos
                 </option>
-                <option value="decretos" {{ 'decretos' == $currentLegal ? 'selected' : '' }}>
-                    Decretos
+                <option value="assembleias" {{ 'assembleias' == $currentLegal ? 'selected' : '' }}>
+                    Assembléias
                 </option>
-                <option value="portaria" {{ 'portaria' == $currentLegal ? 'selected' : '' }}>
-                    Portaria
+                <option value="transparencia" {{ 'transparencia' == $currentLegal ? 'selected' : '' }}>
+                    Transparência
                 </option>
         </select>
     </div>
-    <div class="mb-3 col-12 col-lg-6 d-flex align-items-start flex-column">
-        <label for="region" class="form-label">Tipo <span class="text-danger">*</span></label>
-        @php
-            $currentRegion = isset($juridico) ? $juridico->region : null;
-        @endphp
-    
-        <select name="region" class="form-select" id="region" required>
-            <option value="" disabled selected>Selecione a região</option>
-                <option value="nacional" {{ 'nacional' == $currentRegion ? 'selected' : '' }}>
-                    Nacional
-                </option>
-                <option value="municipal" {{ 'municipal' == $currentRegion ? 'selected' : '' }}>
-                    Municipal
-                </option>
-        </select>
+    <div class="mb-3 col-12 col-lg-6">
+        <label for="date" class="form-label">Dat <span class="text-danger">*</span></label>
+        <input type="date" name="date" class="form-control" id="date{{isset($juridico->id)?$juridico->id:''}}" value="{{isset($juridico)?$juridico->date:''}}" required>
     </div>
 
     <div class="mb-3 col-12">

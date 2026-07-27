@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <div class="social-card mx-auto text-center rounded-3 col-5 py-4">
+        <div class="social-card mx-auto text-center rounded-3 col-lg-5 py-4">
 
             <div class="social-icon mb-3">
                 <img src="{{ asset('build/client/images/insta.svg') }}" alt="Instagram">
@@ -26,7 +26,7 @@
                 </h2>
             @endif
 
-            <p class="text-white mb-4 montserrat-semiBold font-15">
+            <p class="text-white mb-4 montserrat-semiBold font-15 text-center">
                 Acompanhe novidades e fique por dentro de tudo que acontece.
             </p>
 

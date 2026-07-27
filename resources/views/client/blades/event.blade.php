@@ -51,10 +51,9 @@
 }
 </style>
 
-<div class="d-flex justify-content-start gap-2 align-items-start flex-nowrap mb-3" style="margin-top: 180px; !important">
-    <span class="firula-contact mt-2"></span>
-    <div class="description">
-        <h1 class="montserrat-bold font-30 mb-0 title-blue text-uppercase text-black">Agenda</h1>
+<div class="bann-inner d-flex justify-content-start gap-2 align-items-center flex-nowrap mb-3">
+    <div class="container">
+        <h1 class="montserrat-bold font-30 mb-0 title-blue text-white">Calendário de Eventos</h1>
     </div>
 </div>
 

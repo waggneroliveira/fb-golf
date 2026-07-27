@@ -738,6 +738,15 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      --contrast-color: #ffffff
  }
 
+    .bann-inner{
+    background-image:url('../images/bann-nner.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 174px;
+    width: 100%;
+    margin-top: 125px !important;
+}
  body {
      overflow-x: hidden;
      font-family: var(--default-font) var(--background-color)
@@ -2235,9 +2244,6 @@ header.active .site-navigation.ul li a{
      .hero h1,
      .hero p {
          margin-bottom: 20px !important
-     }
-     .d-flex.align-items-center.bg-white.mb-3.overflow-hidden{
-        height: 90px !important;
      }
      .juridico .btn-juridico{
         font-size: 0.75rem !important;

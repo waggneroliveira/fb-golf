@@ -391,7 +391,7 @@
             <section id="board" class="board container-fluid position-relative px-0 py-5 pt-3">
                 <div class="container">
                     <!-- Filtro de Categorias -->
-                    <div class="filter-category mt-3 d-flex justify-content-center align-items-center gap-3">
+                    <div class="filter-category mt-3 d-flex flex-wrap justify-content-center align-items-center gap-3">
                         <button class="d-flex justify-content-start align-items-center gap-2 montserrat-medium font-16 p-2 px-4 border-bottom rounded-2 text-white filter-btn active" data-category="diretoria">Diretoria</button>
                         <button class="d-flex justify-content-start align-items-center gap-2 montserrat-medium font-16 p-2 px-4 border-bottom rounded-2 text-white filter-btn" data-category="conselho">Conselho</button>
                         <button class="d-flex justify-content-start align-items-center gap-2 montserrat-medium font-16 p-2 px-4 border-bottom rounded-2 text-white filter-btn" data-category="comissao">Comissão de iniciantes</button>
