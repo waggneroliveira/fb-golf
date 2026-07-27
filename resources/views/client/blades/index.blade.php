@@ -457,7 +457,7 @@
 
 <section class="contact-section py-5 bg-white">
     <div class="container">
-        <div class="contact-wrapper bg-light rounded-4 py-4 px-5 col-lg-8 m-auto">
+        <div id="contact-wrapper" class="contact-wrapper bg-light rounded-4 py-4 px-5 col-lg-8 m-auto">
             <div class="row">
                 <div class="d-flex flex-column">
                     <h2 class="section-title d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">

@@ -549,7 +549,6 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
      background-color: var(--background-red);
  }
 
- .site-navigation ul li a:hover::after,
  .site-navigation ul li a.active::after {
      transform: scaleX(1);
  }

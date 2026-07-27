@@ -155,31 +155,11 @@
         
                 <div class="social-links d-flex justify-content-between col-lg-9 align-items-center gap-4 mb-2 mt-3 text-center">
                     <nav class="none site-navigation ul position-relative text-end width-75">
-                        <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">                                               
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
-                                href="{{route('about')}}" 
-                                id="sobreNosDropdown" 
-                                role="button" 
-                                data-bs-toggle="dropdown" 
-                                aria-expanded="false">
-                                    A Federação <i class="bi bi-chevron-down"></i>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="sobreNosDropdown">
-                                    @if (isset($abouts) && $abouts->count() > 0) 
-                                        @foreach ($abouts as $about)                                        
-                                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('about')}}#{{$about->slug}}">{{$about->title}}</a></li>
-                                        @endforeach
-                                    @endif
-                                    @if (isset($directions) && $directions > 0)                                        
-                                        <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('about')}}#board">Equipe</a></li>
-                                    @endif
-                                    @if (isset($statute) && $statute > 0)                                        
-                                        <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('about')}}#statute">Estatuto</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                            <li><a href="#" class="nav-link text-white montserrat-medium text-center font-16">Torneios</a></li>
+                        <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">
+                            <li><a href="{{route('index')}}#about-1" class="nav-link montserrat-medium text-center font-16">A Federação</a></li>
+                            <li><a href="" class="nav-link montserrat-medium text-center font-16">Torneios</a></li>
+       
+                
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
                                 href="{{route('juridico')}}" 
@@ -197,7 +177,7 @@
 
                             </li>
                             <li><a href="{{route('blog')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
-                            <li><a href="{{route('contact')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
+                            <li><a href="{{route('index')}}#contact-wrapper" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
                         </ul>                      
                     </nav>                    
                     
@@ -279,203 +259,6 @@
             </a>
         @endif
     </header>
-    <!-- Modal de Login -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content header-color">
-
-                <div class="modal-header">
-                    <h5 class="modal-title text-uppercase montserrat-bold font-22 text-white" id="loginModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form action="{{route('client.user.authenticate')}}" method="POST">
-                        <!-- CSRF token (Laravel) -->
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label montserrat-medium font-15">E-mail</label>
-                            <input type="email" class="form-control montserrat-regular font-15" id="email" name="email" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label montserrat-medium font-15">Senha</label>
-                            <input type="password" class="form-control montserrat-regular font-15" id="password" name="password" required>
-                        </div>
-
-                        <div class="d-flex justify-content-center mt-3 mb-4">
-                            <button type="submit" class="btn px-5 background-red rounded-3 text-white montserrat-medium font-15">Entrar</button>
-                        </div>
-
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <p class="montserrat-regular font-15 text-white text-center">
-                                Ainda não tem uma conta?
-                                <a href="#" class="text-decoration-underline montserrat-bold ms-1 under" 
-                                data-bs-dismiss="modal"
-                                data-bs-toggle="modal"
-                                data-bs-target="#registerModal">Registre-se</a>
-                                aqui <br>
-                                <a href="#" 
-                                class="text-decoration-underline montserrat-bold ms-1 under" 
-                                data-bs-dismiss="modal"
-                                data-bs-toggle="modal"
-                                data-bs-target="#forgotPasswordModal">
-                                Esqueceu sua senha?
-                                </a>
-                            </p>
-
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    
-    <!-- Modal de Cadastro -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content header-color">
-
-                <div class="modal-header">
-                    <h5 class="modal-title text-uppercase montserrat-bold font-22 text-white" id="registerModalLabel">Cadastro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form action="{{route('register-client')}}" method="POST">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="name" class="form-label montserrat-medium font-15">Nome</label>
-                            <input type="text" class="form-control montserrat-regular font-15" id="name" name="name" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="emailRegister" class="form-label montserrat-medium font-15">E-mail</label>
-                            <input type="email" class="form-control montserrat-regular font-15" id="emailRegister" name="email" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="passwordRegister" class="form-label montserrat-medium font-15">Senha</label>
-                            <input type="password" class="form-control montserrat-regular font-15" id="passwordRegister" name="password" required>
-                        </div>
-
-                        <div class="d-flex justify-content-center my-2">
-                            <button type="submit" class="btn px-4 background-red rounded-3 text-white montserrat-medium font-15">Cadastrar</button>
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <p class="montserrat-regular font-15 text-white text-center">
-                                Já tem uma conta?
-                                <a href="#" class="text-decoration-underline montserrat-bold ms-1 under"
-                                data-bs-dismiss="modal"
-                                data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                                Fazer login
-                                </a>
-                            </p>
-                        </div>
-
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    @if (Auth::guard('client')->check())
-        @php
-            $user = Auth::guard('client')->user();
-            $defaultImage = $user && $user->path_image ? url('storage/'.$user->path_image) : '';
-        @endphp
-        <!-- Modal de Edição -->
-        <div class="modal fade" id="editClientModal-{{Auth::guard('client')->user()->id}}" tabindex="-1" aria-labelledby="editClientModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content header-color">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title text-uppercase montserrat-bold font-22 text-white" id="editClientModalLabel">Editar Informações</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        <form action="{{ route('client.update') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="mb-3">
-                                <label for="name" class="form-label montserrat-medium font-15">Nome</label>
-                                <input type="text" class="form-control montserrat-regular font-15" id="name" name="name" value="{{Auth::guard('client')->user()->name}}" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="emailRegister" class="form-label montserrat-medium font-15">E-mail</label>
-                                <input type="email" class="form-control montserrat-regular font-15" id="emailRegister" name="email" value="{{Auth::guard('client')->user()->email}}" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="passwordRegister" class="form-label montserrat-medium font-15">Senha</label>
-                                <input type="password" class="form-control montserrat-regular font-15" id="passwordRegister" name="password">
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mt-3">
-                                    <label for="title" class="form-label montserrat-regular font-15">Imagem de perfil </label>
-                                    <input 
-                                        type="file" 
-                                        name="path_image" 
-                                        data-plugins="dropify" 
-                                        data-default-file="{{ $defaultImage }}" 
-                                    />
-                                    <p class="montserrat-regular text-white font-12 mt-2 mb-0">{{__('dashboard.text_img_size')}} <b class="text-danger">2 MB</b>.</p>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn bg-secondary rounded-3 text-white montserrat-medium font-15" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn px-4 background-red rounded-3 text-white montserrat-medium font-15">Salvar alterações</button>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-            </div>        
-        </div>
-    @endif
-
-    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content header-color">
-
-                <div class="modal-header">
-                    <h5 class="modal-title text-uppercase montserrat-bold font-22 text-white" id="forgotPasswordModalLabel">
-                        Recuperar Senha
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-
-                <div class="modal-body">
-                    {{-- {{ route('client.password.email') }} --}}
-                    <form action="{{ route('client.password.email') }}" method="POST">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="recover_email" class="form-label montserrat-medium font-15">Digite seu e-mail</label>
-                            <input type="email" class="form-control montserrat-regular font-15" id="recover_email" name="email" required>
-                        </div>
-
-                        <div class="d-flex justify-content-center mt-3 mb-4">
-                            <button type="submit" class="btn px-5 background-red rounded-3 text-white montserrat-medium font-15">
-                                Enviar link de recuperação
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <div id="menu-mobile" class="menu-mobile d-flex flex-column justify-content-start align-items-center">
         <div class="d-flex justify-content-end align-items-start w-100">    
@@ -489,30 +272,7 @@
                 <ul class="list-unstyled text-center">
                     <li><a href="{{route('index')}}" class="nav-link text-white montserrat-regular text-center font-18">Home</a></li>
                     <li><a href="#" class="nav-link text-white montserrat-regular text-center font-16">Torneios</a></li>                 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
-                        href="{{route('about')}}" 
-                        id="sobreNosDropdown" 
-                        role="button" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false">
-                            A Federação <i class="bi bi-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="sobreNosDropdown">
-                            @if (isset($abouts) && $abouts->count() > 0) 
-                                @foreach ($abouts as $about)                                        
-                                    <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('about')}}#{{$about->slug}}">{{$about->title}}</a></li>
-                                @endforeach
-                            @endif                                
-                            @if (isset($directions) && $directions > 0)                                        
-                                <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('about')}}#board">Equipe</a></li>
-                            @endif
-                            @if (isset($statute) && $statute > 0)                                        
-                                <li><a class="dropdown-item montserrat-regular text-start font-15" href="{{route('about')}}#statute">Estatuto</a></li>
-                            @endif
-                        </ul>
-                    </li>
-
+                    <li><a href="{{route('index')}}#about-1" class="nav-link text-white montserrat-regular text-center font-16">A Federação</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
                         href="{{route('juridico')}}" 
@@ -531,7 +291,7 @@
                     </li>
                     <li><a href="{{route('blog')}}" class=" text-white nav-link montserrat-regular font-18">Notícias</a></li>
                     <li><a href="{{route('noticies')}}" class=" text-white nav-link montserrat-regular font-18">Editais</a></li>
-                    <li><a href="{{route('contact')}}" class=" text-white nav-link montserrat-regular font-18">Contato</a></li>
+                    <li><a href="{{route('index')}}#contact-wrapper" class=" text-white nav-link montserrat-regular font-18">Contato</a></li>
                 </ul>
             </nav>
             <nav class="site-navigation position-relative text-end w-auto redes-sociais">
@@ -608,7 +368,7 @@
                 </div>
                 <ul class="list-unstyled text-start">
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}">Home</a></li>
-                    <li><a href="#" class="nav-link text-white montserrat-medium text-center font-16">Torneios</a></li>
+                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="">Torneios</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">A Federação</a></li>
 
                     <li class="nav-item dropdown">
@@ -631,7 +391,7 @@
                 </ul>
                 <ul class="list-unstyled text-start">
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('blog')}}">Notícias</a></li>
-                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('noticies')}}">Editais</a></li>
+                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#contact-wrapper">Contato</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener noreferrer">Política de Privacidade</a></li>
                 </ul>
                 <div class="d-flex justify-content-end flex-column w-auto montserrat-medium text-black">
