@@ -7,8 +7,8 @@
         </div>
     </div>
 
-    <section class="juridico py-5 position-relative">
-        <div class="position-absolute end-0 top-0">
+    <section class="juridico pt-3 pt-lg-5 pb-5 position-relative">
+        <div class="position-absolute end-0 top-0 ball-mobile z-0">
             <svg width="85" height="125" viewBox="0 0 85 125" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_d_3080_1465)">
             <rect x="6.80005" width="115" height="108" fill="url(#pattern0_3080_1465)" shape-rendering="crispEdges"></rect>
@@ -35,10 +35,10 @@
             <div class="filter">
                 <div class="row d-flex flex-wrap gap-3 justify-content-center">
                     <div class="row align-items-center">
-                        <div class="filter-esq col-12 col-md-8 d-flex flex-wrap justify-content-center justify-content-md-start gap-2 mb-3 mb-md-0">
-                            <button class="px-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico active">Assembléias</button>
-                            <button class="px-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Estatutos</button>
-                            <button class="px-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Transparência</button>
+                        <div class="filter-esq col-12 col-md-8 d-flex flex-wrap justify-content-center justify-content-md-start gap-2 mb-3 mb-md-0 position-relative z-1">
+                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico active">Assembléias</button>
+                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Estatutos</button>
+                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Transparência</button>
                         </div>
                         <div class="filter-dir d-none col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center gap-3">
                             <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">

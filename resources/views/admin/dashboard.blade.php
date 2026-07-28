@@ -22,7 +22,6 @@
     Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
     Auth::user()->hasPermissionTo('slide.visualizar') || 
     Auth::user()->hasPermissionTo('parceiros.visualizar') || 
-    Auth::user()->hasPermissionTo('videos.visualizar') || 
     Auth::user()->hasPermissionTo('topicos.visualizar'))
         <div class="row">
             <div class="col-12">
@@ -98,29 +97,6 @@
                     </div> <!-- end card-->
                 </div> <!-- end col -->
             @endif
-
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-            Auth::user()->hasPermissionTo('videos.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.video.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-play-circle font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Vídeos</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
         </div>
     @endif
 
@@ -128,7 +104,6 @@
     Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
     Auth::user()->hasPermissionTo('sobre nos.visualizar') || 
     Auth::user()->hasPermissionTo('a direcao.visualizar') || 
-    Auth::user()->hasPermissionTo('videos.visualizar') || 
     Auth::user()->hasPermissionTo('topicos.visualizar'))
         <div class="row">
             <div class="col-12">
@@ -180,89 +155,19 @@
                     </div> <!-- end card-->
                 </div> <!-- end col -->
             @endif
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-            Auth::user()->hasPermissionTo('estatuto.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.statute.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-file-document font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Estatuto</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
         </div>
     @endif
 
     @if (Auth::user()->hasRole('Super') || 
-    Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-    Auth::user()->hasPermissionTo('sindicalize-se.visualizar') || 
+    Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
     Auth::user()->hasPermissionTo('beneficios.visualizar') || 
-    Auth::user()->hasPermissionTo('denuncie.visualizar') || 
-    Auth::user()->hasPermissionTo('convenios.visualizar'))
+    Auth::user()->hasPermissionTo('app-golf.visualizar'))
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
                     <h4 class="page-title "><i class="mdi mdi-toolbox"></i> Serviços aos sindicalizados</h4>
                 </div>
             </div>
-
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
-            Auth::user()->hasPermissionTo('convenios.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.agreement.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-hand-heart font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Convênios</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
-
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-            Auth::user()->hasPermissionTo('sindicalize-se.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.unionized.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-account-box font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Sindicalize-se</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
 
             @if (Auth::user()->hasRole('Super') || 
             Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
@@ -289,7 +194,7 @@
 
             @if (Auth::user()->hasRole('Super') || 
             Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
-            Auth::user()->hasPermissionTo('denuncie.visualizar'))
+            Auth::user()->hasPermissionTo('app-golf.visualizar'))
                 <div class="col-md-5 col-xl-3">
                     <div class="card borda-cx ratio ratio-4x3 border-whi">
                         <div class="d-flex align-items-center justify-content-center">
@@ -302,7 +207,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Denuncie</h5>
+                                    <h5 class="text-uppercase text-muted">App CBGolf</h5>
                                 </div>
                             </a>
                         </div>
@@ -314,11 +219,11 @@
 
     @if (Auth::user()->hasRole('Super') || 
     Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-    Auth::user()->hasPermissionTo('juridico.visualizar'))
+    Auth::user()->hasPermissionTo('documentos.visualizar'))
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
-                    <h4 class="page-title "><i class="mdi mdi-scale-balance"></i> Jurídico</h4>
+                    <h4 class="page-title "><i class="mdi mdi-scale-balance"></i> Documentos</h4>
                 </div>
             </div>
 
@@ -334,68 +239,12 @@
                                 </div>
                             </div>
                             <div class="mt-3 col-12 text-center">
-                                <h5 class="text-uppercase text-muted">Jurídico</h5>
+                                <h5 class="text-uppercase text-muted">Documentos</h5>
                             </div>
                         </a>
                     </div>
                 </div> <!-- end card-->
             </div> <!-- end col -->
-        </div>
-    @endif
-    @if (Auth::user()->hasRole('Super') || 
-    Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-    Auth::user()->hasPermissionTo('regionais.visualizar') || 
-    Auth::user()->hasPermissionTo('municipios.visualizar'))
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box">
-                    <h4 class="page-title "><i class="mdi mdi-map-marker-radius"></i> Regionais</h4>
-                </div>
-            </div>
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-            Auth::user()->hasPermissionTo('regionais.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.regional.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-map-marker-radius font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Regionais</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
-            @if (Auth::user()->hasRole('Super') || 
-            Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
-            Auth::user()->hasPermissionTo('municipios.visualizar'))
-                <div class="col-md-5 col-xl-3">
-                    <div class="card borda-cx ratio ratio-4x3 border-whi">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <a href="{{route('admin.dashboard.municipality.index')}}">
-                                <div class="row">
-                                    <div class="col-12 d-flex align-items-center justify-content-center">
-                                        <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                            <i class="avatar-md mdi mdi-map-marker font-48 text-muted"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">Municípios</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            @endif
         </div>
     @endif
 
@@ -609,36 +458,6 @@
                             </div>
                             <div class="mt-3 col-12 text-center">
                                 <h5 class="text-uppercase text-muted">Pop-up</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
-        </div>
-    @endif
-    @if (Auth::user()->hasRole('Super') || 
-    Auth::user()->hasPermissionTo('usuario.tornar usuario master') || 
-    Auth::user()->hasPermissionTo('editais.visualizar'))
-        <div class="row">
-            <div class="col-12">
-                <div class="page-title-box">
-                    <h4 class="page-title "><i class="mdi mdi-file-document"></i> Editais</h4>
-                </div>
-            </div>
-            
-            <div class="col-md-5 col-xl-3">
-                <div class="card borda-cx ratio ratio-4x3 border-whi">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a href="{{route('admin.dashboard.noticies.index')}}">
-                            <div class="row">
-                                <div class="col-12 d-flex align-items-center justify-content-center">
-                                    <div class="avatar-xl bg-hoom rounded-circle text-center">
-                                        <i class="avatar-md mdi mdi-file-document font-48 text-muted"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-3 col-12 text-center">
-                                <h5 class="text-uppercase text-muted">Editais</h5>
                             </div>
                         </a>
                     </div>

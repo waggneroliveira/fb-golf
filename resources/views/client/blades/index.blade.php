@@ -14,22 +14,24 @@
                         
                         <!-- Conteúdo do Banner -->
                         <div class="w-100 d-flex justify-content-center flex-column align-items-center position-absolute description" style="z-index: 6; top: 0; left: 0; height: 100%;">
-                            <div class="container">
-                                @if ($slide->title)                                    
-                                    <h1 class="text-white mb-2 montserrat-semiBold text-uppercase">
+                            <div class="container px-4">
+                                @if ($slide->title)     
+                                    <div class="d-flex w-100 justify-content-start align-items-center mb-2">
                                         <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
                                         </svg>
-                                        {!!$slide->title!!}
-                                    </h1>
+                                        <h1 class="text-white montserrat-semiBold mb-0 text-uppercase">
+                                            {!!$slide->title!!}
+                                        </h1>
+                                    </div>                               
                                 @endif
-                                <div class="description text-white mb-5 montserrat-semiBold d-flex no-wrap align-items-center">
+                                <div class="description text-white mb-3 mb-lg-4 montserrat-semiBold d-flex no-wrap align-items-center">
                                     {!!$slide->description!!}
                                 </div>
                                 @if (!empty($slide->link))
-                                    <a href="{{$slide->link}}" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-3 rounded-5 col-12 col-lg-2 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                                    <a href="{{$slide->link}}" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-3 rounded-5 col-6 col-lg-2 py-2 text-black background-red d-flex justify-content-center align-items-center">
                                         Saiba mais
-                                        <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="ms-3 svg" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
                                         </svg>
                                     </a>
@@ -45,11 +47,11 @@
         
         <!-- TÓPICOS FIXOS - FORA DO SWIPER, MAS DENTRO DA SECTION -->
         @if (isset($topics) && $topics->count() > 0)
-            <div class="position-absolute w-100" style="bottom: 30px; z-index: 10; left: 0; pointer-events: none;">
+            <div class="position-absolute w-100 topix-fixed">
                 <div class="container-fluid px-0">
                     <div class="row g-2 justify-content-center">
                         @foreach($topics as $topic)                
-                            <div class="col-lg-3 px-5 d-flex justify-content-center position-relative box-topic">
+                            <div class="col-lg-3 px-3 px-lg-5 d-flex justify-content-center position-relative box-topic">
                                 @if (isset($topic->link) && $topic->link <> null)                            
                                     <a href="{{$topic->link}}" class="position-absolute top-0 left-0 w-100 h-100" rel="noopener noreferrer" style="z-index: 2;"></a>
                                 @endif
@@ -79,10 +81,10 @@
         const heroSwiper = new Swiper('.hero-swiper', {
             loop: false, // Loop infinito
             autoplay: {
-                delay: 5000, // Troca de slide a cada 5s
+                delay: 6000, // Troca de slide a cada 5s
                 disableOnInteraction: false, // Continua autoplay após interação
             },
-            speed: 800, // Velocidade da transição
+            speed: 900, // Velocidade da transição
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -104,54 +106,9 @@
     </div>
 @endif
 
-@if (!empty($videos) && $videos->count() > 0)
-    <section class="video">
-        <div class="container-fluid p-0">
-            <div class="content-video d-flex justify-content-center align-items-center bg-black">
-                <!-- Lista -->
-                <div class="left col-5 dark-background h-100 d-flex justify-content-center align-items-end flex-column position-relative">
-                    <div class="swiper mySwiper position-relative">
-                        <div class="swiper-wrapper py-4 flex-column align-items-start justify-content-start m-auto position-relative">
-                            @foreach($videos as $video)
-                                <div class="swiper-slide align-items-center mb-3 justify-content-start"
-                                    data-video="{{ $video->link }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="external-icon" viewBox="0 0 28.57 20" focusable="false" style="pointer-events: none; display: block; width: 35px; height: auto;">
-                                        <svg viewBox="0 0 28.57 20" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-                                            <g>
-                                                <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"></path>
-                                                <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"></path>
-                                            </g>
-                                        </svg>
-                                    </svg>
-                                    <h3 class="title montserrat-medium font-16 mb-0 col-10">
-                                        {{ $video->title ?? 'Vídeo' }}
-                                    </h3>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="nav-video position-absolute d-flex flex-column align-items-end me-5">
-                        <div class="swiper-button-up">▲</div>
-                        <div class="swiper-button-down">▼</div>
-                    </div>
-                </div>
-
-                <!-- Player -->
-                <div class="right col-7 bg-black d-flex justify-content-center align-items-center">
-                    <iframe id="videoPlayer" class="w-100 h-100"
-                            src=""
-                            title="Vídeo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-@endif
-
 @if (isset($recentCategories) || isset($events))
-    <section class="news-home py-5 position-relative">
-        <div class="position-absolute end-0 top-0">
+    <section class="news-home news-mobile py-5 position-relative">
+        <div class="position-absolute end-0 top-0 ball-mobile">
             <svg width="85" height="125" viewBox="0 0 85 125" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_d_3080_1465)">
             <rect x="6.80005" width="115" height="108" fill="url(#pattern0_3080_1465)" shape-rendering="crispEdges"/>
@@ -182,7 +139,7 @@
                         <div class="news mb-4">{{-- border-bottom --}}
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end">
                                 <div class="d-flex flex-column">
-                                    <h2 class="section-title d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">
+                                    <h2 class="d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">
                                         <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
                                         </svg>
@@ -260,7 +217,7 @@
                                 <div class="btn-about d-table m-auto mt-4">
                                     <a href="{{route('client.event')}}" class="background-red montserrat-semiBold font-15 py-2 px-3 rounded-5 text-black">
                                         Todos os eventos
-                                        <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="ms-3 svg" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
                                         </svg>
                                     </a>
@@ -297,10 +254,10 @@
     </section>
 @endif
 
-@if (isset($about) && $about <> null || isset($partners) && $partners->count() > 0)
-    <div class="parallax-section position-relative d-flex align-items-center" style="min-height: 260px; background-image: url('{{ asset('build/client/images/paralax-4.png') }}'); background-attachment: fixed; background-position: center bottom; background-size: cover; background-repeat: no-repeat;">
+@if (isset($about) && $about <> null || isset($topics) && $topics->count() > 0)
+    <div class="parallax-section position-relative d-flex align-items-center" style="background-image: url('{{ asset('build/client/images/paralax-4.png') }}');">
         <!-- Overlay escuro para melhor legibilidade -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.1); z-index: 1;"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.2); z-index: 1;"></div>
         
         <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center">
@@ -313,9 +270,9 @@
                 
                 <!-- Call to Action - Alinhado à direita -->
                 <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end mt-4 mt-lg-0">
-                    <a href="" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-3 rounded-5 col-6 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                    <a href="" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-2 rounded-5 col-5 col-lg-6 py-1 py-lg-2 text-black background-red d-flex justify-content-center align-items-center">
                         Saiba mais
-                        <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="ms-3 svg" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
                         </svg>
                     </a>
@@ -324,7 +281,7 @@
         </div>
     </div>
     <section class="aboutt position-relative">
-        <div class="position-absolute end-0 top-0">
+        <div class="position-absolute end-0 top-0 ball-mobile">
             <svg width="85" height="125" viewBox="0 0 85 125" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g filter="url(#filter0_d_3080_1465)">
             <rect x="6.80005" width="115" height="108" fill="url(#pattern0_3080_1465)" shape-rendering="crispEdges"/>
@@ -348,17 +305,13 @@
             </svg>
         </div>
 
-        {{-- <div class="position-absolute bottom-0 end-0">
-            <img src="{{asset('build/client/images/section-bg-1.png')}}" alt="" style="width: 150px;">
-        </div> --}}
-
         <div class="container">
             @if ($about <> null)                
-                <div id="about-1" class="position-relative d-flex justify-content-between align-items-start about flex-wrap w-100 pb-0" style="padding-top: 80px;">
+                <div id="about-1" class="position-relative d-flex justify-content-center justify-content-lg-between align-items-start about flex-wrap w-100 pb-5" style="padding-top: 80px;">
                     @if ($about->path_image <> null)                        
                         <div class="col-11 col-lg-4 animate-on-scroll mb-3" data-animation="animate__fadeInRight">
                             <div class="mb-0">
-                                <h2 class="section-title text-white d-table w-auto text-uppercase m-0 montserrat-mediun font-14 title-blue">
+                                <h2 class="text-white d-table w-auto text-uppercase m-0 montserrat-mediun font-14 title-blue">
                                     <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"/>
                                     </svg>
@@ -379,13 +332,14 @@
                     @endif
                     <div class="col-12 col-lg-7 animate-on-scroll full" data-animation="animate__fadeInLeft">
                 
-                        <div class="description mt-4 rounded-4">
+                        <div class="description mt-4 rounded-4 px-3 px-lg-4">
                             {!! $about->text !!}
                         </div>
                     </div>                    
                 </div>     
             @endif
         </div>
+
         @if (!empty($directions))
             <!-- Diretoria -->
             <section id="board" class="board container-fluid position-relative px-0 py-5 pt-3">
@@ -397,70 +351,136 @@
                         <button class="d-flex justify-content-start align-items-center gap-2 montserrat-medium font-16 p-2 px-4 border-bottom rounded-2 text-white filter-btn" data-category="comissao">Comissão de iniciantes</button>
                     </div>
                     
-                    <div class="row g-4 my-5" id="directionsContainer">
-                        @foreach ($directions as $direction)
-                            <div class="col-md-3 col-sm-12 direction-item" data-category="{{ $direction->category ?? 'diretoria' }}">
-                                <div class="d-flex flex-column justify-content-start gap-3 align-items-center">
-                                    @if ($direction->path_image <> null)
-                                        <div class="image">
-                                            <img src="{{asset('storage/' . $direction->path_image)}}" loading="lazy" class="rounded-circle h-100" alt="Clayton Ferreira da Silva">
-                                        </div>
-                                        <div class="description d-flex flex-column justify-content-center text-center">
-                                            <h5 class="mb-1 montserrat-semiBold font-18 title-blue text-white">{{$direction->title}}</h5>
-                                            <p class="function montserrat-regular font-15 mb-0">{{$direction->description}}</p>
-                                        </div>
-                                    @else
-                                        <div class="description d-flex flex-column justify-content-center text-center">
-                                            <h5 class="mb-1 montserrat-semiBold font-18 title-blue text-white">{{$direction->title}}</h5>
-                                            <p class="function montserrat-regular font-15 mb-0">{{$direction->description}}</p>
-                                        </div>
-                                    @endif
+                    <div class="swiper" id="directionsSwiper">
+                        <div class="swiper-wrapper py-5" id="directionsContainer">
+                            @foreach ($directions as $direction)
+                                <div class="swiper-slide direction-item"
+                                    data-category="{{ $direction->category ?? 'diretoria' }}">
+                                    <div class="d-flex flex-column justify-content-start gap-3 align-items-center">
+                                        @if ($direction->path_image <> null)
+                                            <div class="image">
+                                                <img src="{{ asset('storage/' . $direction->path_image) }}"
+                                                    loading="lazy"
+                                                    class="rounded-circle h-100"
+                                                    alt="{{ $direction->title }}">
+                                            </div>
+                                            <div class="description d-flex flex-column justify-content-center text-center">
+                                                <h5 class="mb-1 montserrat-semiBold font-18 title-blue text-white">
+                                                    {{ $direction->title }}
+                                                </h5>
+                                                <p class="function montserrat-regular font-15 mb-0 text-center">
+                                                    {{ $direction->description }}
+                                                </p>
+                                            </div>
+                                        @else
+                                            <div class="description d-flex flex-column justify-content-center text-center">
+                                                <h5 class="mb-1 montserrat-semiBold font-18 title-blue text-white">
+                                                    {{ $direction->title }}
+                                                </h5>
+                                                <p class="function montserrat-regular font-15 mb-0 text-center">
+                                                    {{ $direction->description }}
+                                                </p>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> 
                     </div>
                 </div>
             </section>
         @endif
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const filterButtons = document.querySelectorAll('.filter-btn');
-                const directionItems = document.querySelectorAll('.direction-item');
+            document.addEventListener("DOMContentLoaded", function () {
+                const wrapper = document.getElementById("directionsContainer");
+                const filterButtons = document.querySelectorAll(".filter-btn");
                 
-                // Filtrar apenas diretoria por padrão
-                directionItems.forEach(item => {
-                    if (item.getAttribute('data-category') !== 'diretoria') {
-                        item.style.display = 'none';
+                // Guarda uma cópia permanente dos slides
+                const allSlides = [...wrapper.querySelectorAll(".direction-item")];
+                let directionsSwiper = null;
+
+                function createSwiper() {
+                    if (directionsSwiper) {
+                        directionsSwiper.destroy(true, true);
                     }
-                });
-                
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        const category = this.getAttribute('data-category');
-                        
-                        directionItems.forEach(item => {
-                            const itemCategory = item.getAttribute('data-category');
-                            item.style.display = (category === itemCategory) ? 'block' : 'none';
+
+                    directionsSwiper = new Swiper("#directionsSwiper", {
+                        spaceBetween: 20,
+                        slidesPerView: 'auto',
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        grid: {
+                            rows: 4,
+                            fill: 'row'
+                        },
+                        breakpoints: {
+                            0: {
+                                slidesPerView: 2,
+                                grid: {
+                                    rows: 2,
+                                    fill: 'row'
+                                }
+                            },
+                            768: {
+                                slidesPerView: 4,
+                                grid: {
+                                    rows: 4,
+                                    fill: 'row'
+                                }
+                            }
+                        }
+                    });
+                }
+
+                function filterSlides(category) {
+                    // Remove todos os slides atuais
+                    wrapper.innerHTML = '';
+                    
+                    // Adiciona apenas os slides da categoria selecionada
+                    allSlides
+                        .filter(slide => slide.dataset.category === category)
+                        .forEach(slide => {
+                            wrapper.appendChild(slide.cloneNode(true));
                         });
+                    
+                    // Recria o Swiper
+                    createSwiper();
+                }
+
+                // Categoria inicial
+                filterSlides("diretoria");
+
+                // Event listeners dos botões de filtro
+                filterButtons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        filterButtons.forEach(btn => btn.classList.remove("active"));
+                        this.classList.add("active");
+                        filterSlides(this.dataset.category);
                     });
                 });
             });
-        </script>           
+        </script>          
     </section>
 @endif
+<section id="partnes">
+    @include('client.includes.complaint')
+    
+    @include('client.includes.partner')
 
+</section>
 @include('client.includes.social')
 
 <section class="contact-section py-5 bg-white">
     <div class="container">
-        <div id="contact-wrapper" class="contact-wrapper bg-light rounded-4 py-4 px-5 col-lg-8 m-auto">
+        <div id="contact-wrapper" class="contact-wrapper bg-light rounded-4 py-3 py-lg-4 px-3 px-lg-5 col-lg-8 m-auto">
             <div class="row">
                 <div class="d-flex flex-column">
-                    <h2 class="section-title d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">
+                    <h2 class="d-table px-0 p-0 w-auto m-0 montserrat-regular font-14 title-blue text-uppercase rounded-top-left">
                         <svg class="me-2" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.04004 0C3.60676 0 0 3.60676 0 8.04001C0 12.4733 3.60676 16.0801 8.04004 16.0801C12.4733 16.0801 16.08 12.4733 16.08 8.04001C16.08 3.60676 12.4733 0 8.04004 0ZM3.65456 8.77091C3.25091 8.77091 2.92365 8.44371 2.92365 8.04001C2.92365 7.63638 3.25091 7.30913 3.65456 7.30913C4.05822 7.30913 4.38548 7.63638 4.38548 8.04001C4.38548 8.44371 4.05822 8.77091 3.65456 8.77091ZM4.59954 5.63319C4.31409 5.34775 4.31409 4.88498 4.59954 4.59954C4.88498 4.31409 5.34775 4.31409 5.63319 4.59954C5.91864 4.88493 5.91864 5.34775 5.63319 5.63319C5.3478 5.91864 4.88498 5.91864 4.59954 5.63319ZM7.09507 10.0187C6.80962 10.3041 6.34686 10.3041 6.06141 10.0187C5.77596 9.73321 5.77596 9.27041 6.06141 8.98501C6.34686 8.69961 6.80962 8.69961 7.09507 8.98501C7.38046 9.27041 7.38046 9.73331 7.09507 10.0187ZM8.55694 7.09502C8.27144 7.38047 7.80868 7.38047 7.52324 7.09502C7.23779 6.80957 7.23779 6.34681 7.52324 6.06136C7.80868 5.77592 8.27144 5.77592 8.55694 6.06136C8.84224 6.34681 8.84224 6.80962 8.55694 7.09502Z" fill="#3BBA36"></path>
                         </svg>

@@ -41,25 +41,13 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover'
             ],
-            'convenios'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
-            ],
             'contato'=>[
                 'Criar',
                 'Editar',                
                 'Visualizar',
                 'Remover'
             ],
-            'denuncie'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
-            ],
-            'editais'=>[
+            'app-golf'=>[
                 'Criar',
                 'Editar',                
                 'Visualizar',
@@ -69,12 +57,6 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'configurar smtp',
                 'testar conexao smtp'
-            ],
-            'estatuto'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
             ],
             'agenda'=>[
                 'Criar',
@@ -88,19 +70,13 @@ class PermissionsSeeder extends Seeder
                 'Visualizar',
                 'Remover'
             ],
-            'juridico'=>[
+            'documentos'=>[
                 'Criar',
                 'Editar',                
                 'Visualizar',
                 'Remover'
             ],
             'lead contato'=>[
-                'Visualizar',
-                'Remover'
-            ],
-            'municipios'=>[
-                'Criar',
-                'Editar',                
                 'Visualizar',
                 'Remover'
             ],
@@ -120,18 +96,6 @@ class PermissionsSeeder extends Seeder
                 'Notificacao de auditoria',
             ],
             'parceiros'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
-            ],
-            'regionais'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
-            ],
-            'sindicalize-se'=>[
                 'Criar',
                 'Editar',                
                 'Visualizar',
@@ -163,13 +127,7 @@ class PermissionsSeeder extends Seeder
                 'Visualizar outros usuarios',
                 'Atribuir grupos',
                 'Tornar usuario master'
-            ],
-            'videos'=>[
-                'Criar',
-                'Editar',                
-                'Visualizar',
-                'Remover'
-            ],
+            ]
         ];
 
         foreach($permissions as $key => $permission){

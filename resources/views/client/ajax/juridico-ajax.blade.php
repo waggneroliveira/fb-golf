@@ -3,11 +3,11 @@
         <div class="col-12 col-sm-6 col-md-3 box-notices">                        
             <div class="d-flex flex-column justify-content-center align-items-start h-100 border rounded-3 py-4 px-3">
                 <div class="text-center">
-                    <h6 class="mb-2 montserrat-bold font-18 title-blue text-uppercase">{{$juridico->title}}</h6>
+                    <h6 class="mb-2 montserrat-bold font-18 title-blue text-uppercase title-mobile">{{$juridico->title}}</h6>
                     <span class="montserrat-medium font-15 title-blue text-danger">
                         {{ $juridico->date ? \Carbon\Carbon::parse($juridico->date)->format('d/m/Y') : '' }}
                     </span>
-                    <p class="mt-3 text-muted text-color montserrat-regular font-15 title-blue">{{substr(strip_tags($juridico->description), 0, 205)}}</p>
+                    <p class="mt-3 text-muted text-color montserrat-regular text-center font-15 title-blue">{{substr(strip_tags($juridico->description), 0, 205)}}</p>
                 </div>
 
                 <div class="d-flex justify-content-{{ ($juridico->link && $juridico->path_file) ? 'between' : 'center' }} align-items-center w-100">

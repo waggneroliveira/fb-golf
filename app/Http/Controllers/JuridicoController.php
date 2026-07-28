@@ -22,7 +22,7 @@ class JuridicoController extends Controller
         $settingTheme = (new SettingThemeRepository())->settingTheme();
         if(!Auth::user()->hasRole('Super') && 
           !Auth::user()->can('usuario.tornar usuario master') &&
-          !Auth::user()->hasPermissionTo('juridico.visualizar')){
+          !Auth::user()->hasPermissionTo('documentos.visualizar')){
             return view('admin.error.403', compact('settingTheme'));
         }
         $juridicos = Juridico::sorting()->get();

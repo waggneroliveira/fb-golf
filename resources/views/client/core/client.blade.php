@@ -58,10 +58,6 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
     <link rel="preload" href="{{ asset('build/admin/js/libs/sweetalert2/sweetalert2.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="{{ asset('build/admin/js/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css"></noscript>
-    <link rel="preload" href="{{ asset('build/admin/js/libs/dropzone/min/dropzone.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ asset('build/admin/js/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css"></noscript>
-    <link rel="preload" href="{{ asset('build/admin/js/libs/dropify/css/dropify.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ asset('build/admin/js/libs/dropify/css/dropify.min.css') }}" rel="stylesheet" type="text/css"></noscript>
     <link href="{{ asset('build/client/lgpd/style.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('build/client/css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -156,12 +152,12 @@
                 <div class="social-links d-flex justify-content-between col-lg-9 align-items-center gap-4 mb-2 mt-3 text-center">
                     <nav class="none site-navigation ul position-relative text-end width-75">
                         <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">
-                            <li><a href="{{route('index')}}#about-1" class="nav-link montserrat-medium text-center font-16">A Federação</a></li>
-                            <li><a href="" class="nav-link montserrat-medium text-center font-16">Torneios</a></li>
+                            <li><a href="{{route('index')}}#about-1" class="nav-link montserrat-semiBold text-center font-16">A Federação</a></li>
+                            <li><a href="" class="nav-link montserrat-semiBold text-center font-16">Torneios</a></li>
        
                 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-medium text-center font-16" 
+                                <a class="nav-link dropdown-toggle montserrat-semiBold text-center font-16" 
                                 href="{{route('juridico')}}" 
                                 id="juridicoDropdown" 
                                 role="button" 
@@ -176,8 +172,8 @@
                                 </ul>
 
                             </li>
-                            <li><a href="{{route('blog')}}" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
-                            <li><a href="{{route('index')}}#contact-wrapper" class="nav-link montserrat-medium text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
+                            <li><a href="{{route('blog')}}" class="nav-link montserrat-semiBold text-center font-16 {{ request()->routeIs('blog') ? 'active' : '' }} {{ request()->routeIs('blog-inner') ? 'active' : '' }}">Notícias</a></li>
+                            <li><a href="{{route('index')}}#contact-wrapper" class="nav-link montserrat-semiBold text-center font-16 {{ request()->routeIs('contact') ? 'active' : '' }}">Contato</a></li>
                         </ul>                      
                     </nav>                    
                     
@@ -270,11 +266,11 @@
         <div class="row justify-content-center gap-5">
             <nav class="mt-5">
                 <ul class="list-unstyled text-center">
-                    <li><a href="{{route('index')}}" class="nav-link text-white montserrat-regular text-center font-18">Home</a></li>
-                    <li><a href="#" class="nav-link text-white montserrat-regular text-center font-16">Torneios</a></li>                 
-                    <li><a href="{{route('index')}}#about-1" class="nav-link text-white montserrat-regular text-center font-16">A Federação</a></li>
+                    <li><a href="{{route('index')}}" class="nav-link text-white montserrat-semiBold text-center font-18">Home</a></li>
+                    <li><a href="#" class="nav-link text-white montserrat-semiBold text-center font-16">Torneios</a></li>                 
+                    <li><a href="{{route('index')}}#about-1" class="nav-link text-white montserrat-semiBold text-center font-16">A Federação</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white montserrat-regular text-center font-18" 
+                        <a class="nav-link dropdown-toggle text-white montserrat-semiBold text-center font-18" 
                         href="{{route('juridico')}}" 
                         id="juridicoDropdown" 
                         role="button" 
@@ -283,15 +279,14 @@
                             Documentos <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
                         </ul>
 
                     </li>
-                    <li><a href="{{route('blog')}}" class=" text-white nav-link montserrat-regular font-18">Notícias</a></li>
-                    <li><a href="{{route('noticies')}}" class=" text-white nav-link montserrat-regular font-18">Editais</a></li>
-                    <li><a href="{{route('index')}}#contact-wrapper" class=" text-white nav-link montserrat-regular font-18">Contato</a></li>
+                    <li><a href="{{route('blog')}}" class=" text-white nav-link montserrat-semiBold font-18">Notícias</a></li>
+                    <li><a href="{{route('index')}}#contact-wrapper" class=" text-white nav-link montserrat-semiBold font-18">Contato</a></li>
                 </ul>
             </nav>
             <nav class="site-navigation position-relative text-end w-auto redes-sociais">
@@ -372,7 +367,7 @@
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">A Federação</a></li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-3 text-black" 
+                        <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-2 mb-lg-3 text-black" 
                         href="{{route('juridico')}}" 
                         id="juridicoDropdown" 
                         role="button" 
@@ -472,9 +467,6 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('build/admin/js/libs/sweetalert2/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('build/admin/js/libs/dropzone/min/dropzone.min.js') }}"></script>
-    <script src="{{ asset('build/admin/js/libs/dropify/js/dropify.min.js') }}"></script>
-    <script src="{{ asset('build/admin/js/pages/form-fileuploads.init.js') }}"></script>
     <script src="{{ asset('build/client/css/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('build/client/css/typed.js/typed.umd.js') }}"></script>
     <script src="{{ asset('build/client/lgpd/script.js') }}"></script>
