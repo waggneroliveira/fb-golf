@@ -183,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 col-12 text-center">
-                                    <h5 class="text-uppercase text-muted">App CBGolf</h5>
+                                    <h5 class="text-uppercase text-muted">App FBGolf</h5>
                                 </div>
                             </a>
                         </div>

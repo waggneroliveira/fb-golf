@@ -161,9 +161,9 @@ Route::prefix('painel/')->group(function () {
         Route::post('slides/sorting', [SlideController::class, 'sorting'])->name('admin.dashboard.slide.sorting');
 
         //REPORT
-        Route::resource('app-cbgolf', ReportController::class)
+        Route::resource('app-fbgolf', ReportController::class)
         ->names('admin.dashboard.report')
-        ->parameters(['app-cbgolf'=>'report']);
+        ->parameters(['app-fbgolf'=>'report']);
 
         //STATUTE
         Route::resource('estatuto', StatuteController::class)

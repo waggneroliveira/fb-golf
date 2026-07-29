@@ -187,7 +187,7 @@
                                         Auth::user()->hasPermissionTo('app-golf.visualizar'))
                                             <li class="menu-item">
                                                 <a href="{{route('admin.dashboard.report.index')}}" class="menu-link">
-                                                    <span class="menu-text">App CBGolf</span>
+                                                    <span class="menu-text">App FBGolf</span>
                                                 </a>
                                             </li>
                                         @endif
