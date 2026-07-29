@@ -54,9 +54,9 @@
                            \Carbon\Carbon::setLocale('pt_BR');
                            $dataFormatada = \Carbon\Carbon::parse($blogSuperHighlight->date)->translatedFormat('d \d\e F \d\e Y');
                         @endphp
-                        <div class="swiper-slide">
+                        <div class="swiper-slide col-md-12 px-1 px-lg-0 pb-1">
                            <article>
-                              <div class="position-relative overflow-hidden" style="height: 504px;">
+                              <div class="position-relative overflow-hidden h-mobile" style="height: 504px;">
                                  <img class="img-fluid h-100 w-100"
                                  src="{{ $blogSuperHighlight->path_image_thumbnail ? asset('storage/'.$blogSuperHighlight->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
                                  alt="{{ $blogSuperHighlight->path_image_thumbnail ? 'Notícia super destaque' : 'Sem imagem'}}"
@@ -66,10 +66,17 @@
                                     <span class="badge bg-danger montserrat-semiBold font-12 text-uppercase py-2 px-3 rounded-0 mb-2">{{$blogSuperHighlight->category->title}}</span>
 
                                     <a href="{{route('blog-inner', ['slug' => $blogSuperHighlight->slug])}}">
-                                       <h1 class="h2 m-0 text-white  montserrat-bold font-28 d-block">{{$blogSuperHighlight->title}}</h1>
+                                       <h1 class="h2 m-0 text-white  montserrat-bold font-28 d-block" title="{{$blogSuperHighlight->title}}">
+                                          {{ Str::limit($blogSuperHighlight->title, 60) }}
+                                       </h1>
                                     </a>
-                                    <p class="text-white mb-0 montserrat-regular font-15 mt-2">{{ substr(strip_tags($blogSuperHighlight->text), 0, 300)}}</p>
+                                    @php
+                                       $isMobile = preg_match('/Mobile|Android|iPhone|iPad|iPod/i', $_SERVER['HTTP_USER_AGENT']);
+                                       $textLimit = $isMobile ? 60 : 300;
+                                    @endphp
+                                    <div class="text-description mt-2">{!! Str::limit($blogSuperHighlight->text, $textLimit) !!}</div>
                                     <p class="text-white mb-0 montserrat-regular font-15 mt-3">{{$dataFormatada}}</p>
+
                                  </div>
                               </div>
                            </article>
@@ -100,7 +107,9 @@
                                     <span class="badge bg-danger text-uppercase montserrat-semiBold font-12 py-2 px-3 mb-2 rounded-0">{{$blogHighlight->category->title}}</span>
 
                                     <a href="{{route('blog-inner', ['slug' => $blogHighlight->slug])}}">                              
-                                       <h2 class="h6 m-0 text-white montserrat-bold font-16 d-block">{{$blogHighlight->title}}</h2>
+                                       <h2 class="h6 m-0 text-white montserrat-bold font-16 d-block" title="{{$blogHighlight->title}}">
+                                          {{ Str::limit($blogHighlight->title, 60) }}
+                                       </h2>
                                     </a>
                                     <p class="text-white mb-0 montserrat-regular font-12 mt-2">{{substr(strip_tags($blogHighlight->text), 0, 120)}}</p>
                                     <p class="text-white mb-0 montserrat-regular font-12 mt-3">{{$dataFormatada}}</p>
@@ -141,8 +150,8 @@
       </svg>
    </div>
    <!-- News With Sidebar Start -->
-   <div class="container-fluid">
-       <div class="container">
+   <div class="container-fluid news-mobile">
+       <div class="container px-0 px-lg-3">
            <div class="row">
                <div class="col-lg-9 mb-4" data-aos="fade-right" data-aos-delay="100">
                   @if ($blogAll->count())                     
@@ -162,15 +171,15 @@
                            <a href="{{ route('blog') }}#news" class="d-flex justify-content-center align-items-center btn background-red text-black montserrat-medium py-0 font-15" style="height:47.6px;">Limpar buscas</a>
                         @endif
                      </div>
-                     <div class="row">
+                     <div class="row g-2 g-lg-3 px-0">
                         @foreach($blogAll as $blog)   
                               @php
                                  \Carbon\Carbon::setLocale('pt_BR');
                                  $dataFormatada = \Carbon\Carbon::parse($blog->date)->translatedFormat('d \d\e F \d\e Y');
                               @endphp                     
-                              <article class="col-12 col-sm-12 col-md-4">                                 
+                              <article class="col-6 col-sm-12 col-md-4">                                 
                                  <div class="d-flex flex-column align-items-center bg-white mb-3 overflow-hidden position-relative">
-                                    <img loading="lazy" class="img-fluid col-12"
+                                    <img loading="lazy" class="img-fluid col-12 blg"
                                     src="{{ $blog->path_image_thumbnail ? asset('storage/'.$blog->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
                                     alt="{{ $blog->title ? $blog->title : 'Sem imagem'}}"
                                     style="height: 190px;aspect-ratio:1/1;object-fit: cover;">
@@ -179,11 +188,16 @@
                                     </span>
                                     <div class="col-12 h-100 p-3 d-flex flex-column justify-content-center border border-left-0">
                                           <a href="{{ route('blog-inner', $blog->slug) }}" class="underline">
-                                             <h3 class="h6 m-0 montserrat-semiBold font-14 title-blue">
-                                                {{ Str::limit($blog->title, 60) }}
+                                             <h3 class="h6 m-0 montserrat-semiBold font-14 title-blue" title="{{$blog->title}}">
+                                                {{ Str::limit($blog->title, 40) }}
                                              </h3>
                                           </a>
-                                          <div class="blog-text mt-3">{!! Str::limit($blog->text, 160) !!}</div>
+                                          @php
+                                             $isMobile = preg_match('/Mobile|Android|iPhone|iPad|iPod/i', $_SERVER['HTTP_USER_AGENT']);
+                                             $textLimit = $isMobile ? 60 : 120;
+                                          @endphp
+
+                                          <div class="blog-text mt-2 mt-lg-3">{!! Str::limit($blog->text, $textLimit) !!}</div>
                                           <div class="date-blog-home">
                                              <p class="text-color mb-0 montserrat-regular font-12">
                                                 {{ $dataFormatada }}
