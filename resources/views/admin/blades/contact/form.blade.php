@@ -42,11 +42,6 @@
             <h4 class="page-title">Informações das redes sociais</h4>
             <div class="card card-body">
                 <div class="row g-3">
-                    <div class="col-12 col-md-8">
-                        <label for="name_section_social_media" class="form-label">Nome da sessão</label>
-                        <input type="text" name="name_section_social_media" class="form-control" id="name_section_social_media"
-                            value="{{ $contact->name_section_social_media ?? '' }}" placeholder="Nome da sessão">
-                    </div>
                     <div class="col-12 col-md-2">
                         <label for="mention" class="form-label">Menção</label>
                         <input type="text" name="mention" class="form-control" id="mention"
@@ -58,23 +53,23 @@
                             value="{{ $contact->whatsapp ?? '' }}" placeholder="Whatsapp">
                     </div>
 
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
                         <label for="link_insta" class="form-label">Link Instagram</label>
                         <input type="text" name="link_insta" class="form-control" id="link_insta"
                             value="{{ $contact->link_insta ?? '' }}" placeholder="Link Instagram">
                     </div>
-                    <div class="col-12 col-md-6">
-                        <label for="link_x" class="form-label">Link X</label>
+                    <div class="col-12 col-md-4">
+                        <label for="link_x" class="form-label">E-mail</label>
                         <input type="text" name="link_x" class="form-control" id="link_x"
-                            value="{{ $contact->link_x ?? '' }}" placeholder="Link X">
+                            value="{{ $contact->link_x ?? '' }}" placeholder="E-mail">
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <label for="link_youtube" class="form-label">Link Youtube</label>
+                    <div class="col-12 col-md-4">
+                        <label for="link_youtube" class="form-label">Ouvidoria</label>
                         <input type="text" name="link_youtube" class="form-control" id="link_youtube"
-                            value="{{ $contact->link_youtube ?? '' }}" placeholder="Link Youtube">
+                            value="{{ $contact->link_youtube ?? '' }}" placeholder="Link ouvidoria">
                     </div>
-                    <div class="col-12 col-md-6">
+                    {{-- <div class="col-12 col-md-6">
                         <label for="link_face" class="form-label">Link Facebook</label>
                         <input type="text" name="link_face" class="form-control" id="link_face"
                             value="{{ $contact->link_face ?? '' }}" placeholder="Link Facebook">
@@ -84,42 +79,16 @@
                         <label for="link_tik_tok" class="form-label">Link Tik Tok</label>
                         <input type="text" name="link_tik_tok" class="form-control" id="link_tik_tok"
                             value="{{ $contact->link_tik_tok ?? '' }}" placeholder="Link Tik Tok">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- Filiais --}}
-        <div class="col-12 mb-4">
-            <h4 class="page-title">Informações das Filiais</h4>
-            <div class="row g-4">
-                @foreach (['one', 'two', 'three'] as $i)
-                    <div class="col-12 col-lg-4">
+                    </div> --}}
+                    <div class="col-12">
                         <div class="card card-body h-100">
-                            <div class="mb-3">
-                                <label for="name_{{ $i }}" class="form-label">Nome da filial {{ $i }}</label>
-                                <input type="text" name="name_{{ $i }}" class="form-control" id="name_{{ $i }}"
-                                    value="{{ $contact->{'name_'.$i} ?? '' }}" placeholder="Título">
-                            </div>
-                            <div class="row g-3 mb-3">
-                                <div class="col-12 col-md-7">
-                                    <label for="opening_hours_{{ $i }}" class="form-label">Horário de funcionamento</label>
-                                    <input type="text" name="opening_hours_{{ $i }}" class="form-control" id="opening_hours_{{ $i }}"
-                                        value="{{ $contact->{'opening_hours_'.$i} ?? '' }}" placeholder="Horário">
-                                </div>
-                                <div class="col-12 col-md-5">
-                                    <label for="phone_{{ $i }}" class="form-label">Telefone</label>
-                                    <input type="text" name="phone_{{ $i }}" class="form-control" id="phone_{{ $i }}"
-                                        value="{{ $contact->{'phone_'.$i} ?? '' }}" placeholder="Telefone">
-                                </div>
-                            </div>
                             <div>
-                                <label for="address_{{ $i }}" class="form-label">Endereço</label>
-                                <textarea name="address_{{ $i }}" id="address_{{ $i }}" placeholder="Texto" class="form-control ckeditor" rows="5">{!! $contact->{'address_'.$i} ?? '' !!}</textarea>
+                                <label for="address_one" class="form-label">Endereço</label>
+                                <textarea name="address_one" id="address_one" placeholder="Texto" class="form-control ckeditor" rows="5">{!! $contact->address_one ?? '' !!}</textarea>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     </div>

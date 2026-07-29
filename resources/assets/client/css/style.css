@@ -1574,7 +1574,6 @@ header.active .site-navigation.ul li a{
 /* Estilização dos cards de tópicos */
 .partner-card {
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .hero .swiper-slide {

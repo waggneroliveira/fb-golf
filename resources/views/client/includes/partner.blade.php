@@ -14,7 +14,7 @@
         <div class="row g-3 mt-5 justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">
             @foreach ($partners as $partner)                            
                 <div class="col d-flex justify-content-center">
-                    <div class="partner-card border rounded-2 d-flex justify-content-center align-items-center py-2 px-4 w-100">
+                    <div class="partner-card border rounded-2 d-flex justify-content-center align-items-center py-2 px-4 w-100 {{ $partner->link ? 'cursor-pointer' : 'cursor-default' }}">
                         @if ($partner->link <> null)                                        
                             <a href="{{$partner->link}}" target="_blank" rel="noopener noreferrer" class="d-flex flex-column justify-content-center align-items-center w-100">
                                 <img src="{{ asset('storage/' . $partner->path_image) }}" 

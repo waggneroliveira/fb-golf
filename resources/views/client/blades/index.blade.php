@@ -191,7 +191,7 @@
                             <div class="bg-white p-3 px-0">      
                                 @foreach($events as $event)                        
                                     <article>
-                                        <div class="d-flex flex-column align-items-center mb-0 overflow-hidden">
+                                        <div class="d-flex flex-column align-items-center mb-3 overflow-hidden">
                                             <div class="date col-6 h-100 d-flex justify-content-center align-items-center border border-right-1 bg-danger">
                                                 <span class="montserrat-medium w-100 h-50 d-flex justify-content-center align-items-center font-16 title-blue text-white" style="border-right: 1px solid #FFF;">
                                                     {{ \Carbon\Carbon::parse($event->date)->format('d') }}
@@ -495,7 +495,7 @@
                         <div class="col-md-4">
                             <div class="contact-item d-flex flex-column montserrat-semiBold font-18 mb-2 title-blue">
                                 <small>Telefone | WhatsApp</small>
-                                <a href="#" class="montserrat-medium font-15 mt-2">
+                                <a href="#" target=_blank rel="noopener noreferrer" class="montserrat-medium font-15 mt-2">
                                     <i class="fa-brands fa-whatsapp"></i>
                                     {{$contact->whatsapp}}
                                 </a>
@@ -504,7 +504,7 @@
                         <div class="col-md-4">
                             <div class="contact-item d-flex flex-column montserrat-semiBold font-18 mb-2 title-blue">
                                 <small>Ouvidoria</small>
-                                <a href="#"  class="montserrat-medium font-15 mt-2">
+                                <a href="{{$contact->link_youtube}}" target=_blank rel="noopener noreferrer" class="montserrat-medium font-15 mt-2">
                                     <i class="fa-solid fa-link"></i>
                                     Clique aqui
                                 </a>
@@ -513,7 +513,7 @@
                         <div class="col-md-4">
                             <div class="contact-item d-flex flex-column montserrat-semiBold font-18 mb-2 title-blue">
                                 <small>E-mail</small>
-                                <a href="mailto:{{$contact->link_x}}"  class="montserrat-medium font-15 mt-2">
+                                <a href="mailto:{{$contact->link_x}}" target=_blank rel="noopener noreferrer" class="montserrat-medium font-15 mt-2">
                                     <i class="fa-regular fa-envelope"></i>
                                     {{$contact->link_x}}
                                 </a>
