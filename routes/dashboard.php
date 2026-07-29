@@ -132,14 +132,7 @@ Route::prefix('painel/')->group(function () {
         ->name('admin.dashboard.announcement.destroySelected');
         Route::post('anuncio/sorting', [AnnouncementController::class, 'sorting'])
         ->name('admin.dashboard.announcement.sorting');
-        //NOTICIES
-        Route::resource('editais', NoticiesController::class)
-        ->parameters(['editais' => 'noticies'])
-        ->names('admin.dashboard.noticies');
-        Route::post('editais/delete', [NoticiesController::class, 'destroySelected'])
-        ->name('admin.dashboard.noticies.destroySelected');
-        Route::post('editais/sorting', [NoticiesController::class, 'sorting'])
-        ->name('admin.dashboard.noticies.sorting');
+
         //BLOG
         Route::resource('blog', BlogController::class)
         ->parameters(['blog' => 'blog'])
@@ -158,22 +151,7 @@ Route::prefix('painel/')->group(function () {
         ->name('admin.dashboard.blogCategory.destroySelected');
         Route::post('categoria-do-blog/sorting', [BlogCategoryController::class, 'sorting'])
         ->name('admin.dashboard.blogCategory.sorting');
-        //REGIONAIS
-        Route::resource('regionais', RegionalController::class)
-        ->parameters(['regionais' => 'regional'])
-        ->names('admin.dashboard.regional');
-        Route::post('regionais/delete', [RegionalController::class, 'destroySelected'])
-        ->name('admin.dashboard.regional.destroySelected');
-        Route::post('regionais/sorting', [RegionalController::class, 'sorting'])
-        ->name('admin.dashboard.regional.sorting');
-        //MUNICIPALITY
-        Route::resource('municipios', MunicipalityController::class)
-        ->parameters(['municipios' => 'municipality'])
-        ->names('admin.dashboard.municipality');
-        Route::post('municipios/delete', [MunicipalityController::class, 'destroySelected'])
-        ->name('admin.dashboard.municipality.destroySelected');
-        Route::post('municipios/sorting', [MunicipalityController::class, 'sorting'])
-        ->name('admin.dashboard.municipality.sorting');
+
         //SLIDES
         Route::resource('slides', SlideController::class)
         ->names('admin.dashboard.slide')
@@ -181,30 +159,17 @@ Route::prefix('painel/')->group(function () {
         Route::post('slides/delete', [SlideController::class, 'destroySelected'])
         ->name('admin.dashboard.slide.destroySelected');
         Route::post('slides/sorting', [SlideController::class, 'sorting'])->name('admin.dashboard.slide.sorting');
-        //UNIONIZED
-        Route::resource('sindicalize-se', UnionizedController::class)
-        ->names('admin.dashboard.unionized')
-        ->parameters(['sindicalize-se'=>'unionized']);
+
         //REPORT
-        Route::resource('denuncie', ReportController::class)
+        Route::resource('app-cbgolf', ReportController::class)
         ->names('admin.dashboard.report')
-        ->parameters(['denuncie'=>'report']);
-        //Agreement
-        Route::resource('convenios', AgreementController::class)
-        ->names('admin.dashboard.agreement')
-        ->parameters(['convenios'=>'agreement']);
+        ->parameters(['app-cbgolf'=>'report']);
+
         //STATUTE
         Route::resource('estatuto', StatuteController::class)
         ->names('admin.dashboard.statute')
         ->parameters(['estatuto'=>'statute']);
-        //BENEFITTOPIC
-        Route::resource('beneficios', BenefitTopicController::class)
-        ->names('admin.dashboard.benefitTopic')
-        ->parameters(['beneficios'=>'benefitTopic']);
-        Route::post('beneficios/delete', [BenefitTopicController::class, 'destroySelected'])
-        ->name('admin.dashboard.benefitTopic.destroySelected');
-        Route::post('beneficios/sorting', [BenefitTopicController::class, 'sorting'])
-        ->name('admin.dashboard.benefitTopic.sorting');
+
         //PARTNER
         Route::resource('parceiros', PartnerController::class)
         ->names('admin.dashboard.partner')
@@ -214,12 +179,12 @@ Route::prefix('painel/')->group(function () {
         Route::post('parceiros/sorting', [PartnerController::class, 'sorting'])
         ->name('admin.dashboard.partner.sorting');
         //JURIDICO
-        Route::resource('juridico', JuridicoController::class)
+        Route::resource('documentos', JuridicoController::class)
         ->names('admin.dashboard.juridico')
-        ->parameters(['juridico'=>'juridico']);
-        Route::post('juridico/delete', [JuridicoController::class, 'destroySelected'])
+        ->parameters(['documentos'=>'juridico']);
+        Route::post('documentos/delete', [JuridicoController::class, 'destroySelected'])
         ->name('admin.dashboard.juridico.destroySelected');
-        Route::post('juridico/sorting', [JuridicoController::class, 'sorting'])
+        Route::post('documentos/sorting', [JuridicoController::class, 'sorting'])
         ->name('admin.dashboard.juridico.sorting');
         //DIRECTION
         Route::resource('a-direcao', DirectionController::class)
@@ -229,14 +194,7 @@ Route::prefix('painel/')->group(function () {
         ->name('admin.dashboard.direction.destroySelected');
         Route::post('a-direcao/sorting', [DirectionController::class, 'sorting'])
         ->name('admin.dashboard.direction.sorting');
-        //VIDEO
-        Route::resource('videos', VideoController::class)
-        ->names('admin.dashboard.video')
-        ->parameters(['videos'=>'video']);
-        Route::post('videos/delete', [VideoController::class, 'destroySelected'])
-        ->name('admin.dashboard.video.destroySelected');
-        Route::post('videos/sorting', [VideoController::class, 'sorting'])
-        ->name('admin.dashboard.video.sorting');
+
         //ABOUT
         Route::resource('sobre', AboutController::class)
         ->names('admin.dashboard.about')

@@ -173,7 +173,6 @@
                         @endif
                         @if (Auth::user()->hasRole('Super') || 
                         Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
-                        Auth::user()->hasPermissionTo('beneficios.visualizar') || 
                         Auth::user()->hasPermissionTo('app-golf.visualizar'))
                             <li class="menu-item">
                                 <a href="#servicos" data-bs-toggle="collapse" class="menu-link">
@@ -183,15 +182,6 @@
                                 </a>
                                 <div class="collapse" id="servicos">
                                     <ul class="sub-menu">
-                                        @if (Auth::user()->hasRole('Super') || 
-                                        Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
-                                        Auth::user()->hasPermissionTo('beneficios.visualizar'))
-                                            <li class="menu-item">
-                                                <a href="{{route('admin.dashboard.benefitTopic.index')}}" class="menu-link">
-                                                    <span class="menu-text">Benefícios</span>
-                                                </a>
-                                            </li>
-                                        @endif
                                         @if (Auth::user()->hasRole('Super') || 
                                         Auth::user()->hasPermissionTo('usuario.tornar usuario master') ||
                                         Auth::user()->hasPermissionTo('app-golf.visualizar'))
