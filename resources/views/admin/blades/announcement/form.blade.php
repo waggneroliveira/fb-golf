@@ -11,13 +11,13 @@
     
         <select name="exhibition" class="form-select" id="exhibition" required>
             <option value="" disabled selected>Selecione o tipo</option>
-            <option value="mobile" {{ 'mobile' == $currentExhibition ? 'selected' : '' }}>
+            {{-- <option value="mobile" {{ 'mobile' == $currentExhibition ? 'selected' : '' }}>
                 Anuncio Horizontal Mobile (versão para celular)
             </option>
             <option value="horizontal" {{ 'horizontal' == $currentExhibition ? 'selected' : '' }} data-subtext="versão para computador">
                 
                 Anuncio Horizontal Desktop (versão para computador)
-            </option>
+            </option> --}}
             <option value="vertical" {{ 'vertical' == $currentExhibition ? 'selected' : '' }}>
                 Anuncio Vertical
             </option>
@@ -25,8 +25,8 @@
         <div class="instructions">
             <h5>Resoluções recomendadas:</h5>
             <ol>
-                <li>Versão para computador - <b class="text-danger">1137x171px</b></li>
-                <li>Versão para celular - <b class="text-danger">576x111px</b></li>
+                {{-- <li>Versão para computador - <b class="text-danger">1137x171px</b></li>
+                <li>Versão para celular - <b class="text-danger">576x111px</b></li> --}}
                 <li>Versão vertical - <b class="text-danger">355x433px</b></li>
             </ol>
         </div>
