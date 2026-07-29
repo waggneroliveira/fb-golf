@@ -1056,7 +1056,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     transform: scale(1.3);
 }
 .topix-fixed{
-    bottom: 30px; z-index: 10; left: 0; pointer-events: none;
+    bottom: 0px; z-index: 10; left: 0; pointer-events: none;
 }
 .regional input::placeholder{
     font-size: 0.938rem;
@@ -1078,7 +1078,7 @@ body .uwy.userway_p1 .userway_buttons_wrapper {
     aspect-ratio:1/1;
  }
  .partner-card{
-    max-height: 110px;
+    max-height: 150px;
     aspect-ratio: 1.91 / 1;
  }
  .partner .container p, .benefit a, .row-down p{
@@ -1536,6 +1536,7 @@ header.active .site-navigation.ul li a{
 .box-topic {
     pointer-events: auto;
     padding-top: 25px;
+    padding-bottom: 25px;
     position: relative;
 }
 
@@ -1611,14 +1612,9 @@ header.active .site-navigation.ul li a{
         left: 20px;
     }
     .partner-card {
-        min-height: 70px;
         padding: 10px !important;
     }
-    
-    .partner-card img {
-        max-height: 90px !important;
-    }
-    
+        
     .row.g-2 {
         --bs-gutter-y: 0.5rem;
         --bs-gutter-x: 0.5rem;
@@ -1645,7 +1641,7 @@ header.active .site-navigation.ul li a{
         font-size: 0.75rem !important;
     }
     .topix-fixed{
-        bottom: 40px;
+        bottom: 70px;
     }
     .parallax-section{
         height: 180px;
@@ -1665,7 +1661,6 @@ header.active .site-navigation.ul li a{
         margin-top: 0
      }
     .partner-card {
-        min-height: 60px;
         padding: 8px !important;
     }
     

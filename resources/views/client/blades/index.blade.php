@@ -55,7 +55,7 @@
                                 @if (isset($topic->link) && $topic->link <> null)                            
                                     <a href="{{$topic->link}}" class="position-absolute top-0 left-0 w-100 h-100" rel="noopener noreferrer" style="z-index: 2;"></a>
                                 @endif
-                                <div class="partner-card w-100">
+                                <div class="partner-card-topic w-100">
                                     <div class="d-flex justify-content-start align-items-center gap-3">
                                         @if ($topic->path_image <> null)                                
                                             <img src="{{ asset('storage/' . $topic->path_image) }}" 

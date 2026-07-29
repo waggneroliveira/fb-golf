@@ -16,17 +16,19 @@
                 <div class="col d-flex justify-content-center">
                     <div class="partner-card border rounded-2 d-flex justify-content-center align-items-center py-2 px-4 w-100">
                         @if ($partner->link <> null)                                        
-                            <a href="{{$partner->link}}" target="_blank" rel="noopener noreferrer">
+                            <a href="{{$partner->link}}" target="_blank" rel="noopener noreferrer" class="d-flex flex-column justify-content-center align-items-center w-100">
                                 <img src="{{ asset('storage/' . $partner->path_image) }}" 
                                     alt="Logo do parceiro" 
                                     class="img-fluid" 
-                                    loading="lazy"/ style="max-width: 100px;">                            
+                                    loading="lazy" style="max-height: 90px;">
+                                    
+                                    <p class="background-red rounded-5 px-3 py-1 mt-1 mb-0 montserrat-semiBold font-12 title-blue text-black">Ver benefícios</p>
                             </a>
                             @else
                             <img src="{{ asset('storage/' . $partner->path_image) }}" 
                             alt="Logo do parceiro" 
                             class="img-fluid" 
-                            loading="lazy"/ style="max-width: 100px;">  
+                            loading="lazy" style="max-height: 90px;">  
                         @endif
                     </div>
                 </div>
