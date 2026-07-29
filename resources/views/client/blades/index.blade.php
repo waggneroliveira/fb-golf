@@ -191,7 +191,7 @@
                             <div class="bg-white p-3 px-0">      
                                 @foreach($events as $event)                        
                                     <article>
-                                        <div class="d-flex flex-column align-items-center mb-3 overflow-hidden">
+                                        <div class="d-flex flex-column align-items-center mb-0 overflow-hidden">
                                             <div class="date col-6 h-100 d-flex justify-content-center align-items-center border border-right-1 bg-danger">
                                                 <span class="montserrat-medium w-100 h-50 d-flex justify-content-center align-items-center font-16 title-blue text-white" style="border-right: 1px solid #FFF;">
                                                     {{ \Carbon\Carbon::parse($event->date)->format('d') }}

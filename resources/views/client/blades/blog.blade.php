@@ -178,7 +178,7 @@
                                  $dataFormatada = \Carbon\Carbon::parse($blog->date)->translatedFormat('d \d\e F \d\e Y');
                               @endphp                     
                               <article class="col-6 col-sm-12 col-md-4">                                 
-                                 <div class="d-flex flex-column align-items-center bg-white mb-3 overflow-hidden position-relative">
+                                 <div class="d-flex flex-column align-items-center bg-white mb-0 overflow-hidden position-relative">
                                     <img loading="lazy" class="img-fluid col-12 blg"
                                     src="{{ $blog->path_image_thumbnail ? asset('storage/'.$blog->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
                                     alt="{{ $blog->title ? $blog->title : 'Sem imagem'}}"

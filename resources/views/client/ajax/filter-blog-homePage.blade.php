@@ -6,7 +6,7 @@
                 $dataFormatada = \Carbon\Carbon::parse($news->date)->translatedFormat('d \d\e F \d\e Y');
             @endphp
             <article class="col-6 col-sm-12 col-md-4">
-                <div class="d-flex flex-column align-items-center bg-white mb-3 overflow-hidden position-relative h-auto">
+                <div class="d-flex flex-column align-items-center bg-white mb-0 overflow-hidden position-relative h-auto">
                     <img loading="lazy" class="img-fluid col-12 blg"
                     src="{{ $news->path_image_thumbnail ? asset('storage/' . $news->path_image_thumbnail) : 'https://placehold.co/600x400?text=Sem+imagem&font=montserrat' }}"
                     alt="{{ $news->title }}"

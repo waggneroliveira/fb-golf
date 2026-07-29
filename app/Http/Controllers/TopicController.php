@@ -27,14 +27,7 @@ class TopicController extends Controller
             return view('admin.error.403', compact('settingTheme'));
         }
 
-        $topics = Topic::select(
-            'id',
-            'title',
-            'active',
-            'color',
-            'sorting',
-            'path_image',
-        )->sorting()->get();
+        $topics = Topic::sorting()->get();
 
         return view('admin.blades.topic.index', compact('topics'));
     }
