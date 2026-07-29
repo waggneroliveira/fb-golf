@@ -131,71 +131,6 @@
                         </article>                        
                     </div>
                     <!-- News Detail End -->
-
-                    <!-- Comment Form Start -->
-                    <div class="mb-0 mt-5 d-none">
-                        <div class="section-title mb-0 rounded-top-left">
-                            <h4 class="m-0 text-uppercase montserrat-bold font-25 title-blue">Deixe um comentário</h4>
-                        </div>
-                        <div class="bg-white border border-top-0 p-4">
-                            <form id="commentForm">
-                                @csrf
-                                <input type="hidden" name="blog_id" value="{{ $blogInner->id }}">
-
-                                <div class="mb-3">
-                                    <label for="message">Mensagem *</label>
-                                    <textarea id="message" name="comment" required cols="30" rows="5" class="form-control montserrat-regular font-15"></textarea>
-                                </div>
-                                                                
-                                <div class="mb-0">
-                                    <button type="submit" class="btn background-red rounded-3 montserrat-medium text-white font-15">Comentar</button>
-                                </div>
-                            </form>
-                            <div id="commentMessage" class="mt-3 montserrat-regular font-15"></div>
-                        </div>
-                    </div>
-                    <!-- Comment Form End -->
-
-                    <!-- Comment List Start -->
-                    @if (isset($blogInner->comments) && $blogInner->comments->count() > 0)                        
-                        <div class="mb-3 mt-3 comments d-none">
-                            <div class="section-title mb-0 title-blue rounded-top-left">
-                                <h4 class="m-0 text-uppercase montserrat-bold font-25 title-blue">{{$blogInner->comments->count()}} Comentários</h4>
-                            </div>
-                            <div class="bg-white border border-top-0 p-4 comment-scroll">
-                                @foreach ($blogInner->comments as $comment)
-                                    @php
-                                        \Carbon\Carbon::setLocale('pt_BR');
-                                        $dataFormatada = \Carbon\Carbon::parse($comment->date)->translatedFormat('d \d\e F \d\e Y');
-                                        $client = $comment->client;
-                                    @endphp
-
-                                    @if ($client)
-                                        <div class="d-flex gap-2 flex-column mb-4">
-                                            <div class="d-flex mb-0 gap-3">
-                                                <img src="{{ $client->path_image_thumbnail ? url($client->path_image_thumbnail) : asset('build/client/images/user.jpg') }}"
-                                                    alt="Imagem do cliente"
-                                                    class="img-fluid mr-3 mt-1 rounded-circle"
-                                                    style="width: 50px; height: 50px; object-fit: cover;">
-                                                <div class="d-flex flex-column col-10 comment">
-                                                    <h6 class="title-blue montserrat-bold font-15 mb-0">{{ $client->name }}</h6>
-                                                    <small class="title-blue mb-0 montserrat-regular font-12">
-                                                        {{ $dataFormatada }}
-                                                    </small>
-                                                    <div class="w-100 mt-3">
-                                                        <div class="comment-text">
-                                                            {!! $comment->comment !!}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    @endif
-                    <!-- Comment List End -->
                 </div>                
 
                 <div class="col-lg-3" data-aos=fade-left data-aos-delay=150>
@@ -346,7 +281,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ route('blog.comment') }}",
+                url: "#",
                 method: "POST",
                 data: formData,
                 success: function (response) {
