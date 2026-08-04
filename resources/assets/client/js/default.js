@@ -108,25 +108,48 @@
             e.innerHTML = "\n              \n          ", document.head.appendChild(e), "undefined" != typeof AOS && AOS.refresh && AOS.refresh()
         }
     }
-    document.addEventListener("DOMContentLoaded", l), window.addEventListener("resize", l),
-        document.addEventListener("DOMContentLoaded", (function() {
-            document.querySelectorAll('a[href^="#"]').forEach((function(e) {
-                e.addEventListener("click", (function(e) {
-                    e.preventDefault();
-                    let t = this.getAttribute("href");
-                    if (t.length > 1) {
-                        let e = document.querySelector(t);
-                        e && window.scrollTo({
-                            top: e.offsetTop,
-                            behavior: "smooth"
-                        })
-                    } else window.scrollTo({
-                        top: 0,
+    document.addEventListener("DOMContentLoaded", l), window.addEventListener("resize", l);
+
+    // ============================================
+    // LINKS ÂNCORA OTIMIZADO (SUBSTITUÍDO)
+    // ============================================
+    document.addEventListener("DOMContentLoaded", (function() {
+        document.querySelectorAll('a[href^="#"]').forEach((function(link) {
+            link.addEventListener("click", (function(e) {
+                const href = this.getAttribute("href");
+                
+                // Ignora se for apenas "#" ou vazio
+                if (!href || href === "#" || href === "#!") {
+                    return;
+                }
+                
+                // Ignora links de dropdown do Bootstrap
+                if (this.closest('.dropdown')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: "smooth"
-                    })
-                }))
-            }))
-        }))
+                    });
+                    
+                    // Fecha menu mobile se estiver aberto
+                    const menuMobile = document.getElementById("menu-mobile");
+                    if (menuMobile && menuMobile.classList.contains("active")) {
+                        menuMobile.classList.remove("active");
+                        document.body.style.overflow = "";
+                    }
+                }
+            }));
+        }));
+    }));
 
     document.addEventListener('DOMContentLoaded', function() {
         const swiperAnuncio = new Swiper('.announcement-mobile', {
@@ -175,40 +198,96 @@
         });
     }
 
-    //Menu mobile
-    const s = document.getElementById("menu-toggle"),
-        a = document.getElementById("menu-mobile"),
-        c = document.getElementById("menu-close"),
-        d = document.querySelector(".btn_sidebar"); // botão do menu inferior
+    // ============================================
+    // MENU MOBILE OTIMIZADO
+    // ============================================
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuMobile = document.getElementById("menu-mobile");
+    const menuClose = document.getElementById("menu-close");
+    const btnSidebar = document.querySelector(".btn_sidebar");
 
-    s.addEventListener("click", function () {
-        const e = a.classList.toggle("active");
-        document.body.style.overflow = e ? "hidden" : "";
-    });
+    // Função centralizada para controlar o menu
+    function toggleMenu(show) {
+        if (show === undefined) {
+            menuMobile.classList.toggle("active");
+        } else if (show) {
+            menuMobile.classList.add("active");
+        } else {
+            menuMobile.classList.remove("active");
+        }
+        
+        // Controla a rolagem
+        document.body.style.overflow = menuMobile.classList.contains("active") ? "hidden" : "";
+    }
 
-    c.addEventListener("click", function () {
-        a.classList.remove("active");
-        document.body.style.overflow = "";
-    });
-
-    d.addEventListener("click", function () {
-        const e = a.classList.toggle("active");
-        document.body.style.overflow = e ? "hidden" : "";
-    });
-
-    a.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function(e) {
-            const href = this.getAttribute("href");
-            if (href && href.startsWith("#")) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: "smooth" });
-                }
-                a.classList.remove("active");
-                document.body.style.overflow = "";
-            }
+    // Abrir menu
+    if (menuToggle) {
+        menuToggle.addEventListener("click", function(e) {
+            e.stopPropagation();
+            toggleMenu();
         });
+    }
+
+    // Fechar menu
+    if (menuClose) {
+        menuClose.addEventListener("click", function(e) {
+            e.stopPropagation();
+            toggleMenu(false);
+        });
+    }
+
+    // Botão sidebar
+    if (btnSidebar) {
+        btnSidebar.addEventListener("click", function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
+
+    // Fechar menu ao clicar em links internos
+    if (menuMobile) {
+        menuMobile.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function(e) {
+                const href = this.getAttribute("href");
+                
+                // Se for âncora, fecha o menu e rola suavemente
+                if (href && href.startsWith("#") && href.length > 1) {
+                    // Não previne o default aqui, deixa o link âncora tratar
+                    toggleMenu(false);
+                } else if (href && !href.startsWith("#")) {
+                    // Se for link externo, apenas fecha o menu
+                    toggleMenu(false);
+                }
+            });
+        });
+    }
+
+    // Fechar menu ao clicar fora
+    document.addEventListener("click", function(e) {
+        if (menuMobile && menuMobile.classList.contains("active")) {
+            const isClickInside = menuMobile.contains(e.target) || 
+                                 (menuToggle && menuToggle.contains(e.target)) ||
+                                 (btnSidebar && btnSidebar.contains(e.target));
+            
+            if (!isClickInside) {
+                toggleMenu(false);
+            }
+        }
+    });
+
+    // Impede que o clique no dropdown feche o menu mobile
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    // Garante que a rolagem esteja liberada ao carregar
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.style.overflow = "";
+        if (menuMobile && menuMobile.classList.contains('active')) {
+            menuMobile.classList.remove('active');
+        }
     });
 
     //Mascara de telefone
@@ -352,7 +431,7 @@
             utterance.voice = voices.find(v => v.name === 'Google português do Brasil') || voices[0];
             utterance.lang = 'pt-BR';
             utterance.rate = rate; 
-            utterance.volume = volume; // aplica volume
+            utterance.volume = volume;
 
             utterance.onend = function() {
                 currentBlockIndex++;
