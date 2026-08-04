@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#0d0d0d">
-    <meta name="description" content="O CB Golf é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.">
-    <meta name="keywords" content="CB Golf, Sindicato Bahia, agentes comunitários de saúde, agentes de combate às endemias, ACS Bahia, ACE Bahia, sindicato ACS ACE, saúde pública Bahia, trabalhadores da saúde Bahia, direitos dos agentes de saúde, sindicato saúde Bahia, categoria ACS ACE, luta sindical Bahia, representação sindical saúde, agentes comunitários Bahia, agentes endemias Bahia, sindicato dos agentes Bahia">
-    <meta name="google-site-verification" content="-bUd4PZJ-3xvnf7cOkcmNLV7jzTk5106hfB0mPtvhqE" />
-    <title>CB Golf</title>
+    <meta name="description" content="FB Golfe é referência em golfe, com informações, torneios, aulas, eventos e tudo sobre o esporte. Conheça nossos serviços e faça parte desse universo">
+    <meta name="keywords" content="FB Golfe, golfe, golf, clube de golfe, campo de golfe, aulas de golfe, escola de golfe, torneios de golfe, campeonato de golfe, prática de golfe, esporte golfe, golfista, equipamentos de golfe, acessórios para golfe, treinamento de golfe, instrutor de golfe, eventos de golfe, golfe na Bahia, golfe no Brasil, FB Golfe Bahia">
+    <title>FB Golfe</title>
     @if(isset($blogInner))
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="article">
@@ -26,14 +25,14 @@
     @else
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="CB Golf - Sindicato dos ACS e ACE da Bahia">
-        <meta property="og:description" content="O CB Golf representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
+        <meta property="og:title" content="FB Golfe - Clube e Experiências em Golfe">
+        <meta property="og:description" content="Conheça a FB Golfe, referência em golfe com aulas, eventos, torneios e experiências para jogadores de todos os níveis.">
         <meta property="og:image" content="{{asset('build/client/images/compartilhamento.png')}}">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content="{{ url()->current() }}">
-        <meta name="twitter:title" content="CB Golf - Sindicato dos ACS e ACE da Bahia">
-        <meta name="twitter:description" content="O CB Golf representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos e valorização.">
+        <meta name="twitter:title" content="FB Golfe - Clube e Experiências em Golfe">
+        <meta name="twitter:description" content="Conheça a FB Golfe, referência em golfe com aulas, eventos, torneios e experiências para jogadores de todos os níveis.">
         <meta name="twitter:image" content="{{asset('build/client/images/compartilhamento.png')}}">
     @endif
 
@@ -41,7 +40,7 @@
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="copyright" content="Direitos reservados WHI">
     <meta name="author" content="WHI">
-    <link rel="shortcut icon" href="https://www.sindacsba.org.br/assets/images/favicon.svg">
+    <link rel="shortcut icon" href="{{asset('build/client/images/favicon.png')}}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
@@ -71,36 +70,32 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "@id": "https://www.sindacsba.org.br/#organization",
-            "name": "CB Golf",
+            "@id": "https://fbgolfe.com.br/#organization",
+            "name": "FB Golfe",
             "legalName": "Sindicato de agentes comunitários de saúde e agentes de combate as endemias da Bahia.",
-            "url": "https://www.sindacsba.org.br",
-            "logo": "https://www.sindacsba.org.br/assets/images/logo.png",
-            "image": "https://www.sindacsba.org.br/assets/images/logo.png",
-            "description": "O CB Golf é o sindicato que representa os Agentes Comunitários de Saúde (ACS) e Agentes de Combate às Endemias (ACE) da Bahia, lutando por direitos, valorização profissional e melhores condições de trabalho.",
+            "url": "https://www.fbgolfe.com.br",
+            "logo": "https://fbgolfe.com.br/assets/images/logo.png",
+            "image": "https://fbgolfe.com.br/assets/images/logo.png",
+            "description": "FB Golfe é referência em golfe, com informações, torneios, aulas, eventos e tudo sobre o esporte. Conheça nossos serviços e faça parte desse universo",
             "foundingDate": "2003",
-            "email": "sindacsbahia@gmail.com",
-            "telephone": "+55 71 3017-4112",
+            "email": "presidente@fbgolfe.com.br",
+            "telephone": "+55 71 98851-2055",
             "sameAs": [
-                "https://www.instagram.com/sindacsbahia",
-                "https://www.tiktok.com/@sindacsbahia",
-                "https://www.youtube.com/channel/UCG0q-E25LZ2Lx73N50tCD8Q",
-                "https://x.com/SindacsBahia",
-                "https://www.facebook.com/sindacsbahia.org.br"
+                "https://www.instagram.com/fbcmgolfe"
             ],
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Rua Do Tesouro, 56 - Edif Santa Cruz Andar 7 Sala 700 - Comércio",
+                "streetAddress": "Edficio Joaquim Barreto de Araújo 528, localizado na Avenida Estados Unidos, Sala 1014",
                 "addressLocality": "Salvador",
                 "addressRegion": "BA",
-                "postalCode": "40026-028",
+                "postalCode": "40010-020",
                 "addressCountry": "BR"
             },
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+55 71 3017-4112",
+                "telephone": "+55 71 98851-2055",
                 "contactType": "customer service",
-                "email": "sindacsbahia@gmail.com",
+                "email": "presidente@fbgolfe.com.br",
                 "areaServed": "BR",
                 "availableLanguage": ["pt", "en"]
             },
@@ -108,32 +103,35 @@
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                 "opens": "08:00",
-                "closes": "17:00"
+                "closes": "18:00"
             },
             "identifier": {
                 "@type": "PropertyValue",
                 "propertyID": "CNPJ",
-                "value": "06.953.941/0001-26"
+                "value": "08.2226.140/0001-16"
             },
-            "slogan": "CB Golf",
+            "slogan": "FB Golfe",
             "keywords": [
                 "CB Golf",
-                "Sindicato Bahia",
-                "agentes comunitários de saúde",
-                "agentes de combate às endemias",
-                "ACS Bahia",
-                "ACE Bahia",
-                "sindicato ACS ACE",
-                "saúde pública Bahia",
-                "trabalhadores da saúde Bahia",
-                "direitos dos agentes de saúde",
-                "sindicato saúde Bahia",
-                "categoria ACS ACE",
-                "luta sindical Bahia",
-                "representação sindical saúde",
-                "agentes comunitários Bahia",
-                "agentes endemias Bahia",
-                "sindicato dos agentes Bahia"
+                "golfe",
+                "golf",
+                "clube de golfe",
+                "campo de golfe",
+                "aulas de golfe",
+                "escola de golfe",
+                "treinamento de golfe",
+                "instrutor de golfe",
+                "torneios de golfe",
+                "campeonato de golfe",
+                "eventos de golfe",
+                "jogador de golfe",
+                "golfista",
+                "prática de golfe",
+                "equipamentos de golfe",
+                "acessórios de golfe",
+                "experiência de golfe",
+                "golfe na Bahia",
+                "golfe no Brasil"
             ]
         }
     </script>
@@ -152,10 +150,24 @@
                 <div class="social-links d-flex justify-content-between col-lg-9 align-items-center gap-4 mb-2 mt-3 text-center">
                     <nav class="none site-navigation ul position-relative text-end width-75">
                         <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">
-                            <li><a href="{{route('index')}}#about-1" class="nav-link montserrat-semiBold text-center font-16">A Federação</a></li>
-                            <li><a href="" class="nav-link montserrat-semiBold text-center font-16">Torneios</a></li>
-       
-                
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle montserrat-semiBold text-center font-16" 
+                                href="{{route('index')}}" 
+                                id="aboutDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                    A Federação <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#directionsSwiper">Diretoria</a></li>
+                                </ul>
+
+                            </li>
+
+                            <li><a href="https://cbgolfe.com.br/calendario/calendario-de-competicoes/?evento&mes&ano=2026&categoria" target="_blank" rel="noopener noreferrer" class="nav-link montserrat-semiBold text-center font-16">Torneios</a></li>
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle montserrat-semiBold text-center font-16" 
                                 href="{{route('juridico')}}" 
@@ -178,7 +190,7 @@
                     </nav>                    
                     
                     <div class="btn-filie-se">
-                        <a href="" class="montserrat-semiBold font-15 px-3 rounded-5 py-2 text-black background-red d-flex justify-content-center align-items-center">
+                        <a href="https://cbgolfe.com.br/world-handicap-system/" target="_blank" rel="noopener noreferrer"class="montserrat-semiBold font-15 px-3 rounded-5 py-2 text-black background-red d-flex justify-content-center align-items-center">
                             HANDICAP
                             <svg class="ms-3" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>
@@ -267,7 +279,7 @@
             <nav class="mt-5">
                 <ul class="list-unstyled text-center">
                     <li><a href="{{route('index')}}" class="nav-link text-white montserrat-semiBold text-center font-18">Home</a></li>
-                    <li><a href="#" class="nav-link text-white montserrat-semiBold text-center font-16">Torneios</a></li>                 
+                    <li><a href="https://cbgolfe.com.br/calendario/calendario-de-competicoes/?evento&mes&ano=2026&categoria" target="_blank" rel="noopener noreferrer" class="nav-link text-white montserrat-semiBold text-center font-16">Torneios</a></li>                 
                     <li><a href="{{route('index')}}#about-1" class="nav-link text-white montserrat-semiBold text-center font-16">A Federação</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white montserrat-semiBold text-center font-18" 
@@ -363,7 +375,7 @@
                 </div>
                 <ul class="list-unstyled text-start">
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}">Home</a></li>
-                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="">Torneios</a></li>
+                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="https://cbgolfe.com.br/calendario/calendario-de-competicoes/?evento&mes&ano=2026&categoria" target="_blank" rel="noopener noreferrer">Torneios</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">A Federação</a></li>
 
                     <li class="nav-item dropdown">
@@ -439,7 +451,7 @@
                     </script>
                 </div>
                 <div class=credits>
-                    <a href="https://www.sindacsba.org.br/" target=_blank rel="noopener noreferrer">
+                    <a href="https://fbgolfe.com.br/" target=_blank rel="noopener noreferrer">
                         <img src="{{asset('build/client/images/developed.svg')}}"  alt="WHI - Web de Alta Inovação" title="WHI - Web de Alta Inovação" loading=lazy>
                     </a>
                 </div>

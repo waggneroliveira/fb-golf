@@ -270,7 +270,7 @@
                 
                 <!-- Call to Action - Alinhado à direita -->
                 <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end mt-4 mt-lg-0">
-                    <a href="" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-2 rounded-5 col-5 col-lg-6 py-1 py-lg-2 text-black background-red d-flex justify-content-center align-items-center">
+                    <a href="https://cbgolfe.com.br/world-handicap-system/" target=_blank rel="noopener noreferrer" class="montserrat-semiBold font-15 px-2 rounded-5 col-5 col-lg-6 py-1 py-lg-2 text-black background-red d-flex justify-content-center align-items-center">
                         Saiba mais
                         <svg class="ms-3 svg" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.66003C14.562 5.66003 12.34 3.439 12.34 1V0H10.34V1C10.34 2.774 11.118 4.43803 12.339 5.66003H0V7.66003H12.339C11.118 8.88203 10.34 10.546 10.34 12.32V13.32H12.34V12.32C12.34 9.88103 14.562 7.66003 17 7.66003H18V5.66003H17Z" fill="black"/>

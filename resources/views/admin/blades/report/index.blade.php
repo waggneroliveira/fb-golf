@@ -107,7 +107,7 @@
                                                                 <div class="modal-dialog modal-dialog-centered" style="max-width: 980px;">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header bg-light">
-                                                                            <h4 class="modal-title" id="myCenterModalLabel">{{__('dashboard.group_and_permission')}}</h4>
+                                                                            <h4 class="modal-title" id="myCenterModalLabel">Editar App FBGolf</h4>
                                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
                                                                         </div>
                                                                         <div class="modal-body  p-2 px-3 px-md-4">
