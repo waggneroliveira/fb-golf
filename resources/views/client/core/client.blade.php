@@ -160,8 +160,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                                     <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#abou">Sobre</a></li>
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board"
-       onclick="event.preventDefault(); document.getElementById('board').scrollIntoView({behavior:'smooth'});">Diretoria</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board">Diretoria</a></li>
                                 </ul>
 
                             </li>
@@ -290,8 +289,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                             <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#abou">Sobre</a></li>
-                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board"
-       onclick="event.preventDefault(); document.getElementById('board').scrollIntoView({behavior:'smooth'});">Diretoria</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board">Diretoria</a></li>
                         </ul>
 
                     </li>
@@ -400,8 +398,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                             <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#abou">Sobre</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board"
-       onclick="event.preventDefault(); document.getElementById('board').scrollIntoView({behavior:'smooth'});">Diretoria</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('index') }}#board">Diretoria</a></li>
                         </ul>
 
                     </li>
@@ -584,6 +581,76 @@
                 window.VLibras && window.VLibras.Widget ? (new window.VLibras.Widget("https://vlibras.gov.br/app")) : console.warn("VLibras não foi carregado corretamente.")
             }, document.body.appendChild(o)
         }))
+    </script>
+
+    <script>
+        // ============================================
+// LINKS ÂNCORA - VERSÃO CORRIGIDA
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona todos os links que contêm #
+    document.querySelectorAll('a[href*="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Extrai o ID do target
+            let targetId = '';
+            if (href.includes('#')) {
+                targetId = href.split('#')[1];
+            }
+            
+            // Se não tiver ID, ignora
+            if (!targetId) return;
+            
+            // Tenta encontrar o elemento
+            let target = document.getElementById(targetId);
+            
+            // Se não encontrar por ID, tenta por seletor
+            if (!target) {
+                target = document.querySelector('#' + targetId);
+            }
+            
+            if (target) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Fecha dropdown do Bootstrap
+                const dropdown = this.closest('.dropdown-menu');
+                if (dropdown) {
+                    const toggle = dropdown.closest('.dropdown').querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        const bsDropdown = bootstrap.Dropdown.getInstance(toggle);
+                        if (bsDropdown) {
+                            bsDropdown.hide();
+                        }
+                    }
+                }
+                
+                // Fecha menu mobile
+                const menuMobile = document.getElementById('menu-mobile');
+                if (menuMobile) {
+                    menuMobile.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                
+                // Scroll suave
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Atualiza URL sem recarregar
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + targetId);
+                }
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>
