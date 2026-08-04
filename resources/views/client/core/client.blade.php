@@ -151,8 +151,7 @@
                     <nav class="none site-navigation ul position-relative text-end width-75">
                         <ul class="d-flex flex-row justify-content-start align-items-center gap-4 mb-0 list-unstyled">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle montserrat-semiBold text-center font-16" 
-                                href="{{route('index')}}" 
+                                <a class="nav-link dropdown-toggle montserrat-semiBold text-center font-16"
                                 id="aboutDropdown" 
                                 role="button" 
                                 data-bs-toggle="dropdown" 
@@ -280,7 +279,20 @@
                 <ul class="list-unstyled text-center">
                     <li><a href="{{route('index')}}" class="nav-link text-white montserrat-semiBold text-center font-18">Home</a></li>
                     <li><a href="https://cbgolfe.com.br/calendario/calendario-de-competicoes/?evento&mes&ano=2026&categoria" target="_blank" rel="noopener noreferrer" class="nav-link text-white montserrat-semiBold text-center font-16">Torneios</a></li>                 
-                    <li><a href="{{route('index')}}#about-1" class="nav-link text-white montserrat-semiBold text-center font-16">A Federação</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white montserrat-semiBold text-center font-18"
+                        id="aboutDropdown" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false">
+                            A Federação <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#directionsSwiper">Diretoria</a></li>
+                        </ul>
+
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white montserrat-semiBold text-center font-18" 
                         href="{{route('juridico')}}" 
@@ -376,7 +388,20 @@
                 <ul class="list-unstyled text-start">
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}">Home</a></li>
                     <li class="montserrat-medium font-16 mb-3 text-black"><a href="https://cbgolfe.com.br/calendario/calendario-de-competicoes/?evento&mes&ano=2026&categoria" target="_blank" rel="noopener noreferrer">Torneios</a></li>
-                    <li class="montserrat-medium font-16 mb-3 text-black"><a href="{{route('index')}}#about-1">A Federação</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-2 mb-lg-3 text-black" 
+                        id="aboutDropdown" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false">
+                            A Federação <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#directionsSwiper">Diretoria</a></li>
+                        </ul>
+
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle montserrat-medium font-16 mb-2 mb-lg-3 text-black" 
