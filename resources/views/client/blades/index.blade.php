@@ -306,6 +306,7 @@
         </div>
 
         <div class="container">
+            <div id="abou"></div>
             @if ($about <> null)                
                 <div id="about-1" class="position-relative d-flex justify-content-center justify-content-lg-between align-items-start about flex-wrap w-100 pb-5" style="padding-top: 80px;">
                     @if ($about->path_image <> null)                        

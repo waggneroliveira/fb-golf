@@ -159,7 +159,7 @@
                                     A Federação <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#abou">Sobre</a></li>
                                     <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#board">Diretoria</a></li>
                                 </ul>
 
@@ -288,7 +288,7 @@
                             A Federação <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#abou">Sobre</a></li>
                             <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#board">Diretoria</a></li>
                         </ul>
 
@@ -397,7 +397,7 @@
                             A Federação <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#about-1">Sobre</a></li>
+                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#abou">Sobre</a></li>
                             <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{route('index')}}#board">Diretoria</a></li>
                         </ul>
 
