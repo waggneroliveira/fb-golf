@@ -510,13 +510,18 @@
     <script src="{{ asset('build/client/js/default.js') }}"></script>
 
     <script>
-        const header = document.querySelector("header");
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
+        document.addEventListener('scroll', function() {
+            const header = document.querySelector("header");
+            if (header) {
+                header.classList.toggle("active", window.scrollY > 100);
+            }
+        });
+        
+        // Dispara uma vez ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector("header");
+            if (header && window.scrollY > 100) {
                 header.classList.add("active");
-            } else {
-                header.classList.remove("active");
             }
         });
     </script>
