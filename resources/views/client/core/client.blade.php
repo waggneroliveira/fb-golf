@@ -177,9 +177,16 @@
                                     Documentos <i class="bi bi-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
-                                    <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a
+                                                class="dropdown-item montserrat-medium text-start font-15"
+                                                href="{{ route('juridico', ['legal' => $category]) }}"
+                                            >
+                                                {{ ucfirst(str_replace('_', ' ', $category)) }}
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
 
                             </li>
@@ -303,9 +310,16 @@
                             Documentos <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
-                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
-                            <li class="mx-2 my-1"><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
+                            @foreach($categories as $category)
+                                <li>
+                                    <a
+                                        class="dropdown-item montserrat-medium text-start font-15"
+                                        href="{{ route('juridico', ['legal' => $category]) }}"
+                                    >
+                                        {{ ucfirst(str_replace('_', ' ', $category)) }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
 
                     </li>
@@ -413,9 +427,16 @@
                             Documentos <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="juridicoDropdown">
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'assembleias']) }}">Assembléias</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'estatutos']) }}">Estatutos</a></li>
-                            <li><a class="dropdown-item montserrat-medium text-start font-15" href="{{ route('juridico', ['legal' => 'transparencia']) }}">Transparência</a></li>
+                            @foreach($categories as $category)
+                                <li>
+                                    <a
+                                        class="dropdown-item montserrat-medium text-start font-15"
+                                        href="{{ route('juridico', ['legal' => $category]) }}"
+                                    >
+                                        {{ ucfirst(str_replace('_', ' ', $category)) }}
+                                    </a>
+                                </li>
+                            @endforeach                           
                         </ul>
 
                     </li>

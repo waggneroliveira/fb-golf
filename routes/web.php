@@ -1,34 +1,35 @@
 <?php
 
-use Inertia\Inertia;
-use App\Models\About;
-use App\Models\Report;
-use App\Models\Contact;
-use App\Models\Statute;
-use App\Models\Agreement;
-use App\Models\Direction;
-use App\Models\Announcement;
-use App\Models\BenefitTopic;
-use App\Models\BlogCategory;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthClientController;
+use App\Http\Controllers\Auth\PasswordEmailClientController;
+use App\Http\Controllers\Auth\ResetPasswordClientController;
+use App\Http\Controllers\Client\AboutPageController;
+use App\Http\Controllers\Client\BenefitPageController;
+use App\Http\Controllers\Client\BlogPageController;
+use App\Http\Controllers\Client\ContactPageController;
+use App\Http\Controllers\Client\EventPageController;
+use App\Http\Controllers\Client\HomePageController;
+use App\Http\Controllers\Client\JuridicoPageController;
+use App\Http\Controllers\Client\NoticiesPageController;
+use App\Http\Controllers\Client\RegionPageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FormIndexController;
-use App\Http\Middleware\AuthClientMiddleware;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\Auth\AuthClientController;
-use App\Http\Controllers\Client\BlogPageController;
-use App\Http\Controllers\Client\HomePageController;
-use App\Http\Controllers\Client\AboutPageController;
-use App\Http\Controllers\Client\EventPageController;
-use App\Http\Controllers\Client\RegionPageController;
-use App\Http\Controllers\Client\BenefitPageController;
-use App\Http\Controllers\Client\ContactPageController;
-use App\Http\Controllers\Client\JuridicoPageController;
-use App\Http\Controllers\Client\NoticiesPageController;
-use App\Http\Controllers\Auth\PasswordEmailClientController;
-use App\Http\Controllers\Auth\ResetPasswordClientController;
+use App\Http\Middleware\AuthClientMiddleware;
+use App\Models\About;
+use App\Models\Agreement;
+use App\Models\Announcement;
+use App\Models\BenefitTopic;
+use App\Models\BlogCategory;
+use App\Models\Contact;
+use App\Models\Direction;
+use App\Models\Juridico;
+use App\Models\Report;
+use App\Models\Statute;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use Inertia\Inertia;
 
 require __DIR__ . '/dashboard.php';
 
@@ -74,8 +75,14 @@ View::composer('client.core.client', function ($view) {
     $benefitTopics = BenefitTopic::active()->sorting()->count();
     $report = Report::active()->count();
     $agreement = Agreement::active()->count();
+    $categories = Juridico::active()
+    ->select('legal')
+    ->distinct()
+    ->pluck('legal')
+    ->toArray();
 
     return $view->with('announcements', $announcements)
+    ->with('categories', $categories)
     ->with('contact', $contact)
     ->with('statute', $statute)
     ->with('directions', $directions)

@@ -36,23 +36,14 @@
                 <div class="row d-flex flex-wrap gap-3 justify-content-center">
                     <div class="row align-items-center">
                         <div class="filter-esq col-12 col-md-8 d-flex flex-wrap justify-content-center justify-content-md-start gap-2 mb-3 mb-md-0 position-relative z-1">
-                            @if(in_array('Assembléias', $categories))
-                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico active">
-                                    Assembléias
+                            @foreach($categories as $category)
+                                <button
+                                    class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico"
+                                    data-legal="{{ Str::slug($category) }}"
+                                >
+                                    {{ $category }}
                                 </button>
-                            @endif
-
-                            @if(in_array('Estatutos', $categories))
-                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">
-                                    Estatutos
-                                </button>
-                            @endif
-
-                            @if(in_array('Transparência', $categories))
-                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">
-                                    Transparência
-                                </button>
-                            @endif
+                            @endforeach
                         </div>
                         <div class="filter-dir d-none col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center gap-3">
                             <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,8 +83,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     let search = '';
-    let legal = 'assembleias'; // default
-    let region = 'nacional'; // default
+    let legal = 'assembleias';
+    let region = 'nacional';
 
     function loadResults() {
         $.ajax({
@@ -104,65 +95,71 @@
                 $("#juridicoResults").html(response);
             },
             error: function () {
-                $("#juridicoResults").html('<p class="text-danger montserrat-bold font-16 text-center">Erro ao carregar resultados.</p>');
+                $("#juridicoResults").html(
+                    '<p class="text-danger montserrat-bold font-16 text-center">Erro ao carregar resultados.</p>'
+                );
             }
         });
     }
 
+    function updateActiveButtons() {
+        $('.filter-esq .btn-juridico').removeClass('active');
+        $(`.filter-esq .btn-juridico[data-legal="${legal}"]`).addClass('active');
+
+        $('.filter-dir .btn-title-filter').removeClass('active');
+        $(`.filter-dir .btn-title-filter[data-region="${region}"]`).addClass('active');
+    }
+
     $(document).ready(function () {
-        // Lê parâmetro 'legal' da URL
+
+        // Lê parâmetros da URL
         const urlParams = new URLSearchParams(window.location.search);
-        const legalParam = urlParams.get('legal');
-        if (legalParam) {
-            legal = legalParam.toLowerCase();
+
+        if (urlParams.has('legal')) {
+            legal = urlParams.get('legal').toLowerCase();
         }
 
-        // Ativa o botão correspondente
-        // $('.filter-esq .btn-juridico').removeClass('active');
-        $('.filter-esq .btn-juridico').each(function() {
-            if ($(this).text().toLowerCase() === legal) {
-                $(this).addClass('active');
-            }
-        });
+        if (urlParams.has('region')) {
+            region = urlParams.get('region').toLowerCase();
+        }
 
-        // filtros
+        updateActiveButtons();
+
+        // Categoria
         $(document).on('click', '.filter-esq .btn-juridico', function () {
-            $('.filter-esq .btn-juridico').removeClass('active');
-            $(this).addClass('active');
-            legal = $(this).text().toLowerCase();
+            legal = $(this).data('legal');
+            updateActiveButtons();
             loadResults();
         });
 
+        // Região
         $(document).on('click', '.filter-dir .btn-title-filter', function () {
-            $('.filter-dir .btn-title-filter').removeClass('active');
-            $(this).addClass('active');
-            region = $(this).text().toLowerCase();
+            region = $(this).data('region');
+            updateActiveButtons();
             loadResults();
         });
 
-        // ======= BUSCA: prevenir submit e disparar só no ENTER =======
+        // Busca
         const $form = $('#juridicoForm');
         const $input = $('#searchJuridico');
 
         if ($form.length && $input.length) {
-            // Previna submit padrão do form (refresh)
-            $form.on('submit', function(e){
+
+            $form.on('submit', function (e) {
                 e.preventDefault();
                 search = $input.val();
                 loadResults();
             });
 
-            // Captura o ENTER no input
-            $input.on('keydown', function(e){
-                if (e.key === "Enter" || e.keyCode === 13) {
-                    e.preventDefault(); // impede o refresh
+            $input.on('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
                     search = $(this).val();
                     loadResults();
                 }
             });
         }
 
-        // carrega resultados iniciais
         loadResults();
     });
 </script>
