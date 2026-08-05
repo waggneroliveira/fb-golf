@@ -328,5 +328,53 @@
        </div>
    </div>
    <!-- News With Sidebar End -->
+
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         // Inicializa o Swiper
+         const mainSwiper = new Swiper('.main-swiper', {
+               slidesPerView: 1,
+               spaceBetween: 20,
+               loop: true,
+               autoHeight: true,
+               pagination: {
+                  el: '.swiper-pagination.news',
+                  clickable: true,
+               },
+               navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+               },
+               breakpoints: {
+                  768: {
+                     slidesPerView: 1,
+                  },
+                  1200: {
+                     slidesPerView: 1,
+                  },
+                  1400: {
+                     slidesPerView: 1,
+                  },
+               },
+               lazy: {
+                  loadPrevNext: true,
+                  loadPrevNextAmount: 2,
+               },
+         });
+
+         // Share button toggle
+         const shareButtons = document.querySelectorAll('.share-button');
+         shareButtons.forEach(btn => {
+               btn.addEventListener('click', function () {
+                  const targetId = this.dataset.target;
+                  const target = document.getElementById(targetId);
+                  if (target) {
+                     target.classList.toggle('opacity-0');
+                     target.classList.toggle('opacity-100');
+                  }
+               });
+         });
+      });
+   </script>
 </section>
 @endsection
