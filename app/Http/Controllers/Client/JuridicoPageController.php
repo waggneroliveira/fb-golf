@@ -12,7 +12,13 @@ class JuridicoPageController extends Controller
     public function index(){
         $juridicos = Juridico::active()->sorting()->get();
 
-        return view('client.blades.juridico', compact('juridicos'));
+        $categories = Juridico::active()
+        ->select('legal')
+        ->distinct()
+        ->pluck('legal')
+        ->toArray();
+
+        return view('client.blades.juridico', compact('juridicos', 'categories'));
     }
 
     public function searchJuridico(Request $request)

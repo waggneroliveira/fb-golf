@@ -36,9 +36,23 @@
                 <div class="row d-flex flex-wrap gap-3 justify-content-center">
                     <div class="row align-items-center">
                         <div class="filter-esq col-12 col-md-8 d-flex flex-wrap justify-content-center justify-content-md-start gap-2 mb-3 mb-md-0 position-relative z-1">
-                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico active">Assembléias</button>
-                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Estatutos</button>
-                            <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">Transparência</button>
+                            @if(in_array('Assembléias', $categories))
+                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico active">
+                                    Assembléias
+                                </button>
+                            @endif
+
+                            @if(in_array('Estatutos', $categories))
+                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">
+                                    Estatutos
+                                </button>
+                            @endif
+
+                            @if(in_array('Transparência', $categories))
+                                <button class="px-2 px-lg-5 w-auto rounded-0 border btn-title montserrat-bold text-uppercase font-15 btn btn-juridico">
+                                    Transparência
+                                </button>
+                            @endif
                         </div>
                         <div class="filter-dir d-none col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center gap-3">
                             <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
